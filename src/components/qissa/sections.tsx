@@ -434,7 +434,7 @@ const footerCols = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border pb-40 pt-24 md:pb-24">
+    <footer className="border-t border-border pb-44 pt-24 md:pb-36">
       <div className="shell">
         <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-1">
