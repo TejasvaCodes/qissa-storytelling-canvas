@@ -1,24 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Nav } from "@/components/qissa/nav";
+import { Hero } from "@/components/qissa/hero";
+import {
+  CareAndService,
+  CompleteStory,
+  Craft,
+  Fit,
+  Footer,
+  Lifestyle,
+  Material,
+  Newsletter,
+  Philosophy,
+  Story,
+} from "@/components/qissa/sections";
+import { useReveal } from "@/hooks/use-reveal";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Velocità Leather Jacket — QISSA" },
+      {
+        name: "description",
+        content:
+          "The Velocità jacket: glove-soft lambskin drawn from motorsport heritage, made in limited numbers by the Qissa atelier.",
+      },
+      { property: "og:title", content: "Velocità Leather Jacket — QISSA" },
+      {
+        property: "og:description",
+        content:
+          "Motorsport heritage, modern wardrobe. Full-grain lambskin, quilted lining, made to age well.",
+      },
+      { property: "og:type", content: "product" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useReveal();
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div id="top" className="overflow-x-hidden">
+      <Nav />
+      <main>
+        <Hero />
+        <Story />
+        <Craft />
+        <Material />
+        <Lifestyle />
+        <Fit />
+        <CareAndService />
+        <CompleteStory />
+        <Philosophy />
+        <Newsletter />
+      </main>
+      <Footer />
     </div>
   );
 }

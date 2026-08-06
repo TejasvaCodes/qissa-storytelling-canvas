@@ -1,0 +1,475 @@
+import story from "@/assets/story.jpg";
+import craftDark from "@/assets/craft-dark.jpg";
+import matLining from "@/assets/mat-lining.jpg";
+import matEmbroidery from "@/assets/mat-embroidery.jpg";
+import matHardware from "@/assets/mat-hardware.jpg";
+import lifeCity from "@/assets/life-city.jpg";
+import lifeMotion from "@/assets/life-motion.jpg";
+import lifeLegacy from "@/assets/life-legacy.jpg";
+import lifeNight from "@/assets/life-night.jpg";
+import fitImg from "@/assets/fit.jpg";
+import rel1 from "@/assets/rel-1.jpg";
+import rel2 from "@/assets/rel-2.jpg";
+import rel3 from "@/assets/rel-3.jpg";
+import rel4 from "@/assets/rel-4.jpg";
+
+/* ————————————————————— 2. The Story ————————————————————— */
+
+export function Story() {
+  return (
+    <section id="story" className="mt-32 md:mt-56">
+      <div className="grid items-stretch lg:grid-cols-2">
+        <div className="zoom-frame order-1 min-h-[70vh] lg:min-h-[110vh]">
+          <img
+            src={story}
+            alt="Model wearing the Velocità jacket in a concrete corridor"
+            loading="lazy"
+            width={1200}
+            height={1600}
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <div className="order-2 flex items-center bg-secondary px-6 py-24 md:px-16 lg:px-24">
+          <div data-reveal className="reveal max-w-[46ch]">
+            <p className="eyebrow">Chapter One</p>
+            <h2 className="display mt-8 text-[2.5rem] md:text-[3.6rem]">
+              The Story
+              <br />
+              Behind This Piece
+            </h2>
+
+            <div className="mt-12 space-y-7 text-[0.98rem] leading-[1.95] text-muted-foreground">
+              <p>
+                It began with motorsport — the smell of warm leather in a garage at dawn, the
+                patina of a jacket worn through a thousand ordinary mornings. We kept the
+                heritage and left the nostalgia behind.
+              </p>
+              <p>
+                Every stitch represents movement. Every panel represents confidence. Every
+                detail exists for a reason, and nothing exists for decoration.
+              </p>
+            </div>
+
+            <blockquote className="mt-16 border-l border-accent pl-8">
+              <p className="display text-[1.6rem] italic md:text-[2rem]">
+                “A garment should not announce you. It should remember you.”
+              </p>
+              <footer className="eyebrow mt-6">Qissa Atelier — Notes, No. 04</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 3. Craftsmanship ————————————————————— */
+
+const craft = [
+  { t: "Premium Leather", n: "01" },
+  { t: "YKK Hardware", n: "02" },
+  { t: "Precision Stitching", n: "03" },
+  { t: "Quilted Lining", n: "04" },
+];
+
+export function Craft() {
+  return (
+    <section className="mt-32 bg-onyx py-28 text-background md:mt-56 md:py-40">
+      <div className="shell">
+        <p data-reveal className="reveal eyebrow !text-background/50">
+          Craftsmanship
+        </p>
+      </div>
+
+      <div data-reveal className="reveal zoom-frame mt-16 md:mt-24">
+        <img
+          src={craftDark}
+          alt="Macro detail of black leather grain and stitching"
+          loading="lazy"
+          width={1600}
+          height={1008}
+          className="h-[52vh] w-full object-cover md:h-[80vh]"
+        />
+      </div>
+
+      <div className="shell mt-24 grid gap-20 md:mt-36 md:grid-cols-2 md:gap-x-24 md:gap-y-32">
+        {craft.map((c) => (
+          <div key={c.t} data-reveal className="reveal">
+            <p className="font-serif text-sm text-background/40">{c.n}</p>
+            <h3 className="display mt-6 text-[2rem] md:text-[2.6rem]">{c.t}</h3>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 4. Material Experience ————————————————————— */
+
+const materials = [
+  {
+    img: matHardware,
+    eyebrow: "Leather & Hardware",
+    title: "Weighted in the hand",
+    body: "Full-grain lambskin, aniline finished so light settles into it rather than on it. Hardware is solid, tuned to close with one quiet sound.",
+  },
+  {
+    img: matLining,
+    eyebrow: "Lining & Texture",
+    title: "Warm on the inside",
+    body: "A diamond-quilted satin lining, cut generously so the jacket falls rather than clings. Texture you feel before you see.",
+  },
+  {
+    img: matEmbroidery,
+    eyebrow: "Patchwork & Embroidery",
+    title: "Marked by hand",
+    body: "Tonal embroidery worked panel by panel, each patch aligned by eye. Construction that takes eleven hours and refuses to hurry.",
+  },
+];
+
+export function Material() {
+  return (
+    <section className="mt-32 md:mt-56">
+      <div className="shell">
+        <p data-reveal className="reveal eyebrow">
+          Material Experience
+        </p>
+      </div>
+
+      <div className="mt-20 space-y-28 md:mt-32 md:space-y-48">
+        {materials.map((m, i) => (
+          <div
+            key={m.title}
+            className="shell grid items-center gap-12 lg:grid-cols-2 lg:gap-24"
+          >
+            <div
+              data-reveal
+              className={`reveal zoom-frame ${i % 2 === 1 ? "lg:order-2" : ""}`}
+            >
+              <img
+                src={m.img}
+                alt={m.title}
+                loading="lazy"
+                width={1408}
+                height={1200}
+                className="h-[48vh] w-full object-cover md:h-[70vh]"
+              />
+            </div>
+            <div data-reveal className="reveal max-w-[40ch]">
+              <p className="eyebrow">{m.eyebrow}</p>
+              <h3 className="display mt-7 text-[2.2rem] md:text-[3rem]">{m.title}</h3>
+              <p className="mt-8 leading-[1.95] text-muted-foreground">{m.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 5. Lifestyle Gallery ————————————————————— */
+
+export function Lifestyle() {
+  return (
+    <section className="mt-32 md:mt-56">
+      <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+        <figure data-reveal className="reveal zoom-frame md:col-span-7">
+          <img
+            src={lifeCity}
+            alt="Man in a leather jacket on a quiet city street at dusk"
+            loading="lazy"
+            width={1200}
+            height={1504}
+            className="w-full object-cover"
+          />
+          <figcaption className="eyebrow mt-5 px-6 md:px-0 md:pl-8">City</figcaption>
+        </figure>
+
+        <figure data-reveal className="reveal zoom-frame md:col-span-5 md:mt-40">
+          <img
+            src={lifeMotion}
+            alt="Motion-blurred figure turning in a leather jacket"
+            loading="lazy"
+            width={1408}
+            height={912}
+            className="w-full object-cover"
+          />
+          <figcaption className="eyebrow mt-5 px-6 md:px-0 md:pr-8">Motion</figcaption>
+        </figure>
+
+        <figure data-reveal className="reveal zoom-frame md:col-span-5 md:col-start-2">
+          <img
+            src={lifeLegacy}
+            alt="Leather jacket draped over the seat of a vintage car"
+            loading="lazy"
+            width={1200}
+            height={1504}
+            className="w-full object-cover"
+          />
+          <figcaption className="eyebrow mt-5 px-6 md:px-0 md:pl-8">Legacy</figcaption>
+        </figure>
+
+        <figure data-reveal className="reveal zoom-frame md:col-span-6 md:mt-56">
+          <img
+            src={lifeNight}
+            alt="Portrait at night under warm streetlight"
+            loading="lazy"
+            width={1408}
+            height={912}
+            className="w-full object-cover"
+          />
+          <figcaption className="eyebrow mt-5 px-6 md:px-0 md:pr-8">Night</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 6. Fit ————————————————————— */
+
+const fitRows = [
+  ["Model Height", "6'1\" / 185 cm"],
+  ["Model Wearing", "Size M"],
+  ["Cut", "Relaxed fit, true to size"],
+];
+
+export function Fit() {
+  return (
+    <section className="mt-40 md:mt-64">
+      <div className="shell grid gap-16 lg:grid-cols-2 lg:gap-32">
+        <div data-reveal className="reveal lg:pt-20">
+          <p className="eyebrow">Chapter Two</p>
+          <h2 className="display mt-8 text-[3rem] md:text-[4.5rem]">The Fit</h2>
+
+          <dl className="mt-20 max-w-md">
+            {fitRows.map(([k, v]) => (
+              <div
+                key={k}
+                className="flex items-baseline justify-between border-b border-border py-7"
+              >
+                <dt className="eyebrow">{k}</dt>
+                <dd className="font-serif text-xl font-light">{v}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <button className="lift eyebrow mt-16 border border-foreground px-10 py-5 text-foreground hover:bg-foreground hover:!text-primary-foreground">
+            Size Guide
+          </button>
+        </div>
+
+        <div data-reveal className="reveal zoom-frame">
+          <img
+            src={fitImg}
+            alt="Full length view of the model wearing the Velocità jacket"
+            loading="lazy"
+            width={1008}
+            height={1504}
+            className="w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 7 + 8. Care / Shipping ————————————————————— */
+
+const care = [
+  ["Leather Care", "Wipe with a dry cloth. Condition twice a year, sparingly."],
+  ["Storage", "Hang on a broad wooden hanger, away from direct sun."],
+  ["Cleaning", "Specialist leather cleaning only. Never machine wash."],
+  ["Longevity", "Repairs and re-lining offered at the atelier, for life."],
+];
+
+const service = [
+  ["Worldwide Shipping", "Complimentary, dispatched within 48 hours."],
+  ["7 Day Returns", "Unworn, with tags. Collected from your door."],
+  ["Secure Payments", "Encrypted end to end. No details stored."],
+];
+
+export function CareAndService() {
+  return (
+    <section className="mt-40 md:mt-64">
+      <div className="shell grid gap-24 lg:grid-cols-2 lg:gap-32">
+        <div data-reveal className="reveal">
+          <h2 className="display text-[2.2rem] md:text-[2.8rem]">Care</h2>
+          <div className="mt-14 space-y-12">
+            {care.map(([k, v]) => (
+              <div key={k}>
+                <p className="eyebrow">{k}</p>
+                <p className="mt-3 max-w-[38ch] text-muted-foreground">{v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div data-reveal className="reveal">
+          <h2 className="display text-[2.2rem] md:text-[2.8rem]">Shipping & Returns</h2>
+          <div className="mt-14 space-y-12">
+            {service.map(([k, v]) => (
+              <div key={k}>
+                <p className="eyebrow">{k}</p>
+                <p className="mt-3 max-w-[38ch] text-muted-foreground">{v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 9. Complete The Story ————————————————————— */
+
+const related = [
+  { img: rel1, name: "Notte Bomber", price: "₹ 42,000" },
+  { img: rel2, name: "Strada Blouson", price: "₹ 39,500" },
+  { img: rel3, name: "Alba Shearling", price: "₹ 68,000" },
+  { img: rel4, name: "Riposo Quilted", price: "₹ 44,000" },
+];
+
+export function CompleteStory() {
+  return (
+    <section className="mt-40 md:mt-64">
+      <div className="shell">
+        <h2 data-reveal className="reveal display text-[2.4rem] md:text-[3.4rem]">
+          Complete The Story
+        </h2>
+
+        <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 md:mt-24">
+          {related.map((r) => (
+            <a key={r.name} href="#hero" data-reveal className="reveal group">
+              <div className="zoom-frame bg-secondary">
+                <img
+                  src={r.img}
+                  alt={r.name}
+                  loading="lazy"
+                  width={912}
+                  height={1200}
+                  className="aspect-[3/4] w-full object-cover"
+                />
+              </div>
+              <p className="font-serif mt-6 text-xl font-light">{r.name}</p>
+              <p className="eyebrow mt-2">{r.price}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 10. Philosophy ————————————————————— */
+
+export function Philosophy() {
+  return (
+    <section id="philosophy" className="mt-40 bg-secondary py-32 md:mt-64 md:py-56">
+      <div className="shell">
+        <h2 data-reveal className="reveal display max-w-[18ch] text-[2.8rem] md:text-[5.5rem]">
+          We don't follow trends.
+          <br />
+          <span className="text-accent">We create stories.</span>
+        </h2>
+
+        <p
+          data-reveal
+          className="reveal mt-20 max-w-[54ch] leading-[2] text-muted-foreground md:mt-28"
+        >
+          Qissa means story. We make a small number of garments each season, in leather that
+          takes years to look its best, for people who have no interest in looking new. Nothing
+          is released until it is finished — and nothing is finished until it feels inevitable.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 11. Newsletter ————————————————————— */
+
+export function Newsletter() {
+  return (
+    <section className="py-36 md:py-56">
+      <div className="shell max-w-3xl text-center">
+        <h2 data-reveal className="reveal display text-[2.4rem] md:text-[3.4rem]">
+          Become Part of the Story
+        </h2>
+        <form
+          data-reveal
+          className="reveal mt-16 flex flex-col items-center gap-6 sm:flex-row sm:gap-0"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <label htmlFor="email" className="sr-only">
+            Email address
+          </label>
+          <input
+            id="email"
+            type="email"
+            required
+            placeholder="Email address"
+            className="w-full border-b border-border bg-transparent py-4 text-center text-sm tracking-wide outline-none transition-colors placeholder:text-muted-foreground focus:border-accent sm:text-left"
+          />
+          <button
+            type="submit"
+            className="lift eyebrow shrink-0 bg-foreground px-10 py-5 !text-primary-foreground hover:bg-accent"
+          >
+            Join
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+/* ————————————————————— 12. Footer ————————————————————— */
+
+const footerCols = [
+  { h: "Shop", items: ["Outerwear", "Knitwear", "Trousers", "Archive"] },
+  { h: "Collections", items: ["Velocità", "Notte", "Strada", "Lookbook"] },
+  { h: "Journal", items: ["Atelier Notes", "Interviews", "Heritage"] },
+  { h: "About", items: ["The House", "Sustainability", "Careers"] },
+  { h: "Support", items: ["Contact", "Shipping", "Returns", "Book Appointment"] },
+];
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border pb-44 pt-24 md:pb-36">
+      <div className="shell">
+        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="lg:col-span-1">
+            <p className="font-serif text-xl font-light tracking-[0.4em]">QISSA</p>
+            <p className="eyebrow mt-5">Wear Your Story.</p>
+          </div>
+
+          {footerCols.map((c) => (
+            <div key={c.h}>
+              <p className="eyebrow">{c.h}</p>
+              <ul className="mt-6 space-y-3">
+                {c.items.map((i) => (
+                  <li key={i}>
+                    <a href="#top" className="link-underline text-sm text-muted-foreground">
+                      {i}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-24 flex flex-col gap-6 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex gap-8">
+            <a href="#top" className="eyebrow link-underline text-foreground">
+              Instagram
+            </a>
+            <a href="#top" className="eyebrow link-underline text-foreground">
+              Pinterest
+            </a>
+          </div>
+          <p className="eyebrow">© {new Date().getFullYear()} Qissa. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
