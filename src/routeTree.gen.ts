@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BagRouteImport } from './routes/bag'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as VelocitaRouteImport } from './routes/velocita'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BagRoute = BagRouteImport.update({
+  id: '/bag',
+  path: '/bag',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsRoute = CollectionsRouteImport.update({
@@ -31,30 +37,34 @@ const VelocitaRoute = VelocitaRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bag': typeof BagRoute
   '/collections': typeof CollectionsRoute
   '/velocita': typeof VelocitaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bag': typeof BagRoute
   '/collections': typeof CollectionsRoute
   '/velocita': typeof VelocitaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bag': typeof BagRoute
   '/collections': typeof CollectionsRoute
   '/velocita': typeof VelocitaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/collections' | '/velocita'
+  fullPaths: '/' | '/bag' | '/collections' | '/velocita'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/collections' | '/velocita'
-  id: '__root__' | '/' | '/collections' | '/velocita'
+  to: '/' | '/bag' | '/collections' | '/velocita'
+  id: '__root__' | '/' | '/bag' | '/collections' | '/velocita'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BagRoute: typeof BagRoute
   CollectionsRoute: typeof CollectionsRoute
   VelocitaRoute: typeof VelocitaRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bag': {
+      id: '/bag'
+      path: '/bag'
+      fullPath: '/bag'
+      preLoaderRoute: typeof BagRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/collections': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BagRoute: BagRoute,
   CollectionsRoute: CollectionsRoute,
   VelocitaRoute: VelocitaRoute,
 }
