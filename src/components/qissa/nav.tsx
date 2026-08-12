@@ -1,6 +1,15 @@
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-const links = ["Collections", "Journal", "Atelier", "Stockists"];
+const left = [
+  { label: "Collections", to: "/collections" as const },
+  { label: "The Jacket", to: "/velocita" as const },
+];
+
+const right = [
+  { label: "Account", to: "/account" as const },
+  { label: "Bag (0)", to: "/bag" as const },
+];
 
 export function Nav() {
   const [solid, setSolid] = useState(false);
@@ -22,34 +31,41 @@ export function Nav() {
     >
       <div className="shell flex items-center justify-between">
         <nav className="hidden flex-1 items-center gap-9 md:flex">
-          {links.slice(0, 2).map((l) => (
-            <a key={l} href="#story" className="eyebrow link-underline text-foreground">
-              {l}
-            </a>
+          {left.map((l) => (
+            <Link
+              key={l.label}
+              to={l.to}
+              className="eyebrow link-underline text-foreground"
+              activeProps={{ className: "!text-accent" }}
+            >
+              {l.label}
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="font-serif text-2xl font-light tracking-[0.42em] text-foreground md:text-[1.75rem]"
         >
           QISSA
-        </a>
+        </Link>
 
         <nav className="hidden flex-1 items-center justify-end gap-9 md:flex">
-          {links.slice(2).map((l) => (
-            <a key={l} href="#philosophy" className="eyebrow link-underline text-foreground">
-              {l}
-            </a>
+          {right.map((l) => (
+            <Link
+              key={l.label}
+              to={l.to}
+              className="eyebrow link-underline text-foreground"
+              activeProps={{ className: "!text-accent" }}
+            >
+              {l.label}
+            </Link>
           ))}
-          <a href="#hero" className="eyebrow link-underline text-foreground">
-            Bag (0)
-          </a>
         </nav>
 
-        <a href="#hero" className="eyebrow link-underline text-foreground md:hidden">
+        <Link to="/bag" className="eyebrow link-underline text-foreground md:hidden">
           Bag (0)
-        </a>
+        </Link>
       </div>
     </header>
   );
