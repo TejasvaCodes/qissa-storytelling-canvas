@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as BagRouteImport } from './routes/bag'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as VelocitaRouteImport } from './routes/velocita'
@@ -17,6 +18,11 @@ import { Route as VelocitaRouteImport } from './routes/velocita'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BagRoute = BagRouteImport.update({
@@ -37,12 +43,14 @@ const VelocitaRoute = VelocitaRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/bag': typeof BagRoute
   '/collections': typeof CollectionsRoute
   '/velocita': typeof VelocitaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/bag': typeof BagRoute
   '/collections': typeof CollectionsRoute
   '/velocita': typeof VelocitaRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
   '/bag': typeof BagRoute
   '/collections': typeof CollectionsRoute
   '/velocita': typeof VelocitaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bag' | '/collections' | '/velocita'
+  fullPaths: '/' | '/account' | '/bag' | '/collections' | '/velocita'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bag' | '/collections' | '/velocita'
-  id: '__root__' | '/' | '/bag' | '/collections' | '/velocita'
+  to: '/' | '/account' | '/bag' | '/collections' | '/velocita'
+  id: '__root__' | '/' | '/account' | '/bag' | '/collections' | '/velocita'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
   BagRoute: typeof BagRoute
   CollectionsRoute: typeof CollectionsRoute
   VelocitaRoute: typeof VelocitaRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bag': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
   BagRoute: BagRoute,
   CollectionsRoute: CollectionsRoute,
   VelocitaRoute: VelocitaRoute,
