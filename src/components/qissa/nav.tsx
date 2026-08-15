@@ -20,18 +20,18 @@ export function Nav() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,padding] duration-700 ${solid ? "bg-background/80 py-4 backdrop-blur-xl md:py-5" : "bg-transparent py-6 md:py-9"}`}>
-      <div className="shell flex items-center justify-between">
-        <nav className="hidden flex-1 items-center gap-9 md:flex">
-          {left.map((l) => <Link key={l.label} to={l.to} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>{l.label}</Link>)}
+      <div className="shell flex items-center justify-center md:justify-between">
+        <nav className={`hidden flex-1 items-center gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
+          {left.map((l) => <Link key={l.label} to={l.to} tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>{l.label}</Link>)}
         </nav>
-        <Link to="/" aria-label="QISSA — Wear Your Story" className="block w-[112px] shrink-0 md:w-[148px]">
+        <Link to="/" aria-label="QISSA — Wear Your Story" className="block w-[112px] shrink-0 overflow-hidden md:w-[148px]">
           <img src="/qissa-logo.svg" alt="QISSA — Wear Your Story" className="h-auto w-full" />
         </Link>
-        <nav className="hidden flex-1 items-center justify-end gap-9 md:flex">
-          <Link to="/account" className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Account</Link>
-          <Link to="/bag" className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Bag ({itemCount})</Link>
+        <nav className={`hidden flex-1 items-center justify-end gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
+          <Link to="/account" tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Account</Link>
+          <Link to="/bag" tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Bag ({itemCount})</Link>
         </nav>
-        <Link to="/bag" className="eyebrow link-underline text-foreground md:hidden">Bag ({itemCount})</Link>
+        <Link to="/bag" aria-label={`Bag (${itemCount})`} tabIndex={solid ? 0 : -1} className={`eyebrow link-underline absolute right-4 text-foreground transition-all duration-500 md:hidden ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}>Bag ({itemCount})</Link>
       </div>
     </header>
   );
