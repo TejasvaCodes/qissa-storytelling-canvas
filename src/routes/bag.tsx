@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
+import { createOrder } from "@/lib/create-order.server";
 import { useCart } from "@/lib/cart";
 import { Nav } from "@/components/qissa/nav";
 import { Footer } from "@/components/qissa/sections";
@@ -36,54 +37,74 @@ const emptyDetails: CustomerDetails = { name: "", phone: "", email: "", address:
 
 function BagPage() {
   useReveal();
-  const { items, itemCount, subtotal, setQuantity, removeItem } = useCart();
+  const { items, itemCount, subtotal, setQuantity, removeItem, clear } = useCart();
   const [details, setDetails] = useState<CustomerDetails>(emptyDetails);
   const [showDetails, setShowDetails] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
 
   const update = (field: keyof CustomerDetails, value: string) => setDetails((current) => ({ ...current, [field]: value }));
 
-  const checkoutOnWhatsApp = (event: FormEvent<HTMLFormElement>) => {
+  const checkoutOnWhatsApp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!items.length || !Object.values(details).every(Boolean)) return;
-
-    const productLines = items.map((item, index) => [
-      `${index + 1}. ${item.name}`,
-      `   Colour: ${item.colour}`,
-      `   Size: ${item.size}`,
-      `   Qty: ${item.qty}`,
-      `   Price: ${inr(item.price * item.qty)}`,
-    ].join("\n"));
-
-    const message = [
-      "Hi QISSA, I'd like to place an order.",
-      "",
-      "ORDER SUMMARY",
-      "────────────────",
-      ...productLines,
-      "",
-      `Total: ${inr(subtotal)}`,
-      "Delivery: Complimentary",
-      "",
-      "CUSTOMER DETAILS",
-      "────────────────",
-      `Name: ${details.name}`,
-      `WhatsApp / Phone: ${details.phone}`,
-      `Email: ${details.email}`,
-      `Address: ${details.address}`,
-      `City: ${details.city}`,
-      `State: ${details.state}`,
-      `Pincode: ${details.pincode}`,
-      "",
-      "Please confirm my order and share the secure payment link.",
-    ].join("\n");
+    setCheckoutError("");
+    if (!items.length || !Object.values(details).every((value) => value.trim())) return;
 
     if (WHATSAPP_NUMBER.includes("REPLACE_WITH")) {
-      window.alert("QISSA WhatsApp is not connected yet. Add the brand WhatsApp number before launch.");
+      setCheckoutError("QISSA WhatsApp is not connected yet. Add the brand WhatsApp number before launch.");
       return;
     }
 
-    const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    setSubmitting(true);
+    try {
+      const { orderNumber } = await createOrder({
+        data: {
+          customer: details,
+          items: items.map((item) => ({ id: item.id, name: item.name, colour: item.colour, size: item.size, price: item.price, qty: item.qty })),
+          subtotal,
+        },
+      });
+
+      const productLines = items.map((item, index) => [
+        `${index + 1}. ${item.name}`,
+        `   Colour: ${item.colour}`,
+        `   Size: ${item.size}`,
+        `   Qty: ${item.qty}`,
+        `   Price: ${inr(item.price * item.qty)}`,
+      ].join("\n"));
+
+      const message = [
+        `Hi QISSA, I'd like to place order ${orderNumber}.`,
+        "",
+        "ORDER SUMMARY",
+        "────────────────",
+        ...productLines,
+        "",
+        `Total: ${inr(subtotal)}`,
+        "Delivery: Complimentary",
+        "Payment status: Pending",
+        "",
+        "CUSTOMER DETAILS",
+        "────────────────",
+        `Name: ${details.name}`,
+        `WhatsApp / Phone: ${details.phone}`,
+        `Email: ${details.email}`,
+        `Address: ${details.address}`,
+        `City: ${details.city}`,
+        `State: ${details.state}`,
+        `Pincode: ${details.pincode}`,
+        "",
+        "Please confirm my order and share the secure payment link.",
+      ].join("\n");
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+      clear();
+    } catch (error) {
+      setCheckoutError(error instanceof Error ? error.message : "We couldn't create your order. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const validDetails = Object.values(details).every((value) => value.trim().length > 0);
@@ -112,12 +133,13 @@ function BagPage() {
               {items.length > 0 && !showDetails && <button onClick={() => setShowDetails(true)} className="lift eyebrow mt-12 w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent">Continue to Delivery</button>}
               {items.length > 0 && showDetails && (
                 <form onSubmit={checkoutOnWhatsApp} className="mt-10 space-y-7">
-                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">Your details will be included in the WhatsApp order request. We never ask for your password here.</p></div>
+                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">Your details are saved to the QISSA order record when you submit. We never ask for your password here.</p></div>
                   {(["name", "phone", "email", "address", "city", "state", "pincode"] as const).map((field) => (
                     <label key={field} className="block"><span className="eyebrow">{field === "pincode" ? "Pincode" : field === "phone" ? "WhatsApp / Phone" : field.charAt(0).toUpperCase() + field.slice(1)}</span><input required value={details[field]} onChange={(e) => update(field, e.target.value)} type={field === "email" ? "email" : field === "phone" || field === "pincode" ? "tel" : "text"} inputMode={field === "phone" || field === "pincode" ? "numeric" : undefined} className="mt-3 w-full border-b border-border bg-transparent py-3 text-sm tracking-wide outline-none transition-colors focus:border-accent" /></label>
                   ))}
-                  <button type="submit" disabled={!validDetails} className="lift eyebrow w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">Continue to WhatsApp</button>
-                  <button type="button" onClick={() => setShowDetails(false)} className="eyebrow link-underline text-foreground">Back to summary</button>
+                  {checkoutError && <p role="alert" className="text-xs leading-relaxed text-red-700">{checkoutError}</p>}
+                  <button type="submit" disabled={!validDetails || submitting} className="lift eyebrow w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">{submitting ? "Creating Order…" : "Continue to WhatsApp"}</button>
+                  <button type="button" onClick={() => setShowDetails(false)} disabled={submitting} className="eyebrow link-underline text-foreground disabled:opacity-40">Back to summary</button>
                 </form>
               )}
               <Link to="/collections" className="eyebrow link-underline mt-8 inline-block text-foreground">Continue Browsing</Link>
