@@ -1,8 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import pg from "pg";
-
-const { Pool } = pg;
+import { Pool } from "pg";
 
 const orderItemSchema = z.object({
   id: z.string().min(1),
@@ -29,32 +27,36 @@ const createOrderInput = z.object({
   subtotal: z.number().int().nonnegative(),
 });
 
-type DbPool = InstanceType<typeof Pool>;
-let pool: DbPool | undefined;
+let pool: Pool | undefined;
 
 function getPool() {
   if (!process.env.DATABASE_URL) {
     throw new Error("DATABASE_URL is not configured on the server.");
   }
   if (!pool) {
-    pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 5, ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined });
+    pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      max: 5,
+      ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
+    });
   }
   return pool;
 }
 
 export const createOrder = createServerFn({ method: "POST" })
-  .inputValidator(createOrderInput)
+  .validator(createOrderInput)
   .handler(async ({ data }) => {
+    const calculatedSubtotalRupees = data.items.reduce((sum, item) => sum + item.price * item.qty, 0);
+    if (calculatedSubtotalRupees !== data.subtotal) {
+      throw new Error("Order total validation failed.");
+    }
+
+    const subtotalPaise = calculatedSubtotalRupees * 100;
     const db = getPool();
     const client = await db.connect();
 
     try {
       await client.query("BEGIN");
-
-      const calculatedSubtotal = data.items.reduce((sum, item) => sum + item.price * item.qty, 0);
-      if (calculatedSubtotal !== data.subtotal) {
-        throw new Error("Order total validation failed.");
-      }
 
       const orderResult = await client.query<{ id: string; order_number: string }>(
         `INSERT INTO orders
@@ -69,7 +71,7 @@ export const createOrder = createServerFn({ method: "POST" })
           data.customer.city,
           data.customer.state,
           data.customer.pincode,
-          data.subtotal,
+          subtotalPaise,
         ],
       );
 
@@ -77,11 +79,12 @@ export const createOrder = createServerFn({ method: "POST" })
       if (!order) throw new Error("Order could not be created.");
 
       for (const item of data.items) {
+        const unitPricePaise = item.price * 100;
         await client.query(
           `INSERT INTO order_items
             (order_id, product_id, product_name, colour, size, quantity, unit_price_paise, line_total_paise)
            VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
-          [order.id, item.id, item.name, item.colour, item.size, item.qty, item.price, item.price * item.qty],
+          [order.id, item.id, item.name, item.colour, item.size, item.qty, unitPricePaise, unitPricePaise * item.qty],
         );
       }
 
