@@ -24,7 +24,9 @@ export function Nav() {
         <nav className="hidden flex-1 items-center gap-9 md:flex">
           {left.map((l) => <Link key={l.label} to={l.to} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>{l.label}</Link>)}
         </nav>
-        <Link to="/" className="font-serif text-2xl font-light tracking-[0.42em] text-foreground md:text-[1.75rem]">QISSA</Link>
+        <Link to="/" aria-label="QISSA — Wear Your Story" className="block w-[112px] shrink-0 md:w-[148px]">
+          <img src="/qissa-logo.svg" alt="QISSA — Wear Your Story" className="h-auto w-full" />
+        </Link>
         <nav className="hidden flex-1 items-center justify-end gap-9 md:flex">
           <Link to="/account" className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Account</Link>
           <Link to="/bag" className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Bag ({itemCount})</Link>
