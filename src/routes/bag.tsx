@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { useCart } from "@/lib/cart";
 import { Nav } from "@/components/qissa/nav";
 import { Footer } from "@/components/qissa/sections";
@@ -9,7 +9,7 @@ export const Route = createFileRoute("/bag")({
   head: () => ({
     meta: [
       { title: "Your Bag — QISSA" },
-      { name: "description", content: "Review your QISSA selection and provide delivery details before checkout." },
+      { name: "description", content: "Review your QISSA selection and continue to secure WhatsApp checkout." },
       { property: "og:title", content: "Your Bag — QISSA" },
       { property: "og:description", content: "Review your selection and continue to WhatsApp checkout." },
       { property: "og:type", content: "website" },
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/bag")({
 });
 
 const inr = (n: number) => `₹ ${n.toLocaleString("en-IN")}`;
+const WHATSAPP_NUMBER = "REPLACE_WITH_QISSA_WHATSAPP_NUMBER";
 
 type CustomerDetails = {
   name: string;
@@ -38,35 +39,54 @@ function BagPage() {
   const { items, itemCount, subtotal, setQuantity, removeItem } = useCart();
   const [details, setDetails] = useState<CustomerDetails>(emptyDetails);
   const [showDetails, setShowDetails] = useState(false);
-  const whatsappNumber = "REPLACE_WITH_QISSA_WHATSAPP_NUMBER";
 
   const update = (field: keyof CustomerDetails, value: string) => setDetails((current) => ({ ...current, [field]: value }));
 
-  const checkoutOnWhatsApp = (event: React.FormEvent) => {
+  const checkoutOnWhatsApp = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const lines = items.map((item) => `${item.name} — ${item.colour} — Size ${item.size} — Qty ${item.qty} — ${inr(item.price * item.qty)}`);
+    if (!items.length || !Object.values(details).every(Boolean)) return;
+
+    const productLines = items.map((item, index) => [
+      `${index + 1}. ${item.name}`,
+      `   Colour: ${item.colour}`,
+      `   Size: ${item.size}`,
+      `   Qty: ${item.qty}`,
+      `   Price: ${inr(item.price * item.qty)}`,
+    ].join("\n"));
+
     const message = [
       "Hi QISSA, I'd like to place an order.",
       "",
-      ...lines,
+      "ORDER SUMMARY",
+      "────────────────",
+      ...productLines,
       "",
       `Total: ${inr(subtotal)}`,
+      "Delivery: Complimentary",
       "",
-      "Customer details:",
+      "CUSTOMER DETAILS",
+      "────────────────",
       `Name: ${details.name}`,
-      `Phone: ${details.phone}`,
+      `WhatsApp / Phone: ${details.phone}`,
       `Email: ${details.email}`,
       `Address: ${details.address}`,
       `City: ${details.city}`,
       `State: ${details.state}`,
       `Pincode: ${details.pincode}`,
       "",
-      "Please help me complete the order and payment.",
+      "Please confirm my order and share the secure payment link.",
     ].join("\n");
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+
+    if (WHATSAPP_NUMBER.includes("REPLACE_WITH")) {
+      window.alert("QISSA WhatsApp is not connected yet. Add the brand WhatsApp number before launch.");
+      return;
+    }
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const validDetails = Object.values(details).every(Boolean);
+  const validDetails = Object.values(details).every((value) => value.trim().length > 0);
 
   return (
     <div id="top" className="overflow-x-hidden">
@@ -92,7 +112,7 @@ function BagPage() {
               {items.length > 0 && !showDetails && <button onClick={() => setShowDetails(true)} className="lift eyebrow mt-12 w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent">Continue to Delivery</button>}
               {items.length > 0 && showDetails && (
                 <form onSubmit={checkoutOnWhatsApp} className="mt-10 space-y-7">
-                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">We'll use these details to prepare your WhatsApp order. We won't store passwords on this site.</p></div>
+                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">Your details will be included in the WhatsApp order request. We never ask for your password here.</p></div>
                   {(["name", "phone", "email", "address", "city", "state", "pincode"] as const).map((field) => (
                     <label key={field} className="block"><span className="eyebrow">{field === "pincode" ? "Pincode" : field === "phone" ? "WhatsApp / Phone" : field.charAt(0).toUpperCase() + field.slice(1)}</span><input required value={details[field]} onChange={(e) => update(field, e.target.value)} type={field === "email" ? "email" : field === "phone" || field === "pincode" ? "tel" : "text"} inputMode={field === "phone" || field === "pincode" ? "numeric" : undefined} className="mt-3 w-full border-b border-border bg-transparent py-3 text-sm tracking-wide outline-none transition-colors focus:border-accent" /></label>
                   ))}
@@ -101,7 +121,7 @@ function BagPage() {
                 </form>
               )}
               <Link to="/collections" className="eyebrow link-underline mt-8 inline-block text-foreground">Continue Browsing</Link>
-              <p className="mt-12 max-w-[34ch] text-xs leading-relaxed text-muted-foreground">Your cart is saved on this device. Payment will be completed securely through our WhatsApp order flow.</p>
+              <p className="mt-12 max-w-[34ch] text-xs leading-relaxed text-muted-foreground">Your cart is saved on this device. Payment is completed securely after your order is confirmed on WhatsApp.</p>
             </aside>
           </div>
         </section>
