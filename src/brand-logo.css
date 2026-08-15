@@ -1,0 +1,14 @@
+/* QISSA brand treatment for the footer while preserving the existing layout. */
+footer .shell > .grid > div:first-child > p.font-serif {
+  width: 170px;
+  height: 52px;
+  margin: 0;
+  overflow: hidden;
+  font-size: 0;
+  letter-spacing: 0;
+  background: #0D1B2A url("/qissa-logo.svg") center / cover no-repeat;
+}
+
+footer .shell > .grid > div:first-child > p.eyebrow {
+  display: none;
+}
