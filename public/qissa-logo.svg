@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
   <title id="title">QISSA — Wear Your Story</title>
-  <desc id="desc">QISSA wordmark with the Wear Your Story tagline</desc>
+  <desc id="desc">QISSA wordmark with the Wear Your Story tagline on a navy background</desc>
+  <rect width="720" height="220" rx="2" fill="#0D1B2A"/>
   <g fill="#D8A94A" text-anchor="middle">
     <text x="360" y="112" font-family="Cormorant Garamond, Georgia, serif" font-size="112" font-weight="500" letter-spacing="12">QISSA</text>
     <text x="360" y="176" font-family="Cormorant Garamond, Georgia, serif" font-size="38" font-weight="500" letter-spacing="1.5">Wear Your Story</text>
