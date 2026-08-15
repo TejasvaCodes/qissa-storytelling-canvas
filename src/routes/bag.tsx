@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { useCart } from "@/lib/cart";
 import { Nav } from "@/components/qissa/nav";
 import { Footer } from "@/components/qissa/sections";
@@ -8,7 +9,7 @@ export const Route = createFileRoute("/bag")({
   head: () => ({
     meta: [
       { title: "Your Bag — QISSA" },
-      { name: "description", content: "Review your QISSA selection before checkout." },
+      { name: "description", content: "Review your QISSA selection and provide delivery details before checkout." },
       { property: "og:title", content: "Your Bag — QISSA" },
       { property: "og:description", content: "Review your selection and continue to WhatsApp checkout." },
       { property: "og:type", content: "website" },
@@ -20,12 +21,29 @@ export const Route = createFileRoute("/bag")({
 
 const inr = (n: number) => `₹ ${n.toLocaleString("en-IN")}`;
 
+type CustomerDetails = {
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  state: string;
+  pincode: string;
+};
+
+const emptyDetails: CustomerDetails = { name: "", phone: "", email: "", address: "", city: "", state: "", pincode: "" };
+
 function BagPage() {
   useReveal();
   const { items, itemCount, subtotal, setQuantity, removeItem } = useCart();
+  const [details, setDetails] = useState<CustomerDetails>(emptyDetails);
+  const [showDetails, setShowDetails] = useState(false);
   const whatsappNumber = "REPLACE_WITH_QISSA_WHATSAPP_NUMBER";
 
-  const checkoutOnWhatsApp = () => {
+  const update = (field: keyof CustomerDetails, value: string) => setDetails((current) => ({ ...current, [field]: value }));
+
+  const checkoutOnWhatsApp = (event: React.FormEvent) => {
+    event.preventDefault();
     const lines = items.map((item) => `${item.name} — ${item.colour} — Size ${item.size} — Qty ${item.qty} — ${inr(item.price * item.qty)}`);
     const message = [
       "Hi QISSA, I'd like to place an order.",
@@ -34,10 +52,21 @@ function BagPage() {
       "",
       `Total: ${inr(subtotal)}`,
       "",
+      "Customer details:",
+      `Name: ${details.name}`,
+      `Phone: ${details.phone}`,
+      `Email: ${details.email}`,
+      `Address: ${details.address}`,
+      `City: ${details.city}`,
+      `State: ${details.state}`,
+      `Pincode: ${details.pincode}`,
+      "",
       "Please help me complete the order and payment.",
     ].join("\n");
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   };
+
+  const validDetails = Object.values(details).every(Boolean);
 
   return (
     <div id="top" className="overflow-x-hidden">
@@ -52,18 +81,25 @@ function BagPage() {
               ) : (
                 <ul>{items.map((item) => <li key={`${item.id}-${item.colour}-${item.size}`} data-reveal className="reveal grid grid-cols-[104px_1fr] gap-8 border-t border-border py-10 sm:grid-cols-[140px_1fr]">
                   <div className="zoom-frame bg-secondary"><img src={item.img} alt={item.name} loading="lazy" width={560} height={700} className="aspect-[4/5] w-full object-cover" /></div>
-                  <div className="flex flex-col justify-between gap-8">
-                    <div className="flex items-start justify-between gap-6"><div><p className="font-serif text-xl font-light">{item.name}</p><p className="eyebrow mt-3">{item.colour} — Size {item.size}</p></div><p className="shrink-0 text-sm tracking-wide">{inr(item.price * item.qty)}</p></div>
-                    <div className="flex items-center justify-between gap-6"><div className="flex items-center gap-6 text-sm"><button aria-label={`Decrease quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, -1)} className="text-muted-foreground transition-colors hover:text-foreground">—</button><span className="tracking-[0.14em]">{item.qty}</span><button aria-label={`Increase quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, 1)} className="text-muted-foreground transition-colors hover:text-foreground">+</button></div><button onClick={() => removeItem(item.id, item.size)} className="eyebrow link-underline text-foreground">Remove</button></div>
-                  </div>
+                  <div className="flex flex-col justify-between gap-8"><div className="flex items-start justify-between gap-6"><div><p className="font-serif text-xl font-light">{item.name}</p><p className="eyebrow mt-3">{item.colour} — Size {item.size}</p></div><p className="shrink-0 text-sm tracking-wide">{inr(item.price * item.qty)}</p></div><div className="flex items-center justify-between gap-6"><div className="flex items-center gap-6 text-sm"><button aria-label={`Decrease quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, -1)} className="text-muted-foreground transition-colors hover:text-foreground">—</button><span className="tracking-[0.14em]">{item.qty}</span><button aria-label={`Increase quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, 1)} className="text-muted-foreground transition-colors hover:text-foreground">+</button></div><button onClick={() => removeItem(item.id, item.size)} className="eyebrow link-underline text-foreground">Remove</button></div></div>
                 </li>)}</ul>
               )}
             </div>
-            <aside data-reveal className="reveal h-fit bg-secondary p-10 lg:sticky lg:top-32">
+            <aside data-reveal className="reveal h-fit bg-secondary p-8 lg:sticky lg:top-32 lg:p-10">
               <p className="eyebrow">Order Summary</p>
               <dl className="mt-10 space-y-6 text-sm"><div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd className="tracking-wide">{inr(subtotal)}</dd></div><div className="flex justify-between"><dt className="text-muted-foreground">Insured Delivery</dt><dd className="tracking-wide">Complimentary</dd></div><div className="flex justify-between"><dt className="text-muted-foreground">Duties & Taxes</dt><dd className="tracking-wide">Included</dd></div></dl>
               <div className="mt-10 flex items-baseline justify-between border-t border-border pt-8"><p className="eyebrow">Total</p><p className="font-serif text-2xl font-light">{inr(subtotal)}</p></div>
-              <button disabled={items.length === 0} onClick={checkoutOnWhatsApp} className="lift eyebrow mt-12 w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">Checkout on WhatsApp</button>
+              {items.length > 0 && !showDetails && <button onClick={() => setShowDetails(true)} className="lift eyebrow mt-12 w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent">Continue to Delivery</button>}
+              {items.length > 0 && showDetails && (
+                <form onSubmit={checkoutOnWhatsApp} className="mt-10 space-y-7">
+                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">We'll use these details to prepare your WhatsApp order. We won't store passwords on this site.</p></div>
+                  {(["name", "phone", "email", "address", "city", "state", "pincode"] as const).map((field) => (
+                    <label key={field} className="block"><span className="eyebrow">{field === "pincode" ? "Pincode" : field === "phone" ? "WhatsApp / Phone" : field.charAt(0).toUpperCase() + field.slice(1)}</span><input required value={details[field]} onChange={(e) => update(field, e.target.value)} type={field === "email" ? "email" : field === "phone" || field === "pincode" ? "tel" : "text"} inputMode={field === "phone" || field === "pincode" ? "numeric" : undefined} className="mt-3 w-full border-b border-border bg-transparent py-3 text-sm tracking-wide outline-none transition-colors focus:border-accent" /></label>
+                  ))}
+                  <button type="submit" disabled={!validDetails} className="lift eyebrow w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">Continue to WhatsApp</button>
+                  <button type="button" onClick={() => setShowDetails(false)} className="eyebrow link-underline text-foreground">Back to summary</button>
+                </form>
+              )}
               <Link to="/collections" className="eyebrow link-underline mt-8 inline-block text-foreground">Continue Browsing</Link>
               <p className="mt-12 max-w-[34ch] text-xs leading-relaxed text-muted-foreground">Your cart is saved on this device. Payment will be completed securely through our WhatsApp order flow.</p>
             </aside>
