@@ -1,6 +1,7 @@
 -- QISSA order storage
 -- Run this once against the production PostgreSQL database.
 
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE SEQUENCE IF NOT EXISTS qissa_order_number_seq START 10001;
 
 CREATE TABLE IF NOT EXISTS orders (
