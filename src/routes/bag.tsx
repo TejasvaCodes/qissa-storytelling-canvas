@@ -42,18 +42,15 @@ function BagPage() {
   const [showDetails, setShowDetails] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
+  const [orderCreated, setOrderCreated] = useState("");
 
   const update = (field: keyof CustomerDetails, value: string) => setDetails((current) => ({ ...current, [field]: value }));
 
   const checkoutOnWhatsApp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setCheckoutError("");
+    setOrderCreated("");
     if (!items.length || !Object.values(details).every((value) => value.trim())) return;
-
-    if (WHATSAPP_NUMBER.includes("REPLACE_WITH")) {
-      setCheckoutError("QISSA WhatsApp is not connected yet. Add the brand WhatsApp number before launch.");
-      return;
-    }
 
     setSubmitting(true);
     try {
@@ -64,6 +61,13 @@ function BagPage() {
           subtotal,
         },
       });
+
+      // Until the real QISSA WhatsApp number is configured, keep the cart intact
+      // and show the created order number so the database can be tested locally.
+      if (WHATSAPP_NUMBER.includes("REPLACE_WITH")) {
+        setOrderCreated(orderNumber);
+        return;
+      }
 
       const productLines = items.map((item, index) => [
         `${index + 1}. ${item.name}`,
@@ -138,7 +142,8 @@ function BagPage() {
                     <label key={field} className="block"><span className="eyebrow">{field === "pincode" ? "Pincode" : field === "phone" ? "WhatsApp / Phone" : field.charAt(0).toUpperCase() + field.slice(1)}</span><input required value={details[field]} onChange={(e) => update(field, e.target.value)} type={field === "email" ? "email" : field === "phone" || field === "pincode" ? "tel" : "text"} inputMode={field === "phone" || field === "pincode" ? "numeric" : undefined} className="mt-3 w-full border-b border-border bg-transparent py-3 text-sm tracking-wide outline-none transition-colors focus:border-accent" /></label>
                   ))}
                   {checkoutError && <p role="alert" className="text-xs leading-relaxed text-red-700">{checkoutError}</p>}
-                  <button type="submit" disabled={!validDetails || submitting} className="lift eyebrow w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">{submitting ? "Creating Order…" : "Continue to WhatsApp"}</button>
+                  {orderCreated && <p role="status" className="border border-border bg-background p-4 text-xs leading-relaxed text-foreground">Order <strong>{orderCreated}</strong> was saved successfully in the QISSA database. WhatsApp is not connected yet, so your bag has been kept intact for testing.</p>}
+                  <button type="submit" disabled={!validDetails || submitting} className="lift eyebrow w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">{submitting ? "Creating Order…" : orderCreated ? "Create Another Test Order" : "Continue to WhatsApp"}</button>
                   <button type="button" onClick={() => setShowDetails(false)} disabled={submitting} className="eyebrow link-underline text-foreground disabled:opacity-40">Back to summary</button>
                 </form>
               )}
