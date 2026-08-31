@@ -1,7 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { Nav } from "@/components/qissa/nav";
-import { Craft, Footer, Lifestyle, Material, Newsletter, Philosophy, Story } from "@/components/qissa/sections";
+import { Craft, Lifestyle, Material, Newsletter, Philosophy, Story } from "@/components/qissa/sections";
+import { JournalFooter } from "@/components/qissa/journal-footer";
 import { useReveal } from "@/hooks/use-reveal";
 import heroMain from "@/assets/hero-main.jpg";
 
@@ -65,7 +66,7 @@ function JournalPage() {
 
         <Newsletter />
       </main>
-      <Footer />
+      <JournalFooter />
     </div>
   );
 }
