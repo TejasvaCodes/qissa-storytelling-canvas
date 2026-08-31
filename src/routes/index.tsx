@@ -50,7 +50,6 @@ function HomePage() {
     <div id="top" className="overflow-x-hidden">
       <Nav />
       <main>
-        {/* Cinematic hero */}
         <section className="relative">
           <img
             src={heroMain}
@@ -84,7 +83,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Statement */}
         <section className="py-32 md:py-52">
           <div className="shell">
             <h2
@@ -97,7 +95,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Featured pieces */}
         <section>
           <div className="shell">
             <div className="flex flex-wrap items-baseline justify-between gap-6">
@@ -130,7 +127,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Craft, dark chapter */}
         <section className="mt-40 bg-onyx py-32 md:mt-64 md:py-52">
           <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
             <div data-reveal className="reveal zoom-frame">
@@ -162,7 +158,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Editorial trio */}
         <section className="mt-40 md:mt-64">
           <div className="shell grid gap-8 md:grid-cols-3">
             {[
@@ -190,7 +185,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Journal / portrait */}
         <section className="mt-40 md:mt-64">
           <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
             <div data-reveal className="reveal order-2 lg:order-1">
@@ -202,7 +196,7 @@ function HomePage() {
                 Conversations with the makers, the tanneries and the people who wear our garments
                 until they look like their own.
               </p>
-              <Link to="/collections" className="eyebrow link-underline mt-14 inline-block text-foreground">
+              <Link to="/journal" className="eyebrow link-underline mt-14 inline-block text-foreground">
                 Read the Journal
               </Link>
             </div>
