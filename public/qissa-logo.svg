@@ -1,18 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="330 140 940 520" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="340 170 920 460" role="img" aria-labelledby="title desc">
   <title id="title">QISSA — Wear Your Story</title>
-  <desc id="desc">QISSA luxury wordmark framed by a flat gold stitched border on a navy background</desc>
-  <rect x="330" y="140" width="940" height="520" fill="#0D1B2A"/>
+  <desc id="desc">QISSA luxury wordmark framed by a clean flat gold stitched border on a navy background</desc>
+  <rect x="340" y="170" width="920" height="460" fill="#0D1B2A"/>
 
-  <g fill="none" stroke="#D8A94A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="370" y="190" width="860" height="420" rx="0" stroke-dasharray="12 16"/>
-    <path d="M370 225h32v-35m-12 0v32h-20m60-32v34m-20-34v34"/>
-    <path d="M1230 225h-32v-35m12 0v32h20m-60-32v34m20-34v34"/>
-    <path d="M370 575h32v35m-12 0v-32h-20m60 32v-34m-20 34v-34"/>
-    <path d="M1230 575h-32v35m12 0v-32h20m-60 32v-34m20 34v-34"/>
+  <g fill="none" stroke="#D8A94A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="370" y="205" width="860" height="390" stroke-dasharray="12 16"/>
   </g>
 
   <g fill="#D8A94A" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif">
-    <text x="800" y="410" font-size="190" font-weight="500" letter-spacing="24">QISSA</text>
-    <text x="800" y="510" font-size="68" font-weight="500" letter-spacing="2">Wear Your Story</text>
+    <text x="800" y="405" font-size="180" font-weight="500" letter-spacing="24">QISSA</text>
+    <text x="800" y="505" font-size="66" font-weight="500" letter-spacing="2">Wear Your Story</text>
   </g>
 </svg>
