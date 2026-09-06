@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="365 185 870 430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="330 140 940 520" role="img" aria-labelledby="title desc">
   <title id="title">QISSA — Wear Your Story</title>
-  <desc id="desc">QISSA luxury wordmark framed by a flat gold stitched border</desc>
-  <rect width="1600" height="800" fill="#0D1B2A"/>
+  <desc id="desc">QISSA luxury wordmark framed by a flat gold stitched border on a navy background</desc>
+  <rect x="330" y="140" width="940" height="520" fill="#0D1B2A"/>
 
   <g fill="none" stroke="#D8A94A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="370" y="190" width="860" height="420" rx="0" stroke-dasharray="12 16"/>
