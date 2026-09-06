@@ -1,19 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="365 185 870 430" role="img" aria-labelledby="title desc">
   <title id="title">QISSA — Wear Your Story</title>
   <desc id="desc">QISSA luxury wordmark framed by a flat gold stitched border</desc>
   <rect width="1600" height="800" fill="#0D1B2A"/>
 
-  <!-- Flat gold stitched frame -->
   <g fill="none" stroke="#D8A94A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <rect x="370" y="190" width="860" height="420" rx="0" stroke-dasharray="12 16"/>
-    <!-- embroidered corner details -->
     <path d="M370 225h32v-35m-12 0v32h-20m60-32v34m-20-34v34"/>
     <path d="M1230 225h-32v-35m12 0v32h20m-60-32v34m20-34v34"/>
     <path d="M370 575h32v35m-12 0v-32h-20m60 32v-34m-20 34v-34"/>
     <path d="M1230 575h-32v35m12 0v-32h20m-60 32v-34m20 34v-34"/>
   </g>
 
-  <!-- Wordmark: single flat gold, no gradient -->
   <g fill="#D8A94A" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif">
     <text x="800" y="410" font-size="190" font-weight="500" letter-spacing="24">QISSA</text>
     <text x="800" y="510" font-size="68" font-weight="500" letter-spacing="2">Wear Your Story</text>
