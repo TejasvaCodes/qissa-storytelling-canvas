@@ -1,29 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-labelledby="title desc">
   <title id="title">QISSA — Wear Your Story</title>
-  <desc id="desc">QISSA wordmark framed by a refined gold stitched border</desc>
-  <defs>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8E6429"/>
-      <stop offset="0.48" stop-color="#E7C67A"/>
-      <stop offset="1" stop-color="#A87531"/>
-    </linearGradient>
-  </defs>
+  <desc id="desc">QISSA luxury wordmark framed by a flat gold stitched border</desc>
+  <rect width="1600" height="800" fill="#0D1B2A"/>
 
-  <rect width="720" height="220" rx="2" fill="#0D1B2A"/>
-
-  <!-- stitched outer frame -->
-  <rect x="34" y="24" width="652" height="172" rx="2" fill="none" stroke="url(#gold)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="3 8"/>
-
-  <!-- layered stitch details at each corner -->
-  <g fill="none" stroke="url(#gold)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M34 48V24H58 M42 54V34H62 M50 42H70"/>
-    <path d="M662 24H686V48 M658 34H678V54 M650 42H670"/>
-    <path d="M34 172V196H58 M42 166V186H62 M50 178H70"/>
-    <path d="M662 196H686V172 M658 186H678V166 M650 178H670"/>
+  <!-- Flat gold stitched frame -->
+  <g fill="none" stroke="#D8A94A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="370" y="190" width="860" height="420" rx="0" stroke-dasharray="12 16"/>
+    <!-- embroidered corner details -->
+    <path d="M370 225h32v-35m-12 0v32h-20m60-32v34m-20-34v34"/>
+    <path d="M1230 225h-32v-35m12 0v32h20m-60-32v34m20-34v34"/>
+    <path d="M370 575h32v35m-12 0v-32h-20m60 32v-34m-20 34v-34"/>
+    <path d="M1230 575h-32v35m12 0v-32h20m-60 32v-34m20 34v-34"/>
   </g>
 
-  <g fill="url(#gold)" text-anchor="middle">
-    <text x="360" y="115" font-family="Cormorant Garamond, Georgia, serif" font-size="108" font-weight="500" letter-spacing="11">QISSA</text>
-    <text x="360" y="166" font-family="Cormorant Garamond, Georgia, serif" font-size="34" font-weight="500" letter-spacing="1.2">Wear Your Story</text>
+  <!-- Wordmark: single flat gold, no gradient -->
+  <g fill="#D8A94A" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif">
+    <text x="800" y="410" font-size="190" font-weight="500" letter-spacing="24">QISSA</text>
+    <text x="800" y="510" font-size="68" font-weight="500" letter-spacing="2">Wear Your Story</text>
   </g>
 </svg>
