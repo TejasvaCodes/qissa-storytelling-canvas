@@ -6,7 +6,6 @@ import { useReveal } from "@/hooks/use-reveal";
 
 import heroMain from "@/assets/hero-main.jpg";
 import craftDark from "@/assets/craft-dark.jpg";
-import storyImg from "@/assets/story.jpg";
 import lifeCity from "@/assets/life-city.jpg";
 import lifeMotion from "@/assets/life-motion.jpg";
 import lifeLegacy from "@/assets/life-legacy.jpg";
@@ -182,34 +181,6 @@ function HomePage() {
                 </figcaption>
               </figure>
             ))}
-          </div>
-        </section>
-
-        <section className="mt-40 md:mt-64">
-          <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
-            <div data-reveal className="reveal order-2 lg:order-1">
-              <p className="eyebrow">Journal</p>
-              <h2 className="display mt-8 text-[2.2rem] md:text-[3.2rem]">
-                Notes from the House
-              </h2>
-              <p className="mt-10 max-w-[40ch] leading-[2] text-muted-foreground">
-                Conversations with the makers, the tanneries and the people who wear our garments
-                until they look like their own.
-              </p>
-              <Link to="/journal" className="eyebrow link-underline mt-14 inline-block text-foreground">
-                Read the Journal
-              </Link>
-            </div>
-            <div data-reveal className="reveal order-1 zoom-frame bg-secondary lg:order-2">
-              <img
-                src={storyImg}
-                alt="QISSA editorial portrait"
-                loading="lazy"
-                width={1200}
-                height={1500}
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
           </div>
         </section>
 
