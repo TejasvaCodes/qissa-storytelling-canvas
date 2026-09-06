@@ -4,7 +4,6 @@ import { useCart } from "@/lib/cart";
 
 const left = [
   { label: "Collections", to: "/collections" as const },
-  { label: "Journal", to: "/journal" as const },
 ];
 
 export function Nav() {
