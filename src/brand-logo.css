@@ -6,7 +6,7 @@ footer .shell > .grid > div:first-child > p.font-serif {
   overflow: hidden;
   font-size: 0;
   letter-spacing: 0;
-  background: #0D1B2A url("/qissa-logo.svg") center / cover no-repeat;
+  background: #0D1B2A url("/qissa-logo.svg") center / contain no-repeat;
 }
 
 footer .shell > .grid > div:first-child > p.eyebrow {
