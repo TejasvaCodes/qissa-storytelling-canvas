@@ -45,7 +45,7 @@ export function Hero() {
   }, []);
 
   const addToBag = () => {
-    addItem({ id: "velocita", img: heroMain, name: "Velocità", colour, size, price: 48000, qty });
+    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile Textured", colour, size, price: 2500, qty });
     setShowAddedToast(true);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
     toastTimerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -79,8 +79,8 @@ export function Hero() {
         <div className="order-1 lg:order-2"><div className="relative bg-secondary">{views.map((v, i) => <img key={v.alt} src={v.src} alt={v.alt} width={1408} height={1760} className={`h-[70vh] w-full object-cover transition-opacity duration-[900ms] md:h-[86vh] ${active === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`} />)}</div></div>
         <div className="order-3 lg:pt-6">
           <p className="eyebrow">Outerwear — 01</p>
-          <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">Velocità</h1>
-          <p className="mt-5 text-base tracking-wide">₹ 48,000</p>
+          <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">Black Crocodile Texture</h1>
+          <p className="mt-5 text-base tracking-wide">₹ 2500</p>
           <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">A racing silhouette drawn in glove-soft lambskin.<br />Made in limited numbers, made to age well.</p>
           <div className="mt-14"><p className="eyebrow">Colour — {colour}</p><div className="mt-5 flex gap-4">{colours.map((c) => <button key={c.name} onClick={() => setColour(c.name)} aria-label={c.name} className={`h-7 w-7 rounded-full transition-all duration-500 ${colour === c.name ? "ring-1 ring-foreground ring-offset-4 ring-offset-background" : "opacity-70 hover:opacity-100"}`} style={{ backgroundColor: c.swatch }} />)}</div></div>
           <div className="mt-12"><p className="eyebrow">Size</p><div className="mt-5 flex flex-wrap gap-7">{sizes.map((s) => <button key={s} onClick={() => setSize(s)} className={`text-sm tracking-[0.14em] transition-colors duration-500 ${size === s ? "text-foreground underline decoration-1 underline-offset-[6px]" : "text-muted-foreground hover:text-foreground"}`}>{s}</button>)}</div></div>
@@ -91,7 +91,7 @@ export function Hero() {
       </div>
       <div ref={endRef} />
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 backdrop-blur-xl transition-all duration-700 ${showBar ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"}`}>
-        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Velocità</p><p className="eyebrow mt-1 truncate">{colour} — {size} — ₹ 48,000</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
+        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile Texture</p><p className="eyebrow mt-1 truncate">{colour} — {size} — ₹ 2,500</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
       </div>
     </section>
   );
