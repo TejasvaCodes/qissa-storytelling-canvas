@@ -5,6 +5,8 @@ import { useCart } from "@/lib/cart";
 const left = [
   { label: "Collections", to: "/collections" as const },
   { label: "Journal", to: "/journal" as const },
+  { label: "Custom Order", to: "/custom-order" as const },
+  { label: "Bulk Order", to: "/bulk-order" as const },
 ];
 
 export function Nav() {
