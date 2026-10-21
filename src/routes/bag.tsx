@@ -21,7 +21,7 @@ export const Route = createFileRoute("/bag")({
 });
 
 const inr = (n: number) => `₹ ${n.toLocaleString("en-IN")}`;
-const WHATSAPP_NUMBER = "REPLACE_WITH_QISSA_WHATSAPP_NUMBER";
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "");
 
 type CustomerDetails = {
   name: string;
@@ -51,6 +51,10 @@ function BagPage() {
     setCheckoutError("");
     setOrderCreated("");
     if (!items.length || !Object.values(details).every((value) => value.trim())) return;
+    if (!WHATSAPP_NUMBER) {
+      setCheckoutError("WhatsApp is not connected yet. Configure VITE_WHATSAPP_NUMBER to enable checkout.");
+      return;
+    }
 
     setSubmitting(true);
     try {
@@ -61,13 +65,6 @@ function BagPage() {
           subtotal,
         },
       });
-
-      // Until the real QISSA WhatsApp number is configured, keep the cart intact
-      // and show the created order number so the database can be tested locally.
-      if (WHATSAPP_NUMBER.includes("REPLACE_WITH")) {
-        setOrderCreated(orderNumber);
-        return;
-      }
 
       const productLines = items.map((item, index) => [
         `${index + 1}. ${item.name}`,
