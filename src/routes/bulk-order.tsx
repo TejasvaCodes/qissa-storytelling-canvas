@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
+import { saveBulkOrderEnquiry } from "@/lib/save-enquiry.server";
 
 export const Route = createFileRoute("/bulk-order")({
   head: () => ({
@@ -60,13 +61,18 @@ function BulkOrderPage() {
     ].join("\n"),
   );
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!whatsappNumber) {
       setSubmitError("WhatsApp is not connected yet. Please try again later.");
       return;
     }
-    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank", "noopener,noreferrer");
+    try {
+      await saveBulkOrderEnquiry({ data: form });
+      window.location.assign(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`);
+    } catch {
+      setSubmitError("We couldn’t save your enquiry. Please check the database connection and try again.");
+    }
   }
 
   return (
