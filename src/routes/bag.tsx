@@ -99,8 +99,8 @@ function BagPage() {
       ].join("\n");
 
       const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
       clear();
+      window.location.assign(url);
     } catch (error) {
       setCheckoutError(error instanceof Error ? error.message : "We couldn't create your order. Please try again.");
     } finally {
