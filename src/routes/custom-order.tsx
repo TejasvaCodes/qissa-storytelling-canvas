@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
+import { saveCustomOrderEnquiry } from "@/lib/save-enquiry.server";
 
 export const Route = createFileRoute("/custom-order")({
   head: () => ({
@@ -56,14 +57,19 @@ function CustomOrderPage() {
     ].join("\n"),
   );
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!whatsappNumber) {
       setSubmitError("WhatsApp is not connected yet. Please try again later.");
       return;
     }
-    const url = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    try {
+      await saveCustomOrderEnquiry({ data: form });
+      const url = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      window.location.assign(url);
+    } catch {
+      setSubmitError("We couldn’t save your enquiry. Please check the database connection and try again.");
+    }
   }
 
   return (
