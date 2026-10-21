@@ -30,7 +30,6 @@ export function Nav() {
           <img src="/qissa-logo.svg" alt="QISSA — Wear Your Story" className="h-auto w-full" />
         </Link>
         <nav className={`hidden flex-1 items-center justify-end gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
-          <Link to="/account" tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Account</Link>
           <Link to="/bag" tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Bag ({itemCount})</Link>
         </nav>
         <Link to="/bag" aria-label={`Bag (${itemCount})`} tabIndex={solid ? 0 : -1} className={`eyebrow link-underline absolute right-4 text-foreground transition-all duration-500 md:hidden ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}>Bag ({itemCount})</Link>
