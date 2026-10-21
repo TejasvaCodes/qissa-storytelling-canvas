@@ -58,6 +58,7 @@ function BulkOrderPage() {
       `Delivery timeline: ${form.timeline}`,
       `Destination: ${form.destination}`,
       `Requirements: ${form.requirements || "None provided"}`,
+      "If you have any reference designs, please attach them as an image or PDF in this WhatsApp chat.",
     ].join("\n"),
   );
 
