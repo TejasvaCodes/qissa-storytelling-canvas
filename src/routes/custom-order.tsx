@@ -24,7 +24,7 @@ const labelClass = "eyebrow block";
 
 function CustomOrderPage() {
   useReveal();
-  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -38,7 +38,7 @@ function CustomOrderPage() {
 
   const update = (field: keyof typeof form, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
-    setSubmitted(false);
+    setSubmitError("");
   };
 
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "");
@@ -58,7 +58,12 @@ function CustomOrderPage() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    if (!whatsappNumber) {
+      setSubmitError("WhatsApp is not connected yet. Please try again later.");
+      return;
+    }
+    const url = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -136,29 +141,13 @@ function CustomOrderPage() {
               </div>
               <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
                 <button type="submit" className="lift eyebrow bg-foreground px-10 py-5 !text-primary-foreground transition-colors hover:bg-accent">
-                  Review my brief
+                  Send custom enquiry on WhatsApp ↗
                 </button>
-                {whatsappNumber ? (
-                  <a
-                    href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="eyebrow link-underline text-foreground"
-                  >
-                    Discuss on WhatsApp ↗
-                  </a>
-                ) : (
-                  <p className="max-w-[34ch] text-xs leading-relaxed text-muted-foreground">
-                    WhatsApp discussion will be enabled once the QISSA contact number is configured.
-                  </p>
-                )}
-              </div>
-              {submitted && (
-                <p role="status" className="mt-8 border-l border-accent pl-5 text-sm leading-relaxed text-muted-foreground">
-                  Your brief is ready to review. This form does not send or save your details yet;
-                  please continue on WhatsApp when the contact link is available.
+                <p className="max-w-[34ch] text-xs leading-relaxed text-muted-foreground">
+                  WhatsApp will open with your custom-order details ready to send.
                 </p>
-              )}
+              </div>
+              {submitError && <p role="alert" className="mt-6 text-sm leading-relaxed text-red-700">{submitError}</p>}
             </form>
           </div>
         </section>
