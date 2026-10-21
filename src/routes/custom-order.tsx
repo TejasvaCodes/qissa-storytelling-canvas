@@ -54,6 +54,7 @@ function CustomOrderPage() {
       `Colour: ${form.colour || "To discuss"}`,
       `Design details: ${form.details || "To discuss"}`,
       `Additional notes: ${form.notes || "None"}`,
+      "If you have any reference designs, please attach them as an image or PDF in this WhatsApp chat.",
     ].join("\n"),
   );
 
