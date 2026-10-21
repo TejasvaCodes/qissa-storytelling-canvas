@@ -24,7 +24,7 @@ const labelClass = "eyebrow block";
 
 function BulkOrderPage() {
   useReveal();
-  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [form, setForm] = useState({
     contactName: "",
     businessName: "",
@@ -40,12 +40,33 @@ function BulkOrderPage() {
 
   const update = (field: keyof typeof form, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
-    setSubmitted(false);
+    setSubmitError("");
   };
+
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "");
+  const whatsappMessage = encodeURIComponent(
+    [
+      "Hello QISSA, I'd like to make a bulk / trade enquiry.",
+      `Contact name: ${form.contactName}`,
+      `Business: ${form.businessName || "Not provided"}`,
+      `Email: ${form.email}`,
+      `WhatsApp: ${form.whatsapp}`,
+      `Product / category: ${form.category}`,
+      `Estimated quantity: ${form.quantity}`,
+      `Budget range: ${form.budget}`,
+      `Delivery timeline: ${form.timeline}`,
+      `Destination: ${form.destination}`,
+      `Requirements: ${form.requirements || "None provided"}`,
+    ].join("\n"),
+  );
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    if (!whatsappNumber) {
+      setSubmitError("WhatsApp is not connected yet. Please try again later.");
+      return;
+    }
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -149,18 +170,13 @@ function BulkOrderPage() {
               </div>
               <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
                 <button type="submit" className="lift eyebrow bg-foreground px-10 py-5 !text-primary-foreground transition-colors hover:bg-accent">
-                  Submit enquiry
+                  Send bulk enquiry on WhatsApp ↗
                 </button>
                 <p className="max-w-[36ch] text-xs leading-relaxed text-muted-foreground">
-                  Enquiry details are not sent or stored by this form yet.
+                  WhatsApp will open with your trade enquiry ready to send.
                 </p>
               </div>
-              {submitted && (
-                <p role="status" className="mt-8 border-l border-accent pl-5 text-sm leading-relaxed text-muted-foreground">
-                  Your enquiry is complete on this page, but it has not been delivered to QISSA.
-                  Please contact the atelier directly to share these details.
-                </p>
-              )}
+              {submitError && <p role="alert" className="mt-6 text-sm leading-relaxed text-red-700">{submitError}</p>}
             </form>
           </div>
         </section>
