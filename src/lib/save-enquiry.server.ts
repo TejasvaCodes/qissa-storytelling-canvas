@@ -5,14 +5,14 @@ import { Pool } from "pg";
 let pool: Pool | undefined;
 
 function getPool() {
-  if (!process.env.DATABASE_URL) {
+  if (!process.env["DATABASE_URL"]) {
     throw new Error("DATABASE_URL is not configured on the server.");
   }
   if (!pool) {
     pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString: process.env["DATABASE_URL"],
       max: 5,
-      ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
+      ssl: process.env["NODE_ENV"] === "production" ? { rejectUnauthorized: false } : undefined,
     });
   }
   return pool;
