@@ -13,18 +13,18 @@ const product = {
   price: 28000,
   description: "An easy overshirt with a lighter construction, made to sit between a shirt and a jacket as the day moves on.",
   views: [
-    { src: lifeCity, alt: "QISSA Corso Overshirt in the city" },
-    { src: gallery4, alt: "QISSA Corso Overshirt detail" },
-    { src: rel2, alt: "QISSA Corso Overshirt editorial view" },
-    { src: matHardware, alt: "QISSA Corso Overshirt hardware detail" },
+    { src: lifeCity, alt: "QISSAA Corso Overshirt in the city" },
+    { src: gallery4, alt: "QISSAA Corso Overshirt detail" },
+    { src: rel2, alt: "QISSAA Corso Overshirt editorial view" },
+    { src: matHardware, alt: "QISSAA Corso Overshirt hardware detail" },
   ],
 };
 
 export const Route = createFileRoute("/corso-overshirt")({
   head: () => ({ meta: [
-    { title: "Corso Overshirt — QISSA" },
-    { name: "description", content: "The Corso Overshirt by QISSA — an easy archive layer made in limited numbers." },
-    { property: "og:title", content: "Corso Overshirt — QISSA" },
+    { title: "Corso Overshirt — QISSAA" },
+    { name: "description", content: "The Corso Overshirt by QISSAA — an easy archive layer made in limited numbers." },
+    { property: "og:title", content: "Corso Overshirt — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
