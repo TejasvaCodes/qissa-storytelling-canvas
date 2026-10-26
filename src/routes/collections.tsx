@@ -4,14 +4,14 @@ import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
-import heroMain from "@/assets/hero-main.jpg";
-import rel1 from "@/assets/rel-1.jpg";
-import rel2 from "@/assets/rel-2.jpg";
-import rel3 from "@/assets/rel-3.jpg";
-import rel4 from "@/assets/rel-4.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import lifeNight from "@/assets/life-night.jpg";
-import lifeCity from "@/assets/life-city.jpg";
+import bcjMain from "../../BCJ main.jpeg";
+import mrjMain from "../../MRJ main.jpeg";
+import pgjMain from "../../PGJ main.jpeg";
+import bfjMain from "../../BFJ main.jpeg";
+import bhMain from "../../BH main.jpeg";
+import whMain from "../../WH main.jpeg";
+import hbhMain from "../../HBH main.jpeg";
+import hwhMain from "../../HWH main.jpeg";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -28,14 +28,14 @@ export const Route = createFileRoute("/collections")({
 });
 
 const pieces = [
-  { img: heroMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,599", to: "/velocita" as const },
-  { img: rel1, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
-  { img: rel2, name: "Porsche Green", cat: "Jacket", price: "₹ 2,599", to: "/strada-blouson" as const },
-  { img: rel3, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
-  { img: rel4, name: "Black Henley", cat: "Henley", price: "₹ 899", to: "/riposo-quilted" as const },
-  { img: gallery2, name: "White Henley", cat: "Henley", price: "₹ 899", to: "/sera-moto" as const },
-  { img: lifeNight, name: "Half black Henley", cat: "Henley", price: "₹ 899", to: "/mezzanotte-coat" as const },
-  { img: lifeCity, name: "Half white Henley", cat: "Henley", price: "₹ 899", to: "/corso-overshirt" as const },
+  { img: bcjMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,599", to: "/velocita" as const },
+  { img: mrjMain, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
+  { img: pgjMain, name: "Porsche Green", cat: "Jacket", price: "₹ 2,599", to: "/strada-blouson" as const },
+  { img: bfjMain, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
+  { img: bhMain, name: "Black Henley", cat: "Henley", price: "₹ 899", to: "/riposo-quilted" as const },
+  { img: whMain, name: "White Henley", cat: "Henley", price: "₹ 899", to: "/sera-moto" as const },
+  { img: hbhMain, name: "Half black Henley", cat: "Henley", price: "₹ 899", to: "/mezzanotte-coat" as const },
+  { img: hwhMain, name: "Half white Henley", cat: "Henley", price: "₹ 899", to: "/corso-overshirt" as const },
 ];
 
 function CollectionsPage() {
