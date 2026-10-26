@@ -5,10 +5,8 @@ import { Hero } from "@/components/qissa/hero";
 import {
   CareAndService,
   CompleteStory,
-  Craft,
   Footer,
   Lifestyle,
-  Material,
   Newsletter,
   Philosophy,
 } from "@/components/qissa/sections";
@@ -44,8 +42,6 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Craft />
-        <Material />
         <Lifestyle />
         <CareAndService />
         <CompleteStory />
