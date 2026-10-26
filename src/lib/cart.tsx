@@ -46,7 +46,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const value = useMemo<CartContextValue>(() => {
     const addItem: CartContextValue["addItem"] = (item) => {
       setItems((current) => {
-        const existing = current.find((x) => x.id === item.id && x.size === item.size && x.colour === item.colour);
+        const existing = current.find((x) => x.id === item.id && x.size === item.size && x.colour === item.colour && (x.customization ?? "") === (item.customization ?? ""));
         if (existing) {
           return current.map((x) =>
             x.id === item.id && x.size === item.size && x.colour === item.colour
