@@ -18,17 +18,17 @@ import { useReveal } from "@/hooks/use-reveal";
 export const Route = createFileRoute("/velocita")({
   head: () => ({
     meta: [
-      { title: "Velocità Leather Jacket — QISSAA" },
+      { title: "Black Crocodile — QISSAA" },
       {
         name: "description",
         content:
-          "The Velocità jacket: glove-soft lambskin drawn from motorsport heritage, made in limited numbers by the Qissaa atelier.",
+          "Black Crocodile jacket by QISSAA.",
       },
-      { property: "og:title", content: "Velocità Leather Jacket — QISSAA" },
+      { property: "og:title", content: "Black Crocodile — QISSAA" },
       {
         property: "og:description",
         content:
-          "Motorsport heritage, modern wardrobe. Full-grain lambskin, quilted lining, made to age well.",
+          "A statement jacket designed to bring character to your everyday look.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
