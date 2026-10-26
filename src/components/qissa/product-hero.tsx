@@ -24,7 +24,7 @@ const sizes = ["XS", "S", "M", "L", "XL"];
 export function ProductHero({ product }: { product: ProductConfig }) {
   const colours = product.colours ?? defaultColours;
   const [active, setActive] = useState(0);
-  const [colour, setColour] = useState(colours[0]!.name);
+  const colour = colours[0]!.name;
   const [size, setSize] = useState("M");
   const [qty, setQty] = useState(1);
   const [showBar, setShowBar] = useState(false);
