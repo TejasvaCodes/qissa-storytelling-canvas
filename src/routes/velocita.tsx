@@ -11,7 +11,6 @@ import {
   Material,
   Newsletter,
   Philosophy,
-  Story,
 } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -45,7 +44,6 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Story />
         <Craft />
         <Material />
         <Lifestyle />
