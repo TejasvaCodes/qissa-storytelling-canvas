@@ -28,14 +28,14 @@ export const Route = createFileRoute("/collections")({
 });
 
 const pieces = [
-  { img: heroMain, name: "Velocità", cat: "Outerwear", price: "₹ 48,000", to: "/velocita" as const },
-  { img: rel1, name: "Notte Bomber", cat: "Outerwear", price: "₹ 42,000", to: "/notte-bomber" as const },
-  { img: rel2, name: "Strada Blouson", cat: "Outerwear", price: "₹ 39,500", to: "/strada-blouson" as const },
-  { img: rel3, name: "Alba Shearling", cat: "Shearling", price: "₹ 68,000", to: "/alba-shearling" as const },
-  { img: rel4, name: "Riposo Quilted", cat: "Quilted", price: "₹ 44,000", to: "/riposo-quilted" as const },
-  { img: gallery2, name: "Sera Moto", cat: "Outerwear", price: "₹ 52,000", to: "/sera-moto" as const },
-  { img: lifeNight, name: "Mezzanotte Coat", cat: "Archive", price: "₹ 74,000", to: "/mezzanotte-coat" as const },
-  { img: lifeCity, name: "Corso Overshirt", cat: "Archive", price: "₹ 28,000", to: "/corso-overshirt" as const },
+  { img: heroMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,500", to: "/velocita" as const },
+  { img: rel1, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,500", to: "/notte-bomber" as const },
+  { img: rel2, name: "Porsche Green", cat: "Jacket", price: "₹ 2,500", to: "/strada-blouson" as const },
+  { img: rel3, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,500", to: "/alba-shearling" as const },
+  { img: rel4, name: "Black Henley", cat: "Henley", price: "₹ 900", to: "/riposo-quilted" as const },
+  { img: gallery2, name: "White Henley", cat: "Henley", price: "₹ 900", to: "/sera-moto" as const },
+  { img: lifeNight, name: "Half black Henley", cat: "Henley", price: "₹ 900", to: "/mezzanotte-coat" as const },
+  { img: lifeCity, name: "Half white Henley", cat: "Henley", price: "₹ 900", to: "/corso-overshirt" as const },
 ];
 
 function CollectionsPage() {
@@ -50,7 +50,7 @@ function CollectionsPage() {
             <p data-reveal className="reveal eyebrow">Autumn / Winter — Chapter II</p>
             <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">The Collection</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Eight pieces, cut from a single idea: outerwear that carries a life in it. Each garment is produced in a limited run and finished by hand in our atelier.
+              Eight pieces, one QISSAA point of view: statement jackets and everyday Henleys, made to wear your story.
             </p>
           </div>
         </section>
