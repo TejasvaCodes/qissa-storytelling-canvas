@@ -6,7 +6,6 @@ import {
   CareAndService,
   CompleteStory,
   Craft,
-  Fit,
   Footer,
   Lifestyle,
   Material,
@@ -50,7 +49,6 @@ function Index() {
         <Craft />
         <Material />
         <Lifestyle />
-        <Fit />
         <CareAndService />
         <CompleteStory />
         <Philosophy />
