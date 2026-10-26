@@ -89,8 +89,7 @@ function HomePage() {
               data-reveal
               className="reveal display max-w-[26ch] text-[1.9rem] leading-[1.35] md:text-[3rem]"
             >
-              Qissaa means story. We make a small number of garments each season, in leather that
-              takes years to look its best.
+              QISSAA is for the stories you choose to tell. From statement jackets to everyday essentials, we bring together distinctive style, thoughtful details, and pieces made to feel unmistakably yours.
             </h2>
           </div>
         </section>
