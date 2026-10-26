@@ -32,10 +32,10 @@ const pieces = [
   { img: rel1, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
   { img: rel2, name: "Porsche Green", cat: "Jacket", price: "₹ 2,599", to: "/strada-blouson" as const },
   { img: rel3, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
-  { img: rel4, name: "Black Henley", cat: "Henley", price: "₹ 900", to: "/riposo-quilted" as const },
-  { img: gallery2, name: "White Henley", cat: "Henley", price: "₹ 900", to: "/sera-moto" as const },
-  { img: lifeNight, name: "Half black Henley", cat: "Henley", price: "₹ 900", to: "/mezzanotte-coat" as const },
-  { img: lifeCity, name: "Half white Henley", cat: "Henley", price: "₹ 900", to: "/corso-overshirt" as const },
+  { img: rel4, name: "Black Henley", cat: "Henley", price: "₹ 899", to: "/riposo-quilted" as const },
+  { img: gallery2, name: "White Henley", cat: "Henley", price: "₹ 899", to: "/sera-moto" as const },
+  { img: lifeNight, name: "Half black Henley", cat: "Henley", price: "₹ 899", to: "/mezzanotte-coat" as const },
+  { img: lifeCity, name: "Half white Henley", cat: "Henley", price: "₹ 899", to: "/corso-overshirt" as const },
 ];
 
 function CollectionsPage() {
@@ -50,7 +50,7 @@ function CollectionsPage() {
             <p data-reveal className="reveal eyebrow">OPENING SALE · VESIT 2026 FRESHERS</p>
             <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Opening Sale — VESIT 2026 Freshers</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale with VESIT 2026 Freshers: jackets ₹2,599 (was ₹4,300) and Henleys ₹900 (was ₹1,900). Limited-time pricing.
+              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale with VESIT 2026 Freshers: jackets ₹2,599 (was ₹4,300) and Henleys ₹899 (was ₹1,900). Limited-time pricing.
             </p>
           </div>
         </section>
