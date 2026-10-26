@@ -10,7 +10,7 @@ const product = {
   name: "Half black Henley",
   category: "Henley",
   number: "07",
-  price: 900,
+  price: 899,
   description: "A short-sleeve Henley essential for easy, everyday styling.",
   views: [
     { src: lifeNight, alt: "QISSAA Half black Henley at night" },
