@@ -28,10 +28,10 @@ export const Route = createFileRoute("/collections")({
 });
 
 const pieces = [
-  { img: heroMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,610", to: "/velocita" as const },
-  { img: rel1, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,500", to: "/notte-bomber" as const },
-  { img: rel2, name: "Porsche Green", cat: "Jacket", price: "₹ 2,500", to: "/strada-blouson" as const },
-  { img: rel3, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,500", to: "/alba-shearling" as const },
+  { img: heroMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,599", to: "/velocita" as const },
+  { img: rel1, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
+  { img: rel2, name: "Porsche Green", cat: "Jacket", price: "₹ 2,599", to: "/strada-blouson" as const },
+  { img: rel3, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
   { img: rel4, name: "Black Henley", cat: "Henley", price: "₹ 900", to: "/riposo-quilted" as const },
   { img: gallery2, name: "White Henley", cat: "Henley", price: "₹ 900", to: "/sera-moto" as const },
   { img: lifeNight, name: "Half black Henley", cat: "Henley", price: "₹ 900", to: "/mezzanotte-coat" as const },
@@ -50,7 +50,7 @@ function CollectionsPage() {
             <p data-reveal className="reveal eyebrow">OPENING SALE · VESIT 2026 FRESHERS</p>
             <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Opening Sale — VESIT 2026 Freshers</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Celebrating our collaboration with VESIT 2026 Freshers. Jackets worth ₹4,300 are now ₹2,610 with 30% off plus an extra ₹400 off. Opening sale, limited-time pricing.
+              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale: all jackets now ₹2,599 (down from ₹4,300 — you save ₹1,701). In collaboration with VESIT 2026 Freshers. Limited-time pricing.
             </p>
           </div>
         </section>
@@ -65,7 +65,7 @@ function CollectionsPage() {
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
-                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" && <span className="text-xs text-muted-foreground">30% off + ₹400 extra</span>}</div>
+                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" && <span className="text-xs text-muted-foreground">Save ₹1,701</span>}</div>
                 </Link>
               ))}
             </div>
