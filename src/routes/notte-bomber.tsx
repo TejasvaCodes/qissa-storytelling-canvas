@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/qissa/product-page";
-import rel1 from "@/assets/rel-1.jpg";
-import rel2 from "@/assets/rel-2.jpg";
-import lifeNight from "@/assets/life-night.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
+import main from "../../MRJ main.jpeg";
+import back from "../../MRJ back.jpeg";
+import pf1 from "../../MRJ pf1.jpeg";
+import pf2 from "../../MRJ pf2.jpeg";
+import pf3 from "../../MRJ pf3.jpeg";
+import pf4 from "../../MRJ pf4.jpeg";
 
 const product = {
   id: "notte-bomber",
@@ -14,10 +16,12 @@ const product = {
   originalPrice: 4300,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
-    { src: rel1, alt: "QISSAA Marlboro Red editorial view" },
-    { src: rel2, alt: "QISSAA Notte Bomber detail" },
-    { src: lifeNight, alt: "QISSAA Notte Bomber at night" },
-    { src: gallery4, alt: "QISSAA Notte Bomber sleeve detail" },
+    { src: main, alt: "Marlboro Red Jacket — front" },
+    { src: back, alt: "Marlboro Red Jacket — back" },
+    { src: pf1, alt: "Marlboro Red Jacket — professional photo 1" },
+    { src: pf2, alt: "Marlboro Red Jacket — professional photo 2" },
+    { src: pf3, alt: "Marlboro Red Jacket — professional photo 3" },
+    { src: pf4, alt: "Marlboro Red Jacket — professional photo 4" },
   ],
 };
 
