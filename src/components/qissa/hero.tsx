@@ -14,16 +14,13 @@ const views = [
   { src: gallery4, alt: "Cuff and sleeve detail of the Velocità jacket" },
 ];
 
-const colours = [
-  { name: "Onyx", swatch: "oklch(0.2 0.002 0)" },
-  { name: "Tobacco", swatch: "oklch(0.5 0.06 60)" },
-  { name: "Bone", swatch: "oklch(0.91 0.014 82)" },
-];
 const sizes = ["XS", "S", "M", "L", "XL"];
 
 export function Hero() {
   const [active, setActive] = useState(0);
-  const [colour, setColour] = useState(colours[0]!.name);
+  const [customization, setCustomization] = useState("");
+  const [showSizeChart, setShowSizeChart] = useState(false);
+  const [sizeUnit, setSizeUnit] = useState<"inches" | "cm">("inches");
   const [size, setSize] = useState("M");
   const [qty, setQty] = useState(1);
   const [showBar, setShowBar] = useState(false);
@@ -45,7 +42,7 @@ export function Hero() {
   }, []);
 
   const addToBag = () => {
-    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile Textured", colour, size, price: 2500, qty });
+    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile Texture", colour: "Standard", size, price: 2500, qty, customization: customization.trim() });
     setShowAddedToast(true);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
     toastTimerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -64,7 +61,7 @@ export function Hero() {
             <div className="min-w-0 flex-1">
               <p className="eyebrow">Added to your bag</p>
               <p className="mt-2 truncate font-serif text-lg font-light">Velocità</p>
-              <p className="mt-1 text-xs tracking-wide text-muted-foreground">{colour} — Size {size} — Qty {qty}</p>
+              <p className="mt-1 text-xs tracking-wide text-muted-foreground">Size {size} — Qty {qty}</p>
             </div>
             <Link to="/bag" onClick={() => setShowAddedToast(false)} className="eyebrow link-underline shrink-0 text-foreground">View Bag</Link>
             <button type="button" aria-label="Dismiss added to bag message" onClick={() => setShowAddedToast(false)} className="self-start text-lg leading-none text-muted-foreground transition-colors hover:text-foreground">×</button>
@@ -82,16 +79,45 @@ export function Hero() {
           <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">Black Crocodile Texture</h1>
           <p className="mt-5 text-base tracking-wide">₹ 2500</p>
           <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">A racing silhouette drawn in glove-soft lambskin.<br />Made in limited numbers, made to age well.</p>
-          <div className="mt-14"><p className="eyebrow">Colour — {colour}</p><div className="mt-5 flex gap-4">{colours.map((c) => <button key={c.name} onClick={() => setColour(c.name)} aria-label={c.name} className={`h-7 w-7 rounded-full transition-all duration-500 ${colour === c.name ? "ring-1 ring-foreground ring-offset-4 ring-offset-background" : "opacity-70 hover:opacity-100"}`} style={{ backgroundColor: c.swatch }} />)}</div></div>
+          <div className="mt-12">
+            <div className="flex flex-wrap gap-3">
+              <button type="button" onClick={() => setShowSizeChart(true)} className="eyebrow border border-foreground px-5 py-4 transition-colors duration-500 hover:bg-foreground hover:text-primary-foreground">View Size Chart</button>
+              <button type="button" onClick={() => document.getElementById("velocita-customization")?.focus()} className="eyebrow border border-border px-5 py-4 transition-colors duration-500 hover:border-foreground">Customize</button>
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">Rates may differ depending on the customization requested.</p>
+            <label htmlFor="velocita-customization" className="eyebrow mt-6 block">Your customization</label>
+            <textarea id="velocita-customization" value={customization} onChange={(event) => setCustomization(event.target.value)} maxLength={1000} rows={3} placeholder="Describe any changes you'd like on your jacket…" className="mt-3 w-full resize-y border border-border bg-transparent p-4 text-sm leading-relaxed outline-none transition-colors focus:border-foreground" />
+          </div>
           <div className="mt-12"><p className="eyebrow">Size</p><div className="mt-5 flex flex-wrap gap-7">{sizes.map((s) => <button key={s} onClick={() => setSize(s)} className={`text-sm tracking-[0.14em] transition-colors duration-500 ${size === s ? "text-foreground underline decoration-1 underline-offset-[6px]" : "text-muted-foreground hover:text-foreground"}`}>{s}</button>)}</div></div>
           <div className="mt-12"><p className="eyebrow">Quantity</p><div className="mt-5 flex items-center gap-7 text-sm"><button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity" className="text-muted-foreground transition-colors hover:text-foreground">—</button><span className="tracking-[0.14em]">{qty}</span><button onClick={() => setQty((q) => Math.min(9, q + 1))} aria-label="Increase quantity" className="text-muted-foreground transition-colors hover:text-foreground">+</button></div></div>
           <button onClick={addToBag} className="lift eyebrow mt-14 w-full bg-foreground py-5 text-center !text-primary-foreground hover:bg-accent">Add to Bag</button>
           <button onClick={addToBag} className="eyebrow link-underline mt-8 text-foreground">Add to Wishlist</button>
         </div>
       </div>
+
+      {showSizeChart && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-foreground/50 p-4" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setShowSizeChart(false); }}>
+          <section role="dialog" aria-modal="true" aria-labelledby="velocita-size-chart-title" className="max-h-[85vh] w-full max-w-3xl overflow-auto border border-border bg-background p-5 sm:p-8">
+            <div className="flex items-start justify-between gap-4">
+              <div><p className="eyebrow">QISSAA</p><h2 id="velocita-size-chart-title" className="display mt-2 text-3xl sm:text-4xl">Size Guide</h2></div>
+              <button type="button" onClick={() => setShowSizeChart(false)} aria-label="Close size chart" className="text-2xl">×</button>
+            </div>
+            <div className="mx-auto my-6 flex w-fit overflow-hidden rounded-full border border-border">
+              {(["inches", "cm"] as const).map((unit) => <button key={unit} type="button" onClick={() => setSizeUnit(unit)} className={`px-6 py-2 eyebrow transition-colors ${sizeUnit === unit ? "bg-foreground text-primary-foreground" : "hover:bg-secondary"}`}>{unit === "inches" ? "Inches" : "CM"}</button>)}
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[480px] border-collapse text-center text-sm">
+                <thead className="bg-foreground text-primary-foreground"><tr>{["Size", "Chest", "Shoulder", "Length"].map((label) => <th key={label} className="px-4 py-4 font-normal">{label}</th>)}</tr></thead>
+                <tbody>{[["XS",38,18,25],["S",40,19,25.5],["M",42,20,26],["L",44,21,26.5],["XL",46,22,27],["XXL",48,23,27.5]].map(([label,chest,shoulder,length], index) => <tr key={label} className={index % 2 ? "bg-secondary/50" : "bg-background"}><td className="px-4 py-4 font-medium">{label}</td>{[chest,shoulder,length].map((value, i) => <td key={i} className="px-4 py-4">{sizeUnit === "inches" ? value : (Number(value) * 2.54).toFixed(1).replace(/\.0$/, "")}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">Measurements are a guide. For a tailored fit, mention your requirements in Customize.</p>
+          </section>
+        </div>
+      )}
       <div ref={endRef} />
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 backdrop-blur-xl transition-all duration-700 ${showBar ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"}`}>
-        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile Texture</p><p className="eyebrow mt-1 truncate">{colour} — {size} — ₹ 2,500</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
+        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile Texture</p><p className="eyebrow mt-1 truncate">{size} — ₹ 2,500</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
       </div>
     </section>
   );
