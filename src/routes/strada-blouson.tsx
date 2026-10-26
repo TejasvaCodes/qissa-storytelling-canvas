@@ -10,7 +10,7 @@ const product = {
   name: "Porsche Green",
   category: "Jacket",
   number: "03",
-  price: 2500,
+  price: 2610,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
     { src: rel2, alt: "QISSAA Porsche Green editorial view" },
