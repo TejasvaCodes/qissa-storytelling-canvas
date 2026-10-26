@@ -61,7 +61,7 @@ function BagPage() {
       const { orderNumber } = await createOrder({
         data: {
           customer: details,
-          items: items.map((item) => ({ id: item.id, name: item.name, colour: item.colour, size: item.size, price: item.price, qty: item.qty })),
+          items: items.map((item) => ({ id: item.id, name: item.name, colour: item.colour, size: item.size, price: item.price, qty: item.qty, customization: item.customization ?? "" })),
           subtotal,
         },
       });
@@ -123,7 +123,7 @@ function BagPage() {
               ) : (
                 <ul>{items.map((item) => <li key={`${item.id}-${item.colour}-${item.size}`} data-reveal className="reveal grid grid-cols-[104px_1fr] gap-8 border-t border-border py-10 sm:grid-cols-[140px_1fr]">
                   <div className="zoom-frame bg-secondary"><img src={item.img} alt={item.name} loading="lazy" width={560} height={700} className="aspect-[4/5] w-full object-cover" /></div>
-                  <div className="flex flex-col justify-between gap-8"><div className="flex items-start justify-between gap-6"><div><p className="font-serif text-xl font-light">{item.name}</p><p className="eyebrow mt-3">{item.colour} — Size {item.size}</p></div><p className="shrink-0 text-sm tracking-wide">{inr(item.price * item.qty)}</p></div><div className="flex items-center justify-between gap-6"><div className="flex items-center gap-6 text-sm"><button aria-label={`Decrease quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, -1)} className="text-muted-foreground transition-colors hover:text-foreground">—</button><span className="tracking-[0.14em]">{item.qty}</span><button aria-label={`Increase quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, 1)} className="text-muted-foreground transition-colors hover:text-foreground">+</button></div><button onClick={() => removeItem(item.id, item.size)} className="eyebrow link-underline text-foreground">Remove</button></div></div>
+                  <div className="flex flex-col justify-between gap-8"><div className="flex items-start justify-between gap-6"><div><p className="font-serif text-xl font-light">{item.name}</p><p className="eyebrow mt-3">{item.colour} — Size {item.size}</p>{item.customization?.trim() && <p className="mt-3 max-w-[48ch] whitespace-pre-wrap text-xs leading-relaxed text-muted-foreground">Customization: {item.customization}</p>}</div><p className="shrink-0 text-sm tracking-wide">{inr(item.price * item.qty)}</p></div><div className="flex items-center justify-between gap-6"><div className="flex items-center gap-6 text-sm"><button aria-label={`Decrease quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, -1)} className="text-muted-foreground transition-colors hover:text-foreground">—</button><span className="tracking-[0.14em]">{item.qty}</span><button aria-label={`Increase quantity of ${item.name}`} onClick={() => setQuantity(item.id, item.size, 1)} className="text-muted-foreground transition-colors hover:text-foreground">+</button></div><button onClick={() => removeItem(item.id, item.size)} className="eyebrow link-underline text-foreground">Remove</button></div></div>
                 </li>)}</ul>
               )}
             </div>
