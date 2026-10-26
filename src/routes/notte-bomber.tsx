@@ -11,6 +11,7 @@ const product = {
   category: "Jacket",
   number: "02",
   price: 2610,
+  originalPrice: 4300,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
     { src: rel1, alt: "QISSAA Marlboro Red editorial view" },
