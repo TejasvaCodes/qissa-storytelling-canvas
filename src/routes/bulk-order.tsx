@@ -9,10 +9,10 @@ import { saveBulkOrderEnquiry } from "@/lib/save-enquiry.server";
 export const Route = createFileRoute("/bulk-order")({
   head: () => ({
     meta: [
-      { title: "Bulk & Trade Enquiries — QISSA" },
+      { title: "Bulk & Trade Enquiries — QISSAA" },
       {
         name: "description",
-        content: "Enquire about QISSA bulk orders, trade quantities and delivery timelines.",
+        content: "Enquire about QISSAA bulk orders, trade quantities and delivery timelines.",
       },
     ],
   }),
@@ -47,7 +47,7 @@ function BulkOrderPage() {
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "");
   const whatsappMessage = encodeURIComponent(
     [
-      "Hello QISSA, I'd like to make a bulk / trade enquiry.",
+      "Hello QISSAA, I'd like to make a bulk / trade enquiry.",
       `Contact name: ${form.contactName}`,
       `Business: ${form.businessName || "Not provided"}`,
       `Email: ${form.email}`,
@@ -82,13 +82,13 @@ function BulkOrderPage() {
       <main>
         <section className="pt-40 md:pt-56">
           <div className="shell">
-            <p data-reveal className="reveal eyebrow">QISSA · Trade & Partnerships</p>
+            <p data-reveal className="reveal eyebrow">QISSAA · Trade & Partnerships</p>
             <h1 data-reveal className="reveal display mt-8 max-w-[14ch] text-[2.8rem] md:text-[5rem]">
               A larger story, together.
             </h1>
             <p data-reveal className="reveal mt-10 max-w-[54ch] leading-[2] text-muted-foreground">
               For boutiques, retailers, stylists and businesses interested in a considered
-              quantity of QISSA pieces. Share a few details so we can understand your brief.
+              quantity of QISSAA pieces. Share a few details so we can understand your brief.
             </p>
           </div>
         </section>
