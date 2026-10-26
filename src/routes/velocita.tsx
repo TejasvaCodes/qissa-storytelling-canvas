@@ -12,19 +12,19 @@ import {
   Newsletter,
   Philosophy,
   Story,
-} from "@/components/qissa/sections";
+} from "@/components/qissaa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/velocita")({
   head: () => ({
     meta: [
-      { title: "Velocità Leather Jacket — QISSA" },
+      { title: "Velocità Leather Jacket — QISSAA" },
       {
         name: "description",
         content:
-          "The Velocità jacket: glove-soft lambskin drawn from motorsport heritage, made in limited numbers by the Qissa atelier.",
+          "The Velocità jacket: glove-soft lambskin drawn from motorsport heritage, made in limited numbers by the Qissaa atelier.",
       },
-      { property: "og:title", content: "Velocità Leather Jacket — QISSA" },
+      { property: "og:title", content: "Velocità Leather Jacket — QISSAA" },
       {
         property: "og:description",
         content:
