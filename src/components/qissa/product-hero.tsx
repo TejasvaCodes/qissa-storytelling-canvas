@@ -30,6 +30,7 @@ export function ProductHero({ product }: { product: ProductConfig }) {
   const [showBar, setShowBar] = useState(false);
   const [showAddedToast, setShowAddedToast] = useState(false);
   const [showSizeChart, setShowSizeChart] = useState(false);
+  const [sizeChartUnit, setSizeChartUnit] = useState<"inches" | "cm">("inches");
   const endRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { addItem } = useCart();
@@ -81,20 +82,27 @@ export function ProductHero({ product }: { product: ProductConfig }) {
           <button onClick={addToBag} className="eyebrow link-underline mt-8 text-foreground">Add to Wishlist</button>
         </div>
       </div>
-      {showSizeChart && <div className="fixed inset-0 z-[70] flex items-center justify-center bg-foreground/50 p-4" role="presentation" onClick={() => setShowSizeChart(false)}>
-        <section role="dialog" aria-modal="true" aria-labelledby="size-chart-title" className="relative w-full max-w-xl border border-border bg-background p-6 shadow-2xl md:p-9" onClick={(event) => event.stopPropagation()}>
-          <button type="button" aria-label="Close size chart" onClick={() => setShowSizeChart(false)} className="absolute right-5 top-4 text-2xl leading-none text-muted-foreground hover:text-foreground">×</button>
-          <p className="eyebrow">QISSAA Atelier</p>
-          <h2 id="size-chart-title" className="display mt-3 text-3xl">Size Chart</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Use this general guide to help choose your size. Measurements are body measurements in inches; fit may vary by style.</p>
-          <div className="mt-7 overflow-x-auto">
-            <table className="w-full border-collapse text-left text-sm">
-              <thead><tr className="border-b border-border"><th className="py-3 pr-4 font-normal text-muted-foreground">Size</th><th className="px-3 py-3 font-normal text-muted-foreground">Chest</th><th className="px-3 py-3 font-normal text-muted-foreground">Waist</th><th className="px-3 py-3 font-normal text-muted-foreground">Hip</th></tr></thead>
-              <tbody>{[["XS","34–36","28–30","34–36"],["S","36–38","30–32","36–38"],["M","38–40","32–34","38–40"],["L","40–42","34–36","40–42"],["XL","42–44","36–38","42–44"]].map((row) => <tr key={row[0]} className="border-b border-border/70"><th className="py-3 pr-4 font-medium">{row[0]}</th>{row.slice(1).map((value) => <td key={value} className="px-3 py-3 text-muted-foreground">{value}</td>)}</tr>)}</tbody>
-            </table>
+      {showSizeChart && <div className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-[#06182d]/70 p-3 sm:p-6" role="presentation" onClick={() => setShowSizeChart(false)}>
+        <section role="dialog" aria-modal="true" aria-labelledby="size-chart-title" className="relative my-auto w-full max-w-5xl border border-[#c6a15b] bg-[#ead8bb] text-[#071a32] shadow-2xl" onClick={(event) => event.stopPropagation()}>
+          <button type="button" aria-label="Close size chart" onClick={() => setShowSizeChart(false)} className="absolute right-4 top-3 z-10 text-3xl leading-none text-[#071a32]/70 transition-colors hover:text-[#071a32]">×</button>
+          <div className="px-4 pb-5 pt-8 text-center sm:px-8 sm:pt-10">
+            <p className="font-serif text-5xl tracking-[0.08em] sm:text-7xl">QISSAA</p>
+            <h2 id="size-chart-title" className="mt-2 text-sm font-semibold tracking-[0.42em] sm:text-lg">SIZE GUIDE</h2>
+            <div className="mx-auto mt-4 h-px w-24 bg-[#c6a15b]" />
+            <div className="mx-auto mt-5 inline-flex overflow-hidden rounded-full border border-[#b79555]">
+              <button type="button" onClick={() => setSizeChartUnit("inches")} aria-pressed={sizeChartUnit === "inches"} className={`min-w-28 px-5 py-2 text-xs tracking-[0.12em] transition-colors sm:min-w-36 sm:text-sm ${sizeChartUnit === "inches" ? "bg-[#071a32] text-[#e8c37a]" : "text-[#071a32] hover:bg-[#dfc8a5]"}`}>INCHES</button>
+              <button type="button" onClick={() => setSizeChartUnit("cm")} aria-pressed={sizeChartUnit === "cm"} className={`min-w-28 border-l border-[#b79555] px-5 py-2 text-xs tracking-[0.12em] transition-colors sm:min-w-36 sm:text-sm ${sizeChartUnit === "cm" ? "bg-[#071a32] text-[#e8c37a]" : "text-[#071a32] hover:bg-[#dfc8a5]"}`}>CM</button>
+            </div>
           </div>
-          <p className="mt-5 text-xs leading-relaxed text-muted-foreground">Between sizes? Choose the larger size for a more relaxed fit. For product-specific sizing help, contact us before ordering.</p>
-          <button type="button" onClick={() => setShowSizeChart(false)} className="lift eyebrow mt-6 w-full bg-foreground py-4 text-primary-foreground">Done</button>
+          <div className="px-3 pb-5 sm:px-6 sm:pb-7">
+            <div className="overflow-x-auto border border-[#c6a15b]">
+              <table className="w-full min-w-[520px] border-collapse text-center">
+                <thead className="bg-[#071a32] text-[#e8c37a]"><tr><th className="px-4 py-4 text-left text-sm font-medium sm:px-6 sm:py-5 sm:text-base">SIZE</th><th className="px-3 py-4 text-sm font-medium sm:py-5 sm:text-base">Chest</th><th className="px-3 py-4 text-sm font-medium sm:py-5 sm:text-base">Shoulder</th><th className="px-3 py-4 text-sm font-medium sm:py-5 sm:text-base">Length</th></tr></thead>
+                <tbody>{[["XS",38,18,25],["S",40,19,25.5],["M",42,20,26],["L",44,21,26.5],["XL",46,22,27],["XXL",48,23,27.5]].map((row, index) => <tr key={row[0]} className={index % 2 === 0 ? "bg-[#e3cfb0]" : "bg-[#f0dfc5]"}><th className="px-4 py-3 text-left font-serif text-xl font-normal sm:px-6 sm:py-4 sm:text-2xl">{row[0]}</th>{row.slice(1).map((value, i) => <td key={i} className="px-3 py-3 text-base sm:py-4 sm:text-lg">{sizeChartUnit === "cm" ? (Number(value) * 2.54).toFixed(1) : value}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-center text-xs leading-relaxed text-[#071a32]/75">Measurements are garment measurements. {sizeChartUnit === "inches" ? "All values are in inches." : "All values are in centimetres (cm)."}</p>
+          </div>
         </section>
       </div>}
       <div ref={endRef} />
