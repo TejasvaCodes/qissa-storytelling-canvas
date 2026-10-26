@@ -15,8 +15,8 @@ type CartContextValue = {
   itemCount: number;
   subtotal: number;
   addItem: (item: Omit<CartItem, "qty"> & { qty?: number }) => void;
-  setQuantity: (id: string, size: string, delta: number) => void;
-  removeItem: (id: string, size: string) => void;
+  setQuantity: (id: string, size: string, delta: number, customization?: string) => void;
+  removeItem: (id: string, size: string, customization?: string) => void;
   clear: () => void;
 };
 
@@ -58,10 +58,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       });
     };
 
-    const setQuantity: CartContextValue["setQuantity"] = (id, size, delta) => {
+    const setQuantity: CartContextValue["setQuantity"] = (id, size, delta, customization = "") => {
       setItems((current) =>
         current
-          .map((item) => (item.id === id && item.size === size ? { ...item, qty: Math.min(9, Math.max(0, item.qty + delta)) } : item))
+          .map((item) => (item.id === id && item.size === size && (item.customization ?? "") === customization ? { ...item, qty: Math.min(9, Math.max(0, item.qty + delta)) } : item))
           .filter((item) => item.qty > 0),
       );
     };
