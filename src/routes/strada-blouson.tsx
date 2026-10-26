@@ -7,13 +7,13 @@ import lifeCity from "@/assets/life-city.jpg";
 
 const product = {
   id: "strada-blouson",
-  name: "Strada Blouson",
-  category: "Outerwear",
+  name: "Porsche Green",
+  category: "Jacket",
   number: "03",
-  price: 39500,
-  description: "A clean blouson with a relaxed shoulder and understated hardware, designed for everyday movement.",
+  price: 2500,
+  description: "A statement jacket designed to bring character to your everyday look.",
   views: [
-    { src: rel2, alt: "QISSAA Strada Blouson editorial view" },
+    { src: rel2, alt: "QISSAA Porsche Green editorial view" },
     { src: rel3, alt: "QISSAA Strada Blouson detail" },
     { src: gallery3, alt: "QISSAA Strada Blouson back detail" },
     { src: lifeCity, alt: "QISSAA Strada Blouson in the city" },
@@ -22,9 +22,9 @@ const product = {
 
 export const Route = createFileRoute("/strada-blouson")({
   head: () => ({ meta: [
-    { title: "Strada Blouson — QISSAA" },
-    { name: "description", content: "The Strada Blouson by QISSAA — considered leather outerwear made in limited numbers." },
-    { property: "og:title", content: "Strada Blouson — QISSAA" },
+    { title: "Porsche Green — QISSAA" },
+    { name: "description", content: "Porsche Green jacket by QISSAA." },
+    { property: "og:title", content: "Porsche Green — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
