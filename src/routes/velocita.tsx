@@ -4,7 +4,6 @@ import { Nav } from "@/components/qissa/nav";
 import { Hero } from "@/components/qissa/hero";
 import {
   CareAndService,
-  CompleteStory,
   Footer,
   Lifestyle,
   Newsletter,
@@ -44,7 +43,6 @@ function Index() {
         <Hero />
         <Lifestyle />
         <CareAndService />
-        <CompleteStory />
         <Philosophy />
         <Newsletter />
       </main>
