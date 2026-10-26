@@ -59,11 +59,6 @@ function HomePage() {
             className="h-[92vh] w-full object-cover"
           />
           <div className="absolute inset-0 bg-onyx/25" />
-          <Link to="/collections" aria-label="Shop Freshers Fiesta 2K26 sale" className="absolute right-5 top-28 z-10 flex h-28 w-28 rotate-6 flex-col items-center justify-center rounded-full border border-[#c8a66e]/70 bg-[#090909]/65 p-3 text-center text-[#f3e5ce] shadow-[0_0_35px_rgba(198,163,107,0.18)] backdrop-blur-sm transition-transform duration-500 hover:rotate-0 hover:scale-105 md:right-[8%] md:top-32 md:h-36 md:w-36">
-            <span className="text-[8px] uppercase tracking-[0.22em] text-[#d7c1a0]">Opening sale</span>
-            <span className="mt-1 bg-gradient-to-r from-[#f7e8c8] via-[#8eb8df] to-[#d2a66b] bg-clip-text font-serif text-lg leading-tight text-transparent md:text-xl">Freshers<br />Fiesta</span>
-            <span className="mt-1 text-[9px] font-semibold tracking-[0.2em]">2K26 ✦</span>
-          </Link>
           <div className="absolute inset-x-0 bottom-0 pb-16 md:pb-24">
             <div className="shell">
               <p className="eyebrow !text-background/80">Autumn / Winter — Chapter II</p>
