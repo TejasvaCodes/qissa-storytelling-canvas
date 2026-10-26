@@ -43,7 +43,7 @@ const bulkOrderSchema = z.object({
 });
 
 export const saveCustomOrderEnquiry = createServerFn({ method: "POST" })
-  .validator(customOrderSchema)
+  .inputValidator(customOrderSchema)
   .handler(async ({ data }) => {
     const db = getPool();
     await db.query(`
@@ -70,7 +70,7 @@ export const saveCustomOrderEnquiry = createServerFn({ method: "POST" })
   });
 
 export const saveBulkOrderEnquiry = createServerFn({ method: "POST" })
-  .validator(bulkOrderSchema)
+  .inputValidator(bulkOrderSchema)
   .handler(async ({ data }) => {
     const db = getPool();
     await db.query(`

@@ -45,7 +45,7 @@ function getPool() {
 }
 
 export const createOrder = createServerFn({ method: "POST" })
-  .validator(createOrderInput)
+  .inputValidator(createOrderInput)
   .handler(async ({ data }) => {
     const calculatedSubtotalRupees = data.items.reduce((sum, item) => sum + item.price * item.qty, 0);
     if (calculatedSubtotalRupees !== data.subtotal) {
