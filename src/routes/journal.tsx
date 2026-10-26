@@ -27,27 +27,27 @@ export const Route = createFileRoute("/journal")({
 const entries = [
   {
     number: "01",
-    tag: "THE HOUSE",
-    title: "Why we chose to begin with a story.",
-    body: "QISSAA was never meant to be a collection of objects that simply look good in photographs. We wanted to make pieces that gather evidence of the lives lived in them.",
+    tag: "OUR STORY",
+    title: "Style is personal.",
+    body: "Trends come and go. Personal style stays with you. It lives in the jacket you reach for, the colours you return to and the details that feel unmistakably yours. The best outfit is the one that feels like you.",
     image: lifeCity,
-    label: "Read the story",
+    label: "Wear it your way",
   },
   {
     number: "02",
-    tag: "THE MATERIAL",
-    title: "A surface that gets better with time.",
-    body: "Leather remembers. Light changes it, movement softens it and years give it a character that cannot be designed on a screen.",
+    tag: "THE STATEMENT PIECE",
+    title: "Some pieces speak for themselves.",
+    body: "A great jacket can change the feel of an outfit. From motorsport-inspired designs to distinctive textures and classic silhouettes, find the fit, material and details that express your personality.",
     image: craftDark,
-    label: "Inside the atelier",
+    label: "Find your fit",
   },
   {
     number: "03",
-    tag: "IN MOTION",
-    title: "Clothes are made for the life outside the frame.",
-    body: "A good garment should disappear when you wear it and become part of the way you move through a city, a night or a season.",
+    tag: "THE EVERYDAY EDIT",
+    title: "The pieces you keep coming back to.",
+    body: "A well-chosen Henley. A comfortable fit. A colour that works with almost everything. Everyday essentials make getting dressed feel effortless—and give your personal style room to grow.",
     image: lifeMotion,
-    label: "Continue reading",
+    label: "Explore the collection",
   },
 ];
 
@@ -76,7 +76,7 @@ function JournalPage() {
               data-reveal
               className="reveal display mt-8 max-w-[10ch] text-[4.4rem] leading-[0.88] text-background md:text-[8.5rem]"
             >
-              Stories worth wearing.
+              Wear your story.
             </h1>
             <div className="mt-14 flex flex-wrap items-end justify-between gap-10 border-t border-background/20 pt-7">
               <p data-reveal className="reveal max-w-[48ch] leading-[1.9] text-background/70">
@@ -90,13 +90,13 @@ function JournalPage() {
         {/* Introduction */}
         <section className="py-28 md:py-48">
           <div className="shell grid gap-12 lg:grid-cols-12">
-            <p data-reveal className="reveal eyebrow lg:col-span-3">An introduction</p>
+            <p data-reveal className="reveal eyebrow lg:col-span-3">THE QISSAA POINT OF VIEW</p>
             <div data-reveal className="reveal lg:col-span-8 lg:col-start-5">
               <h2 className="display text-[2.6rem] leading-[1.15] md:text-[4.6rem]">
-                Not a blog. Not a catalogue. A place for everything around the garment.
+                More than clothes. A way to express yourself.
               </h2>
               <p className="mt-10 max-w-[52ch] leading-[2] text-muted-foreground">
-                The Journal is where QISSAA slows down. Here, we keep the references, materials, places and thoughts that shape each chapter. Some stories begin with a jacket. Others have nothing to do with one.
+                QISSAA brings together thoughtful designs, versatile styles and quality materials for a generation that wants to look good, feel confident and make its own choices. No fixed rules. No single definition of style. Just clothing that lets you be yourself.
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@ function JournalPage() {
           <div className="shell">
             <p data-reveal className="reveal eyebrow !text-background/50">A note to keep</p>
             <blockquote data-reveal className="reveal display mt-10 max-w-[17ch] text-[3.2rem] leading-[1.05] md:mt-16 md:text-[6.2rem]">
-              “The best things do not stay new. They become yours.”
+              “Wear what you love. Make it your own.”
             </blockquote>
             <p className="eyebrow mt-14 !text-background/50">— QISSAA</p>
           </div>
@@ -160,7 +160,7 @@ function JournalPage() {
             <div className="shell">
               <p className="eyebrow !text-background/70">THE NEXT CHAPTER</p>
               <h2 className="display mt-6 max-w-[13ch] text-[3rem] text-background md:text-[5.5rem]">
-                Still being written.
+                Your style. Your story. Your QISSAA.
               </h2>
               <Link
                 to="/collections"
