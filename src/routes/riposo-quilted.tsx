@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/qissa/product-page";
-import rel4 from "@/assets/rel-4.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import lifeMotion from "@/assets/life-motion.jpg";
-import matLining from "@/assets/mat-lining.jpg";
+import main from "../../BH main.jpeg";
+import back from "../../BH back.jpeg";
+import pf1 from "../../BH pf1.jpeg";
+import pf2 from "../../BH pf2.jpeg";
 
 const product = {
   id: "riposo-quilted",
@@ -13,10 +13,10 @@ const product = {
   price: 899,
   description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
-    { src: rel4, alt: "QISSAA Black Henley editorial view" },
-    { src: gallery2, alt: "QISSAA Riposo Quilted detail" },
-    { src: lifeMotion, alt: "QISSAA Riposo Quilted in motion" },
-    { src: matLining, alt: "QISSAA Riposo Quilted lining detail" },
+    { src: main, alt: "Black Henley — front" },
+    { src: back, alt: "Black Henley — back" },
+    { src: pf1, alt: "Black Henley — professional photo 1" },
+    { src: pf2, alt: "Black Henley — professional photo 2" },
   ],
 };
 
