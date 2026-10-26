@@ -23,6 +23,13 @@ export function Nav() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,padding] duration-700 ${solid ? "bg-background/80 py-4 backdrop-blur-xl md:py-5" : "bg-transparent py-6 md:py-9"}`}>
+      <Link to="/collections" className="group flex min-h-9 items-center justify-center gap-3 border-b border-[#b89562]/30 bg-[#090909] px-3 text-center text-[#f3e5ce] transition-colors hover:bg-[#17130e]">
+        <span className="hidden text-[9px] uppercase tracking-[0.22em] text-[#d8c4a5]/80 sm:inline">New season. Same stories.</span>
+        <span aria-hidden="true" className="text-[#c6a36b]">✦</span>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.18em] sm:text-xs">Freshers Fiesta <span className="bg-gradient-to-r from-[#f6e8c9] via-[#7ea9d4] to-[#c89b60] bg-clip-text text-transparent">2K26</span></span>
+        <span aria-hidden="true" className="text-[#c6a36b]">✦</span>
+        <span className="hidden text-[9px] uppercase tracking-[0.2em] sm:inline">Up to 53% off</span>
+      </Link>
       <div className="shell flex items-center justify-center md:justify-between">
         <nav className={`hidden flex-1 items-center gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
           {left.map((l) => <Link key={l.label} to={l.to} tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>{l.label}</Link>)}
