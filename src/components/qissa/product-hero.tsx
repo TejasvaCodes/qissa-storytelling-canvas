@@ -73,7 +73,7 @@ export function ProductHero({ product }: { product: ProductConfig }) {
         <div className="order-2 flex gap-3 overflow-x-auto lg:order-1 lg:flex-col lg:overflow-visible">
           {product.views.map((v, i) => <button key={v.alt} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)} aria-label={v.alt} className={`w-[68px] shrink-0 transition-opacity duration-500 lg:w-full ${active === i ? "opacity-100" : "opacity-45 hover:opacity-80"}`}><img src={v.src} alt={v.alt} loading="lazy" width={800} height={1008} className="h-[86px] w-full object-cover lg:h-[100px]" /></button>)}
         </div>
-        <div className="order-1 lg:order-2"><div className="relative bg-secondary">{product.originalPrice && }{product.views.map((v, i) => <img key={v.alt} src={v.src} alt={v.alt} width={1408} height={1760} className={`h-[70vh] w-full object-cover transition-opacity duration-[900ms] md:h-[86vh] ${active === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`} />)}</div></div>
+        <div className="order-1 lg:order-2"><div className="relative bg-secondary">{product.views.map((v, i) => <img key={v.alt} src={v.src} alt={v.alt} width={1408} height={1760} className={`h-[70vh] w-full object-cover transition-opacity duration-[900ms] md:h-[86vh] ${active === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`} />)}</div></div>
         <div className="order-3 lg:pt-6">
           <p className="eyebrow">{product.category} — {product.number}</p>
           <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">{product.name}</h1>

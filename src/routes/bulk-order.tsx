@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
-import { saveBulkOrderEnquiry } from "@/lib/save-enquiry.server";
+import { saveBulkOrderEnquiry } from "@/lib/save-enquiry.functions";
 
 export const Route = createFileRoute("/bulk-order")({
   head: () => ({
