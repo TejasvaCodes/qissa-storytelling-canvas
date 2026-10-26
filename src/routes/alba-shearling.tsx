@@ -7,13 +7,13 @@ import craftDark from "@/assets/craft-dark.jpg";
 
 const product = {
   id: "alba-shearling",
-  name: "Alba Shearling",
-  category: "Shearling",
+  name: "Black Ferrari",
+  category: "Jacket",
   number: "04",
-  price: 68000,
-  description: "A substantial shearling layer with a soft hand and generous proportion, made for cold mornings and long drives.",
+  price: 2500,
+  description: "A statement jacket designed to bring character to your everyday look.",
   views: [
-    { src: rel3, alt: "QISSAA Alba Shearling editorial view" },
+    { src: rel3, alt: "QISSAA Black Ferrari editorial view" },
     { src: rel4, alt: "QISSAA Alba Shearling detail" },
     { src: lifeLegacy, alt: "QISSAA Alba Shearling beside a vintage car" },
     { src: craftDark, alt: "QISSAA Alba Shearling material detail" },
@@ -22,9 +22,9 @@ const product = {
 
 export const Route = createFileRoute("/alba-shearling")({
   head: () => ({ meta: [
-    { title: "Alba Shearling — QISSAA" },
-    { name: "description", content: "The Alba Shearling by QISSAA — a considered shearling layer made in limited numbers." },
-    { property: "og:title", content: "Alba Shearling — QISSAA" },
+    { title: "Black Ferrari — QISSAA" },
+    { name: "description", content: "Black Ferrari jacket by QISSAA." },
+    { property: "og:title", content: "Black Ferrari — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
