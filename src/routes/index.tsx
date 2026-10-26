@@ -142,17 +142,16 @@ function HomePage() {
             <div data-reveal className="reveal">
               <p className="eyebrow">The Atelier</p>
               <h2 className="display mt-8 text-[2.2rem] text-background md:text-[3.4rem]">
-                Ninety hours, one jacket.
+                Made to be worn. Made to be remembered.
               </h2>
               <p className="mt-10 max-w-[40ch] leading-[2] text-background/60">
-                Every panel is cut by hand, every lining set by a single maker. We finish nothing
-                until it feels inevitable.
+                Thoughtful design, considered details, and versatile pieces made to bring character to your everyday wardrobe.
               </p>
               <Link
-                to="/velocita"
+                to="/collections"
                 className="eyebrow link-underline mt-14 inline-block !text-background"
               >
-                Read the Making
+                Explore the Collection
               </Link>
             </div>
           </div>
