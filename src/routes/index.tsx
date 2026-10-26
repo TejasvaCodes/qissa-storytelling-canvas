@@ -9,9 +9,10 @@ import craftDark from "@/assets/craft-dark.jpg";
 import lifeCity from "@/assets/life-city.jpg";
 import lifeMotion from "@/assets/life-motion.jpg";
 import lifeLegacy from "@/assets/life-legacy.jpg";
-import rel1 from "@/assets/rel-1.jpg";
-import rel3 from "@/assets/rel-3.jpg";
-import rel4 from "@/assets/rel-4.jpg";
+import bcjMain from "../../BCJ main.jpeg";
+import bfjMain from "../../BFJ main.jpeg";
+import mrjMain from "../../MRJ main.jpeg";
+import bhMain from "../../BH main.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,10 +37,10 @@ export const Route = createFileRoute("/")({
 });
 
 const featured = [
-  { img: heroMain, name: "Velocità", price: "₹ 48,000", to: "/velocita" as const },
-  { img: rel3, name: "Alba Shearling", price: "₹ 68,000" },
-  { img: rel1, name: "Notte Bomber", price: "₹ 42,000" },
-  { img: rel4, name: "Riposo Quilted", price: "₹ 44,000" },
+  { img: bcjMain, name: "Black Crocodile Jacket", price: "₹ 2,599", to: "/velocita" as const },
+  { img: bfjMain, name: "Black Ferrari Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
+  { img: mrjMain, name: "Marlboro Red Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
+  { img: bhMain, name: "Black Henley", price: "₹ 899", to: "/riposo-quilted" as const },
 ];
 
 function HomePage() {
@@ -75,7 +76,7 @@ function HomePage() {
                   to="/velocita"
                   className="eyebrow link-underline self-center !text-background"
                 >
-                  The Velocità Jacket
+                  The Black Crocodile Jacket
                 </Link>
               </div>
             </div>
