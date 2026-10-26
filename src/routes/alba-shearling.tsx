@@ -11,6 +11,7 @@ const product = {
   category: "Jacket",
   number: "04",
   price: 2610,
+  originalPrice: 4300,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
     { src: rel3, alt: "QISSAA Black Ferrari editorial view" },
