@@ -16,13 +16,13 @@ import rel4 from "@/assets/rel-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "QISSA — Wear Your Story." },
+      { title: "QISSAA — Wear Your Story." },
       {
         name: "description",
         content:
-          "QISSA makes leather outerwear in limited numbers — cut by hand, made to be lived in. Discover the Autumn/Winter collection.",
+          "QISSAA makes leather outerwear in limited numbers — cut by hand, made to be lived in. Discover the Autumn/Winter collection.",
       },
-      { property: "og:title", content: "QISSA — Wear Your Story." },
+      { property: "og:title", content: "QISSAA — Wear Your Story." },
       {
         property: "og:description",
         content:
@@ -52,7 +52,7 @@ function HomePage() {
         <section className="relative">
           <img
             src={heroMain}
-            alt="QISSA leather outerwear, Autumn/Winter campaign"
+            alt="QISSAA leather outerwear, Autumn/Winter campaign"
             width={1408}
             height={1760}
             className="h-[92vh] w-full object-cover"
@@ -88,7 +88,7 @@ function HomePage() {
               data-reveal
               className="reveal display max-w-[26ch] text-[1.9rem] leading-[1.35] md:text-[3rem]"
             >
-              Qissa means story. We make a small number of garments each season, in leather that
+              Qissaa means story. We make a small number of garments each season, in leather that
               takes years to look its best.
             </h2>
           </div>
