@@ -8,10 +8,10 @@ import gallery4 from "@/assets/gallery-4.jpg";
 import { useCart } from "@/lib/cart";
 
 const views = [
-  { src: heroMain, alt: "QISSAA Velocità leather jacket, front view" },
-  { src: gallery2, alt: "Collar and zipper detail of the Velocità jacket" },
-  { src: gallery3, alt: "Back view of the Velocità jacket" },
-  { src: gallery4, alt: "Cuff and sleeve detail of the Velocità jacket" },
+  { src: heroMain, alt: "QISSAA Black Crocodile leather jacket, front view" },
+  { src: gallery2, alt: "Collar and zipper detail of the Black Crocodile jacket" },
+  { src: gallery3, alt: "Back view of the Black Crocodile jacket" },
+  { src: gallery4, alt: "Cuff and sleeve detail of the Black Crocodile jacket" },
 ];
 
 const sizes = ["XS", "S", "M", "L", "XL"];
@@ -42,7 +42,7 @@ export function Hero() {
   }, []);
 
   const addToBag = () => {
-    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile Texture", colour: "Standard", size, price: 2500, qty, customization: customization.trim() });
+    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile", colour: "Standard", size, price: 2500, qty, customization: customization.trim() });
     setShowAddedToast(true);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
     toastTimerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -60,7 +60,7 @@ export function Hero() {
             <img src={heroMain} alt="" width={72} height={90} className="h-[72px] w-[58px] shrink-0 object-cover" />
             <div className="min-w-0 flex-1">
               <p className="eyebrow">Added to your bag</p>
-              <p className="mt-2 truncate font-serif text-lg font-light">Velocità</p>
+              <p className="mt-2 truncate font-serif text-lg font-light">Black Crocodile</p>
               <p className="mt-1 text-xs tracking-wide text-muted-foreground">Size {size} — Qty {qty}</p>
             </div>
             <Link to="/bag" onClick={() => setShowAddedToast(false)} className="eyebrow link-underline shrink-0 text-foreground">View Bag</Link>
@@ -75,10 +75,10 @@ export function Hero() {
         </div>
         <div className="order-1 lg:order-2"><div className="relative bg-secondary">{views.map((v, i) => <img key={v.alt} src={v.src} alt={v.alt} width={1408} height={1760} className={`h-[70vh] w-full object-cover transition-opacity duration-[900ms] md:h-[86vh] ${active === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`} />)}</div></div>
         <div className="order-3 lg:pt-6">
-          <p className="eyebrow">Outerwear — 01</p>
-          <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">Black Crocodile Texture</h1>
+          <p className="eyebrow">Jacket — 01</p>
+          <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">Black Crocodile</h1>
           <p className="mt-5 text-base tracking-wide">₹ 2500</p>
-          <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">A racing silhouette drawn in glove-soft lambskin.<br />Made in limited numbers, made to age well.</p>
+          <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">A statement jacket designed to bring character to your everyday look.<br />Made in limited numbers, made to age well.</p>
           <div className="mt-12">
             <div className="flex flex-wrap gap-3">
               <button type="button" onClick={() => setShowSizeChart(true)} className="eyebrow border border-foreground px-5 py-4 transition-colors duration-500 hover:bg-foreground hover:text-primary-foreground">View Size Chart</button>
@@ -117,7 +117,7 @@ export function Hero() {
       )}
       <div ref={endRef} />
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 backdrop-blur-xl transition-all duration-700 ${showBar ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"}`}>
-        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile Texture</p><p className="eyebrow mt-1 truncate">{size} — ₹ 2,500</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
+        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile</p><p className="eyebrow mt-1 truncate">{size} — ₹ 2,500</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
       </div>
     </section>
   );
