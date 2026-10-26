@@ -10,7 +10,7 @@ const product = {
   name: "Half white Henley",
   category: "Henley",
   number: "08",
-  price: 900,
+  price: 899,
   description: "A short-sleeve Henley essential for easy, everyday styling.",
   views: [
     { src: lifeCity, alt: "QISSAA Half white Henley in the city" },
