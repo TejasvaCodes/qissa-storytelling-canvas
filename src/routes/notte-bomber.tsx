@@ -13,18 +13,18 @@ const product = {
   price: 42000,
   description: "A compact bomber silhouette in supple leather, cut for evenings that run longer than planned.",
   views: [
-    { src: rel1, alt: "QISSA Notte Bomber editorial view" },
-    { src: rel2, alt: "QISSA Notte Bomber detail" },
-    { src: lifeNight, alt: "QISSA Notte Bomber at night" },
-    { src: gallery4, alt: "QISSA Notte Bomber sleeve detail" },
+    { src: rel1, alt: "QISSAA Notte Bomber editorial view" },
+    { src: rel2, alt: "QISSAA Notte Bomber detail" },
+    { src: lifeNight, alt: "QISSAA Notte Bomber at night" },
+    { src: gallery4, alt: "QISSAA Notte Bomber sleeve detail" },
   ],
 };
 
 export const Route = createFileRoute("/notte-bomber")({
   head: () => ({ meta: [
-    { title: "Notte Bomber — QISSA" },
-    { name: "description", content: "The Notte Bomber by QISSA — considered leather outerwear made in limited numbers." },
-    { property: "og:title", content: "Notte Bomber — QISSA" },
+    { title: "Notte Bomber — QISSAA" },
+    { name: "description", content: "The Notte Bomber by QISSAA — considered leather outerwear made in limited numbers." },
+    { property: "og:title", content: "Notte Bomber — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
