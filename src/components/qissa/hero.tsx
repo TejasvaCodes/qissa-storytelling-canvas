@@ -1,17 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 
-import heroMain from "@/assets/hero-main.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
+import main from "../../../BCJ main.jpeg";
+import back from "../../../BCJ back.jpeg";
+import pf1 from "../../../BCJ pf1.jpeg";
+import pf2 from "../../../BCJ pf2.jpeg";
+import pf3 from "../../../BCJ pf3.jpeg";
+import pf4 from "../../../BCJ pf4.jpeg";
 import { useCart } from "@/lib/cart";
 
 const views = [
-  { src: heroMain, alt: "QISSAA Black Crocodile leather jacket, front view" },
-  { src: gallery2, alt: "Collar and zipper detail of the Black Crocodile jacket" },
-  { src: gallery3, alt: "Back view of the Black Crocodile jacket" },
-  { src: gallery4, alt: "Cuff and sleeve detail of the Black Crocodile jacket" },
+  { src: main, alt: "Black Crocodile Jacket — front" },
+  { src: back, alt: "Black Crocodile Jacket — back" },
+  { src: pf1, alt: "Black Crocodile Jacket — professional photo 1" },
+  { src: pf2, alt: "Black Crocodile Jacket — professional photo 2" },
+  { src: pf3, alt: "Black Crocodile Jacket — professional photo 3" },
+  { src: pf4, alt: "Black Crocodile Jacket — professional photo 4" },
 ];
 
 const sizes = ["XS", "S", "M", "L", "XL"];
@@ -42,7 +46,7 @@ export function Hero() {
   }, []);
 
   const addToBag = () => {
-    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile", colour: "Standard", size, price: 2599, qty, customization: customization.trim() });
+    addItem({ id: "BCT", img: main, name: "Black Crocodile", colour: "Standard", size, price: 2599, qty, customization: customization.trim() });
     setShowAddedToast(true);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
     toastTimerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -57,7 +61,7 @@ export function Hero() {
       >
         <div className="border border-border bg-background/95 p-3 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-4">
-            <img src={heroMain} alt="" width={72} height={90} className="h-[72px] w-[58px] shrink-0 object-cover" />
+            <img src={main} alt="" width={72} height={90} className="h-[72px] w-[58px] shrink-0 object-cover" />
             <div className="min-w-0 flex-1">
               <p className="eyebrow">Added to your bag</p>
               <p className="mt-2 truncate font-serif text-lg font-light">Black Crocodile</p>
