@@ -8,7 +8,7 @@ const orderItemSchema = z.object({
   colour: z.string().min(1),
   size: z.string().min(1),
   price: z.number().int().nonnegative(),
-  qty: z.number().int().min(1).max(9),
+  qty: z.number().int().min(1).max(9),\n  customization: z.string().max(1000).optional().default(""),
 });
 
 const customerSchema = z.object({
@@ -56,7 +56,7 @@ export const createOrder = createServerFn({ method: "POST" })
     const client = await db.connect();
 
     try {
-      await client.query("BEGIN");
+      await client.query("BEGIN");\n      await client.query("ALTER TABLE order_items ADD COLUMN IF NOT EXISTS customization text");
 
       const orderResult = await client.query<{ id: string; order_number: string }>(
         `INSERT INTO orders
@@ -84,7 +84,7 @@ export const createOrder = createServerFn({ method: "POST" })
           `INSERT INTO order_items
             (order_id, product_id, product_name, colour, size, quantity, unit_price_paise, line_total_paise)
            VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
-          [order.id, item.id, item.name, item.colour, item.size, item.qty, unitPricePaise, unitPricePaise * item.qty],
+          [order.id, item.id, item.name, item.colour, item.size, item.qty, unitPricePaise, unitPricePaise * item.qty, item.customization ?? ""],
         );
       }
 
