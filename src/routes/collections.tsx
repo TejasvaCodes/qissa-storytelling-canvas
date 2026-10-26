@@ -65,6 +65,7 @@ function CollectionsPage() {
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
+                  <span className="mt-3 inline-flex items-center gap-1 border border-[#b89562]/50 bg-[#11100e] px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-[#ead6b5]">✦ Freshers Fiesta 2K26</span>
                   <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : p.cat === "Henley" ? "₹ 1,900" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" ? <span className="text-xs text-muted-foreground">Save ₹1,701</span> : p.cat === "Henley" ? <span className="text-xs text-muted-foreground">Save ₹1,000</span> : null}</div>
                 </Link>
               ))}
