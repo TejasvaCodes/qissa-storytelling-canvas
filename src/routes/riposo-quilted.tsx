@@ -13,18 +13,18 @@ const product = {
   price: 44000,
   description: "A lightweight quilted layer with a quiet sheen, balancing warmth, movement and an easy everyday silhouette.",
   views: [
-    { src: rel4, alt: "QISSA Riposo Quilted editorial view" },
-    { src: gallery2, alt: "QISSA Riposo Quilted detail" },
-    { src: lifeMotion, alt: "QISSA Riposo Quilted in motion" },
-    { src: matLining, alt: "QISSA Riposo Quilted lining detail" },
+    { src: rel4, alt: "QISSAA Riposo Quilted editorial view" },
+    { src: gallery2, alt: "QISSAA Riposo Quilted detail" },
+    { src: lifeMotion, alt: "QISSAA Riposo Quilted in motion" },
+    { src: matLining, alt: "QISSAA Riposo Quilted lining detail" },
   ],
 };
 
 export const Route = createFileRoute("/riposo-quilted")({
   head: () => ({ meta: [
-    { title: "Riposo Quilted — QISSA" },
-    { name: "description", content: "The Riposo Quilted jacket by QISSA — considered outerwear made in limited numbers." },
-    { property: "og:title", content: "Riposo Quilted — QISSA" },
+    { title: "Riposo Quilted — QISSAA" },
+    { name: "description", content: "The Riposo Quilted jacket by QISSAA — considered outerwear made in limited numbers." },
+    { property: "og:title", content: "Riposo Quilted — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
