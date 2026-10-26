@@ -9,9 +9,9 @@ import { useReveal } from "@/hooks/use-reveal";
 export const Route = createFileRoute("/bag")({
   head: () => ({
     meta: [
-      { title: "Your Bag — QISSA" },
-      { name: "description", content: "Review your QISSA selection and continue to secure WhatsApp checkout." },
-      { property: "og:title", content: "Your Bag — QISSA" },
+      { title: "Your Bag — QISSAA" },
+      { name: "description", content: "Review your QISSAA selection and continue to secure WhatsApp checkout." },
+      { property: "og:title", content: "Your Bag — QISSAA" },
       { property: "og:description", content: "Review your selection and continue to WhatsApp checkout." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -75,7 +75,7 @@ function BagPage() {
       ].join("\n"));
 
       const message = [
-        `Hi QISSA, I'd like to place order ${orderNumber}.`,
+        `Hi QISSAA, I'd like to place order ${orderNumber}.`,
         "",
         "ORDER SUMMARY",
         "────────────────",
@@ -134,12 +134,12 @@ function BagPage() {
               {items.length > 0 && !showDetails && <button onClick={() => setShowDetails(true)} className="lift eyebrow mt-12 w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent">Continue to Delivery</button>}
               {items.length > 0 && showDetails && (
                 <form onSubmit={checkoutOnWhatsApp} className="mt-10 space-y-7">
-                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">Your details are saved to the QISSA order record when you submit. We never ask for your password here.</p></div>
+                  <div><p className="eyebrow mb-5">Delivery Details</p><p className="text-xs leading-relaxed text-muted-foreground">Your details are saved to the QISSAA order record when you submit. We never ask for your password here.</p></div>
                   {(["name", "phone", "email", "address", "city", "state", "pincode"] as const).map((field) => (
                     <label key={field} className="block"><span className="eyebrow">{field === "pincode" ? "Pincode" : field === "phone" ? "WhatsApp / Phone" : field.charAt(0).toUpperCase() + field.slice(1)}</span><input required value={details[field]} onChange={(e) => update(field, e.target.value)} type={field === "email" ? "email" : field === "phone" || field === "pincode" ? "tel" : "text"} inputMode={field === "phone" || field === "pincode" ? "numeric" : undefined} className="mt-3 w-full border-b border-border bg-transparent py-3 text-sm tracking-wide outline-none transition-colors focus:border-accent" /></label>
                   ))}
                   {checkoutError && <p role="alert" className="text-xs leading-relaxed text-red-700">{checkoutError}</p>}
-                  {orderCreated && <p role="status" className="border border-border bg-background p-4 text-xs leading-relaxed text-foreground">Order <strong>{orderCreated}</strong> was saved successfully in the QISSA database. WhatsApp is not connected yet, so your bag has been kept intact for testing.</p>}
+                  {orderCreated && <p role="status" className="border border-border bg-background p-4 text-xs leading-relaxed text-foreground">Order <strong>{orderCreated}</strong> was saved successfully in the QISSAA database. WhatsApp is not connected yet, so your bag has been kept intact for testing.</p>}
                   <button type="submit" disabled={!validDetails || submitting} className="lift eyebrow w-full bg-foreground py-5 !text-primary-foreground hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40">{submitting ? "Creating Order…" : orderCreated ? "Create Another Test Order" : "Continue to WhatsApp"}</button>
                   <button type="button" onClick={() => setShowDetails(false)} disabled={submitting} className="eyebrow link-underline text-foreground disabled:opacity-40">Back to summary</button>
                 </form>
