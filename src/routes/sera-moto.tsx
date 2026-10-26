@@ -10,7 +10,7 @@ const product = {
   name: "White Henley",
   category: "Henley",
   number: "06",
-  price: 900,
+  price: 899,
   description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
     { src: gallery2, alt: "QISSAA White Henley editorial view" },
