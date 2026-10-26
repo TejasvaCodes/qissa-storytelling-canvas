@@ -8,7 +8,7 @@ import gallery4 from "@/assets/gallery-4.jpg";
 import { useCart } from "@/lib/cart";
 
 const views = [
-  { src: heroMain, alt: "QISSA Velocità leather jacket, front view" },
+  { src: heroMain, alt: "QISSAA Velocità leather jacket, front view" },
   { src: gallery2, alt: "Collar and zipper detail of the Velocità jacket" },
   { src: gallery3, alt: "Back view of the Velocità jacket" },
   { src: gallery4, alt: "Cuff and sleeve detail of the Velocità jacket" },
