@@ -13,18 +13,18 @@ const product = {
   price: 74000,
   description: "A long-form leather coat with an elongated line and quiet presence, kept from the archive for those who prefer depth over novelty.",
   views: [
-    { src: lifeNight, alt: "QISSA Mezzanotte Coat at night" },
-    { src: lifeLegacy, alt: "QISSA Mezzanotte Coat beside a vintage car" },
-    { src: story, alt: "QISSA Mezzanotte Coat editorial portrait" },
-    { src: fit, alt: "QISSA Mezzanotte Coat full length" },
+    { src: lifeNight, alt: "QISSAA Mezzanotte Coat at night" },
+    { src: lifeLegacy, alt: "QISSAA Mezzanotte Coat beside a vintage car" },
+    { src: story, alt: "QISSAA Mezzanotte Coat editorial portrait" },
+    { src: fit, alt: "QISSAA Mezzanotte Coat full length" },
   ],
 };
 
 export const Route = createFileRoute("/mezzanotte-coat")({
   head: () => ({ meta: [
-    { title: "Mezzanotte Coat — QISSA" },
-    { name: "description", content: "The Mezzanotte Coat by QISSA — an archive leather coat made in limited numbers." },
-    { property: "og:title", content: "Mezzanotte Coat — QISSA" },
+    { title: "Mezzanotte Coat — QISSAA" },
+    { name: "description", content: "The Mezzanotte Coat by QISSAA — an archive leather coat made in limited numbers." },
+    { property: "og:title", content: "Mezzanotte Coat — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
