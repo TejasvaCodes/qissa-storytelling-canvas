@@ -42,7 +42,7 @@ export function Hero() {
   }, []);
 
   const addToBag = () => {
-    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile", colour: "Standard", size, price: 2610, qty, customization: customization.trim() });
+    addItem({ id: "BCT", img: heroMain, name: "Black Crocodile", colour: "Standard", size, price: 2599, qty, customization: customization.trim() });
     setShowAddedToast(true);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
     toastTimerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -77,7 +77,7 @@ export function Hero() {
         <div className="order-3 lg:pt-6">
           <p className="eyebrow">Jacket — 01</p>
           <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">Black Crocodile</h1>
-          <div className="mt-5 flex flex-wrap items-baseline gap-3 text-base tracking-wide"><span className="text-muted-foreground line-through">₹ 4,300</span><span>₹ 2,610</span><span className="text-xs text-muted-foreground">30% off + ₹400 extra</span></div><p className="mt-2 text-xs text-muted-foreground">Opening Sale · In collaboration with VESIT 2026 Freshers</p>
+          <div className="mt-5 flex flex-wrap items-baseline gap-3 text-base tracking-wide"><span className="text-muted-foreground line-through">₹ 4,300</span><span>₹ 2,599</span><span className="text-xs text-muted-foreground">Save ₹1,701</span></div><p className="mt-2 text-xs text-muted-foreground">Opening Sale · In collaboration with VESIT 2026 Freshers</p>
           <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">A statement jacket designed to bring character to your everyday look.<br />Made in limited numbers, made to age well.</p>
           <div className="mt-12">
             <div className="flex flex-wrap gap-3">
@@ -117,7 +117,7 @@ export function Hero() {
       )}
       <div ref={endRef} />
       <div className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 backdrop-blur-xl transition-all duration-700 ${showBar ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"}`}>
-        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile</p><p className="eyebrow mt-1 truncate">{size} — ₹ 2,500</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
+        <div className="shell flex items-center justify-between gap-6 py-4"><div className="min-w-0"><p className="font-serif text-xl font-light">Black Crocodile</p><p className="eyebrow mt-1 truncate">{size} — ₹ 2,599</p></div><button onClick={addToBag} className="lift eyebrow shrink-0 bg-foreground px-8 py-4 !text-primary-foreground hover:bg-accent">Add to Bag</button></div>
       </div>
     </section>
   );
