@@ -13,18 +13,18 @@ const product = {
   price: 68000,
   description: "A substantial shearling layer with a soft hand and generous proportion, made for cold mornings and long drives.",
   views: [
-    { src: rel3, alt: "QISSA Alba Shearling editorial view" },
-    { src: rel4, alt: "QISSA Alba Shearling detail" },
-    { src: lifeLegacy, alt: "QISSA Alba Shearling beside a vintage car" },
-    { src: craftDark, alt: "QISSA Alba Shearling material detail" },
+    { src: rel3, alt: "QISSAA Alba Shearling editorial view" },
+    { src: rel4, alt: "QISSAA Alba Shearling detail" },
+    { src: lifeLegacy, alt: "QISSAA Alba Shearling beside a vintage car" },
+    { src: craftDark, alt: "QISSAA Alba Shearling material detail" },
   ],
 };
 
 export const Route = createFileRoute("/alba-shearling")({
   head: () => ({ meta: [
-    { title: "Alba Shearling — QISSA" },
-    { name: "description", content: "The Alba Shearling by QISSA — a considered shearling layer made in limited numbers." },
-    { property: "og:title", content: "Alba Shearling — QISSA" },
+    { title: "Alba Shearling — QISSAA" },
+    { name: "description", content: "The Alba Shearling by QISSAA — a considered shearling layer made in limited numbers." },
+    { property: "og:title", content: "Alba Shearling — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
