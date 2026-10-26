@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/qissa/nav";
 import { Hero } from "@/components/qissa/hero";
 import {
-  CareAndService,
   Footer,
   Lifestyle,
   Newsletter,
@@ -17,14 +16,12 @@ export const Route = createFileRoute("/velocita")({
       { title: "Black Crocodile — QISSAA" },
       {
         name: "description",
-        content:
-          "Black Crocodile jacket by QISSAA.",
+        content: "Black Crocodile jacket by QISSAA.",
       },
       { property: "og:title", content: "Black Crocodile — QISSAA" },
       {
         property: "og:description",
-        content:
-          "A statement jacket designed to bring character to your everyday look.",
+        content: "A statement jacket designed to bring character to your everyday look.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -42,7 +39,6 @@ function Index() {
       <main>
         <Hero />
         <Lifestyle />
-        <CareAndService />
         <Philosophy />
         <Newsletter />
       </main>
