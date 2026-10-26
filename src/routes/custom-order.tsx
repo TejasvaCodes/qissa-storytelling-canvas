@@ -9,10 +9,10 @@ import { saveCustomOrderEnquiry } from "@/lib/save-enquiry.server";
 export const Route = createFileRoute("/custom-order")({
   head: () => ({
     meta: [
-      { title: "Custom Order — QISSA" },
+      { title: "Custom Order — QISSAA" },
       {
         name: "description",
-        content: "Create a QISSA piece shaped around your fit, colour and personal story.",
+        content: "Create a QISSAA piece shaped around your fit, colour and personal story.",
       },
     ],
   }),
@@ -45,7 +45,7 @@ function CustomOrderPage() {
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "");
   const whatsappMessage = encodeURIComponent(
     [
-      "Hello QISSA, I'd like to discuss a custom order.",
+      "Hello QISSAA, I'd like to discuss a custom order.",
       `Name: ${form.name}`,
       `Email: ${form.email}`,
       `WhatsApp: ${form.whatsapp}`,
@@ -79,7 +79,7 @@ function CustomOrderPage() {
       <main>
         <section className="pt-40 md:pt-56">
           <div className="shell">
-            <p data-reveal className="reveal eyebrow">The QISSA Atelier · Made Personal</p>
+            <p data-reveal className="reveal eyebrow">The QISSAA Atelier · Made Personal</p>
             <h1 data-reveal className="reveal display mt-8 max-w-[13ch] text-[2.8rem] md:text-[5rem]">
               A piece that tells your story.
             </h1>
