@@ -27,8 +27,6 @@ export const Route = createFileRoute("/collections")({
   component: CollectionsPage,
 });
 
-const filters = ["All", "Outerwear", "Shearling", "Quilted", "Archive"];
-
 const pieces = [
   { img: heroMain, name: "Velocità", cat: "Outerwear", price: "₹ 48,000", to: "/velocita" as const },
   { img: rel1, name: "Notte Bomber", cat: "Outerwear", price: "₹ 42,000", to: "/notte-bomber" as const },
@@ -59,11 +57,7 @@ function CollectionsPage() {
 
         <section className="mt-24 md:mt-32">
           <div className="shell">
-            <div className="flex flex-wrap gap-8 border-b border-border pb-6">
-              {filters.map((f, i) => <button key={f} className={`eyebrow transition-colors duration-500 ${i === 0 ? "!text-foreground" : "hover:!text-foreground"}`}>{f}</button>)}
-            </div>
-
-            <div className="mt-16 grid gap-x-8 gap-y-20 sm:grid-cols-2 lg:grid-cols-3 md:mt-24">
+            <div className="mt-0 grid gap-x-8 gap-y-20 sm:grid-cols-2 lg:grid-cols-3">
               {pieces.map((p) => (
                 <Link key={p.name} to={p.to} data-reveal className="reveal group">
                   <div className="zoom-frame bg-secondary">
