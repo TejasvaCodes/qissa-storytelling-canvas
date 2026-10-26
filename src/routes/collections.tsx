@@ -12,7 +12,6 @@ import rel4 from "@/assets/rel-4.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import lifeNight from "@/assets/life-night.jpg";
 import lifeCity from "@/assets/life-city.jpg";
-import fit from "@/assets/fit.jpg";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -75,20 +74,6 @@ function CollectionsPage() {
                   <p className="mt-3 text-sm tracking-wide">{p.price}</p>
                 </Link>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-40 md:mt-64">
-          <div className="shell grid items-center gap-16 lg:grid-cols-2">
-            <div data-reveal className="reveal zoom-frame bg-secondary">
-              <img src={fit} alt="Model wearing a QISSA leather jacket, full length" loading="lazy" width={1200} height={1500} className="aspect-[4/5] w-full object-cover" />
-            </div>
-            <div data-reveal className="reveal">
-              <p className="eyebrow">Private Appointment</p>
-              <h2 className="display mt-8 text-[2.2rem] md:text-[3.2rem]">See the collection in person.</h2>
-              <p className="mt-10 max-w-[42ch] leading-[2] text-muted-foreground">Our atelier receives a small number of guests each week for fittings, alterations and archive viewings.</p>
-              <button className="lift eyebrow mt-14 bg-foreground px-10 py-5 !text-primary-foreground hover:bg-accent">Book an Appointment</button>
             </div>
           </div>
         </section>
