@@ -72,6 +72,9 @@ function BagPage() {
         `   Size: ${item.size}`,
         `   Qty: ${item.qty}`,
         `   Price: ${inr(item.price * item.qty)}`,
+        ...(item.customization?.trim()
+          ? [`   Customization: ${item.customization.trim()}`, "   Note: Customization may affect the final price."]
+          : []),
       ].join("\n"));
 
       const message = [
