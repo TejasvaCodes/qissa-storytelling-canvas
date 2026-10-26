@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/qissa/product-page";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import lifeNight from "@/assets/life-night.jpg";
+import main from "../../WH main.jpeg";
+import back from "../../WH back.jpeg";
+import pf1 from "../../WH pf1.jpeg";
 
 const product = {
   id: "sera-moto",
@@ -13,10 +12,9 @@ const product = {
   price: 899,
   description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
-    { src: gallery2, alt: "QISSAA White Henley editorial view" },
-    { src: gallery3, alt: "QISSAA Sera Moto back view" },
-    { src: gallery4, alt: "QISSAA Sera Moto cuff detail" },
-    { src: lifeNight, alt: "QISSAA Sera Moto at night" },
+    { src: main, alt: "White Henley — front" },
+    { src: back, alt: "White Henley — back" },
+    { src: pf1, alt: "White Henley — professional photo 1" },
   ],
 };
 
