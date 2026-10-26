@@ -28,7 +28,7 @@ export const Route = createFileRoute("/collections")({
 });
 
 const pieces = [
-  { img: heroMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,500", to: "/velocita" as const },
+  { img: heroMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,610", to: "/velocita" as const },
   { img: rel1, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,500", to: "/notte-bomber" as const },
   { img: rel2, name: "Porsche Green", cat: "Jacket", price: "₹ 2,500", to: "/strada-blouson" as const },
   { img: rel3, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,500", to: "/alba-shearling" as const },
@@ -47,10 +47,10 @@ function CollectionsPage() {
       <main>
         <section className="pt-40 md:pt-56">
           <div className="shell">
-            <p data-reveal className="reveal eyebrow">Autumn / Winter — Chapter II</p>
-            <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">The Collection</h1>
+            <p data-reveal className="reveal eyebrow">OPENING SALE · VESIT 2026 FRESHERS</p>
+            <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Opening Sale — VESIT 2026 Freshers</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Eight pieces, one QISSAA point of view: statement jackets and everyday Henleys, made to wear your story.
+              Celebrating our collaboration with VESIT 2026 Freshers. Jackets worth ₹4,300 are now ₹2,610 with 30% off plus an extra ₹400 off. Opening sale, limited-time pricing.
             </p>
           </div>
         </section>
@@ -65,7 +65,7 @@ function CollectionsPage() {
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
-                  <p className="mt-3 text-sm tracking-wide">{p.price}</p>
+                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" && <span className="text-xs text-muted-foreground">30% off + ₹400 extra</span>}</div>
                 </Link>
               ))}
             </div>
