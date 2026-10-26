@@ -30,6 +30,9 @@ export function ProductHero({ product }: { product: ProductConfig }) {
   const [showBar, setShowBar] = useState(false);
   const [showAddedToast, setShowAddedToast] = useState(false);
   const [showSizeChart, setShowSizeChart] = useState(false);
+  const [showCustomize, setShowCustomize] = useState(false);
+  const [customization, setCustomization] = useState("");
+  const [savedCustomization, setSavedCustomization] = useState("");
   const [sizeChartUnit, setSizeChartUnit] = useState<"inches" | "cm">("inches");
   const endRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -46,7 +49,7 @@ export function ProductHero({ product }: { product: ProductConfig }) {
   useEffect(() => () => timerRef.current && clearTimeout(timerRef.current), []);
 
   const addToBag = () => {
-    addItem({ id: product.id, img: product.views[0]!.src, name: product.name, colour, size, price: product.price, qty });
+    addItem({ id: product.id, img: product.views[0]!.src, name: product.name, colour, size, price: product.price, qty, customization: savedCustomization });
     setShowAddedToast(true);
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -75,13 +78,14 @@ export function ProductHero({ product }: { product: ProductConfig }) {
           <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">{product.name}</h1>
           <p className="mt-5 text-base tracking-wide">₹ {product.price.toLocaleString("en-IN")}</p>
           <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-          <div className="mt-14"><button type="button" onClick={() => setShowSizeChart(true)} className="eyebrow border border-foreground px-6 py-4 transition-colors duration-500 hover:bg-foreground hover:text-primary-foreground">View Size Chart</button></div>
+          <div className="mt-14 flex flex-wrap gap-3"><button type="button" onClick={() => setShowSizeChart(true)} className="eyebrow border border-foreground px-5 py-4 transition-colors duration-500 hover:bg-foreground hover:text-primary-foreground">View Size Chart</button><button type="button" onClick={() => { setCustomization(savedCustomization); setShowCustomize(true); }} className="eyebrow border border-border px-5 py-4 transition-colors duration-500 hover:border-foreground">{savedCustomization ? "Edit Customization" : "Customize"}</button></div><p className="mt-3 text-xs leading-relaxed text-muted-foreground">Rates may differ depending on the customization requested.</p>
           <div className="mt-12"><p className="eyebrow">Size</p><div className="mt-5 flex flex-wrap gap-7">{sizes.map((s) => <button key={s} onClick={() => setSize(s)} className={`text-sm tracking-[0.14em] transition-colors duration-500 ${size === s ? "text-foreground underline decoration-1 underline-offset-[6px]" : "text-muted-foreground hover:text-foreground"}`}>{s}</button>)}</div></div>
           <div className="mt-12"><p className="eyebrow">Quantity</p><div className="mt-5 flex items-center gap-7 text-sm"><button onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity">—</button><span className="tracking-[0.14em]">{qty}</span><button onClick={() => setQty((q) => Math.min(9, q + 1))} aria-label="Increase quantity">+</button></div></div>
           <button onClick={addToBag} className="lift eyebrow mt-14 w-full bg-foreground py-5 text-center !text-primary-foreground hover:bg-accent">Add to Bag</button>
           <button onClick={addToBag} className="eyebrow link-underline mt-8 text-foreground">Add to Wishlist</button>
         </div>
       </div>
+      {showCustomize && <div className="fixed inset-0 z-[75] flex items-center justify-center bg-foreground/60 p-4" role="presentation" onClick={() => setShowCustomize(false)}><section role="dialog" aria-modal="true" aria-labelledby="customize-title" className="relative w-full max-w-xl border border-border bg-background p-6 text-foreground shadow-2xl sm:p-9" onClick={(event) => event.stopPropagation()}><button type="button" aria-label="Close customization" onClick={() => setShowCustomize(false)} className="absolute right-4 top-3 text-3xl leading-none text-muted-foreground hover:text-foreground">×</button><p className="eyebrow">Made personal</p><h2 id="customize-title" className="display mt-4 text-3xl sm:text-4xl">Customize your piece</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Tell us what you would like changed on this jacket. Our team will confirm feasibility and the final price before proceeding.</p><p className="mt-4 text-xs font-medium tracking-wide">Rates may differ depending on customization.</p><label className="mt-6 block"><span className="eyebrow">Your requirements</span><textarea value={customization} onChange={(event) => setCustomization(event.target.value)} maxLength={1000} rows={5} placeholder="e.g. sleeve length, fit, initials, patches, or a special design…" className="mt-3 w-full resize-y border border-border bg-transparent p-4 text-sm leading-relaxed outline-none transition-colors focus:border-foreground" /></label><p className="mt-2 text-right text-xs text-muted-foreground">{customization.length}/1000</p><div className="mt-6 flex flex-wrap gap-3"><button type="button" onClick={() => { setSavedCustomization(customization.trim()); setShowCustomize(false); }} className="lift eyebrow bg-foreground px-6 py-4 !text-primary-foreground hover:bg-accent">Save Customization</button>{savedCustomization && <button type="button" onClick={() => { setCustomization(""); setSavedCustomization(""); setShowCustomize(false); }} className="eyebrow border border-border px-5 py-4 hover:border-foreground">Remove</button>}</div></section></div>}
       {showSizeChart && <div className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-foreground/60 p-3 sm:p-5" role="presentation" onClick={() => setShowSizeChart(false)}>
         <section role="dialog" aria-modal="true" aria-labelledby="size-chart-title" className="relative my-auto w-full max-w-4xl border border-border bg-background text-foreground shadow-2xl" onClick={(event) => event.stopPropagation()}>
           <button type="button" aria-label="Close size chart" onClick={() => setShowSizeChart(false)} className="absolute right-4 top-3 z-10 text-3xl leading-none text-muted-foreground transition-colors hover:text-foreground">×</button>
