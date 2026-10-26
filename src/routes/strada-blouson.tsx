@@ -13,18 +13,18 @@ const product = {
   price: 39500,
   description: "A clean blouson with a relaxed shoulder and understated hardware, designed for everyday movement.",
   views: [
-    { src: rel2, alt: "QISSA Strada Blouson editorial view" },
-    { src: rel3, alt: "QISSA Strada Blouson detail" },
-    { src: gallery3, alt: "QISSA Strada Blouson back detail" },
-    { src: lifeCity, alt: "QISSA Strada Blouson in the city" },
+    { src: rel2, alt: "QISSAA Strada Blouson editorial view" },
+    { src: rel3, alt: "QISSAA Strada Blouson detail" },
+    { src: gallery3, alt: "QISSAA Strada Blouson back detail" },
+    { src: lifeCity, alt: "QISSAA Strada Blouson in the city" },
   ],
 };
 
 export const Route = createFileRoute("/strada-blouson")({
   head: () => ({ meta: [
-    { title: "Strada Blouson — QISSA" },
-    { name: "description", content: "The Strada Blouson by QISSA — considered leather outerwear made in limited numbers." },
-    { property: "og:title", content: "Strada Blouson — QISSA" },
+    { title: "Strada Blouson — QISSAA" },
+    { name: "description", content: "The Strada Blouson by QISSAA — considered leather outerwear made in limited numbers." },
+    { property: "og:title", content: "Strada Blouson — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
