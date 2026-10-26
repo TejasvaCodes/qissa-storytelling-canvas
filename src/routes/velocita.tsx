@@ -12,7 +12,7 @@ import {
   Newsletter,
   Philosophy,
   Story,
-} from "@/components/qissaa/sections";
+} from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/velocita")({
