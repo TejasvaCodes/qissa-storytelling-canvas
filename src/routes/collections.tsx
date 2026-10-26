@@ -16,9 +16,9 @@ import lifeCity from "@/assets/life-city.jpg";
 export const Route = createFileRoute("/collections")({
   head: () => ({
     meta: [
-      { title: "Collections — QISSA Leather Outerwear" },
-      { name: "description", content: "Browse the QISSA collection: leather outerwear, shearling and quilted pieces made in limited numbers by our atelier." },
-      { property: "og:title", content: "Collections — QISSA" },
+      { title: "Collections — QISSAA Leather Outerwear" },
+      { name: "description", content: "Browse the QISSAA collection: leather outerwear, shearling and quilted pieces made in limited numbers by our atelier." },
+      { property: "og:title", content: "Collections — QISSAA" },
       { property: "og:description", content: "Leather outerwear made in limited numbers. Wear Your Story." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
