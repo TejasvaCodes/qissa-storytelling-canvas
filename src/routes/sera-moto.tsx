@@ -13,18 +13,18 @@ const product = {
   price: 52000,
   description: "A sharper moto jacket with a sculpted line through the shoulder, built around the energy of the road after dark.",
   views: [
-    { src: gallery2, alt: "QISSA Sera Moto editorial view" },
-    { src: gallery3, alt: "QISSA Sera Moto back view" },
-    { src: gallery4, alt: "QISSA Sera Moto cuff detail" },
-    { src: lifeNight, alt: "QISSA Sera Moto at night" },
+    { src: gallery2, alt: "QISSAA Sera Moto editorial view" },
+    { src: gallery3, alt: "QISSAA Sera Moto back view" },
+    { src: gallery4, alt: "QISSAA Sera Moto cuff detail" },
+    { src: lifeNight, alt: "QISSAA Sera Moto at night" },
   ],
 };
 
 export const Route = createFileRoute("/sera-moto")({
   head: () => ({ meta: [
-    { title: "Sera Moto — QISSA" },
-    { name: "description", content: "The Sera Moto jacket by QISSA — motorsport-inspired leather outerwear made in limited numbers." },
-    { property: "og:title", content: "Sera Moto — QISSA" },
+    { title: "Sera Moto — QISSAA" },
+    { name: "description", content: "The Sera Moto jacket by QISSAA — motorsport-inspired leather outerwear made in limited numbers." },
+    { property: "og:title", content: "Sera Moto — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
