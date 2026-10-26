@@ -13,11 +13,11 @@ import lifeLegacy from "@/assets/life-legacy.jpg";
 export const Route = createFileRoute("/journal")({
   head: () => ({
     meta: [
-      { title: "Journal — QISSA" },
+      { title: "Journal — QISSAA" },
       {
         name: "description",
         content:
-          "Stories from QISSA — the places, materials and ideas behind what we make.",
+          "Stories from QISSAA — the places, materials and ideas behind what we make.",
       },
     ],
   }),
@@ -29,7 +29,7 @@ const entries = [
     number: "01",
     tag: "THE HOUSE",
     title: "Why we chose to begin with a story.",
-    body: "QISSA was never meant to be a collection of objects that simply look good in photographs. We wanted to make pieces that gather evidence of the lives lived in them.",
+    body: "QISSAA was never meant to be a collection of objects that simply look good in photographs. We wanted to make pieces that gather evidence of the lives lived in them.",
     image: lifeCity,
     label: "Read the story",
   },
@@ -63,14 +63,14 @@ function JournalPage() {
         <section className="relative min-h-screen bg-onyx text-background">
           <img
             src={heroMain}
-            alt="QISSA campaign"
+            alt="QISSAA campaign"
             className="absolute inset-0 h-full w-full object-cover opacity-55"
           />
           <div className="absolute inset-0 bg-onyx/55" />
 
           <div className="shell relative flex min-h-screen flex-col justify-end pb-16 pt-36 md:pb-24 md:pt-48">
             <p data-reveal className="reveal eyebrow !text-background/60">
-              QISSA / JOURNAL / VOL. 01
+              QISSAA / JOURNAL / VOL. 01
             </p>
             <h1
               data-reveal
@@ -96,7 +96,7 @@ function JournalPage() {
                 Not a blog. Not a catalogue. A place for everything around the garment.
               </h2>
               <p className="mt-10 max-w-[52ch] leading-[2] text-muted-foreground">
-                The Journal is where QISSA slows down. Here, we keep the references, materials, places and thoughts that shape each chapter. Some stories begin with a jacket. Others have nothing to do with one.
+                The Journal is where QISSAA slows down. Here, we keep the references, materials, places and thoughts that shape each chapter. Some stories begin with a jacket. Others have nothing to do with one.
               </p>
             </div>
           </div>
@@ -143,7 +143,7 @@ function JournalPage() {
             <blockquote data-reveal className="reveal display mt-10 max-w-[17ch] text-[3.2rem] leading-[1.05] md:mt-16 md:text-[6.2rem]">
               “The best things do not stay new. They become yours.”
             </blockquote>
-            <p className="eyebrow mt-14 !text-background/50">— QISSA</p>
+            <p className="eyebrow mt-14 !text-background/50">— QISSAA</p>
           </div>
         </section>
 
@@ -151,7 +151,7 @@ function JournalPage() {
         <section className="relative h-[70vh] md:h-screen">
           <img
             src={lifeLegacy}
-            alt="QISSA legacy story"
+            alt="QISSAA legacy story"
             loading="lazy"
             className="h-full w-full object-cover"
           />
