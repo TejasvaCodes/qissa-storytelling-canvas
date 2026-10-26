@@ -7,13 +7,13 @@ import lifeNight from "@/assets/life-night.jpg";
 
 const product = {
   id: "sera-moto",
-  name: "Sera Moto",
-  category: "Outerwear",
+  name: "White Henley",
+  category: "Henley",
   number: "06",
-  price: 52000,
-  description: "A sharper moto jacket with a sculpted line through the shoulder, built around the energy of the road after dark.",
+  price: 900,
+  description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
-    { src: gallery2, alt: "QISSAA Sera Moto editorial view" },
+    { src: gallery2, alt: "QISSAA White Henley editorial view" },
     { src: gallery3, alt: "QISSAA Sera Moto back view" },
     { src: gallery4, alt: "QISSAA Sera Moto cuff detail" },
     { src: lifeNight, alt: "QISSAA Sera Moto at night" },
@@ -22,9 +22,9 @@ const product = {
 
 export const Route = createFileRoute("/sera-moto")({
   head: () => ({ meta: [
-    { title: "Sera Moto — QISSAA" },
-    { name: "description", content: "The Sera Moto jacket by QISSAA — motorsport-inspired leather outerwear made in limited numbers." },
-    { property: "og:title", content: "Sera Moto — QISSAA" },
+    { title: "White Henley — QISSAA" },
+    { name: "description", content: "White Henley by QISSAA." },
+    { property: "og:title", content: "White Henley — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
