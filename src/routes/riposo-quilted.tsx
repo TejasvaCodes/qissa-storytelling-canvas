@@ -7,13 +7,13 @@ import matLining from "@/assets/mat-lining.jpg";
 
 const product = {
   id: "riposo-quilted",
-  name: "Riposo Quilted",
-  category: "Quilted",
+  name: "Black Henley",
+  category: "Henley",
   number: "05",
-  price: 44000,
-  description: "A lightweight quilted layer with a quiet sheen, balancing warmth, movement and an easy everyday silhouette.",
+  price: 900,
+  description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
-    { src: rel4, alt: "QISSAA Riposo Quilted editorial view" },
+    { src: rel4, alt: "QISSAA Black Henley editorial view" },
     { src: gallery2, alt: "QISSAA Riposo Quilted detail" },
     { src: lifeMotion, alt: "QISSAA Riposo Quilted in motion" },
     { src: matLining, alt: "QISSAA Riposo Quilted lining detail" },
@@ -22,9 +22,9 @@ const product = {
 
 export const Route = createFileRoute("/riposo-quilted")({
   head: () => ({ meta: [
-    { title: "Riposo Quilted — QISSAA" },
-    { name: "description", content: "The Riposo Quilted jacket by QISSAA — considered outerwear made in limited numbers." },
-    { property: "og:title", content: "Riposo Quilted — QISSAA" },
+    { title: "Black Henley — QISSAA" },
+    { name: "description", content: "Black Henley by QISSAA." },
+    { property: "og:title", content: "Black Henley — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
