@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/qissa/product-page";
-import rel2 from "@/assets/rel-2.jpg";
-import rel3 from "@/assets/rel-3.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import lifeCity from "@/assets/life-city.jpg";
+import main from "../../PGJ main.jpeg";
+import back from "../../PGJ back.jpeg";
+import pf1 from "../../PGJ pf1.jpeg";
 
 const product = {
   id: "strada-blouson",
@@ -14,10 +13,9 @@ const product = {
   originalPrice: 4300,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
-    { src: rel2, alt: "QISSAA Porsche Green editorial view" },
-    { src: rel3, alt: "QISSAA Strada Blouson detail" },
-    { src: gallery3, alt: "QISSAA Strada Blouson back detail" },
-    { src: lifeCity, alt: "QISSAA Strada Blouson in the city" },
+    { src: main, alt: "Porsche Green Jacket — front" },
+    { src: back, alt: "Porsche Green Jacket — back" },
+    { src: pf1, alt: "Porsche Green Jacket — professional photo 1" },
   ],
 };
 
