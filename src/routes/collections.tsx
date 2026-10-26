@@ -50,7 +50,7 @@ function CollectionsPage() {
             <p data-reveal className="reveal eyebrow">OPENING SALE · VESIT 2026 FRESHERS</p>
             <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Opening Sale — VESIT 2026 Freshers</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale: all jackets now ₹2,599 (down from ₹4,300 — you save ₹1,701). In collaboration with VESIT 2026 Freshers. Limited-time pricing.
+              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale with VESIT 2026 Freshers: jackets ₹2,599 (was ₹4,300) and Henleys ₹900 (was ₹1,900). Limited-time pricing.
             </p>
           </div>
         </section>
@@ -65,7 +65,7 @@ function CollectionsPage() {
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
-                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" && <span className="text-xs text-muted-foreground">Save ₹1,701</span>}</div>
+                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : p.cat === "Henley" ? "₹ 1,900" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" ? <span className="text-xs text-muted-foreground">Save ₹1,701</span> : p.cat === "Henley" ? <span className="text-xs text-muted-foreground">Save ₹1,000</span> : null}</div>
                 </Link>
               ))}
             </div>
