@@ -33,7 +33,7 @@ export function Nav() {
           <span className={`h-px w-5 bg-foreground transition-transform duration-300 ${menuOpen ? "-translate-y-[9px] -rotate-45" : ""}`} />
         </button>
         <Link to="/" aria-label="QISSA — Wear Your Story" onClick={() => setMenuOpen(false)} className="block w-[112px] shrink-0 overflow-hidden md:w-[148px]">
-          <img src="/qissa-logo.svg" alt="QISSA — Wear Your Story" className="h-auto w-full" />
+          <img src="/qissa-logo.svg" alt="QISSAA — Wear Your Story" className="h-auto w-full" />
         </Link>
         <nav className={`hidden flex-1 items-center justify-end gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
           <Link to="/bag" tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Bag ({itemCount})</Link>
