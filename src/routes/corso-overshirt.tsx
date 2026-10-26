@@ -7,13 +7,13 @@ import matHardware from "@/assets/mat-hardware.jpg";
 
 const product = {
   id: "corso-overshirt",
-  name: "Corso Overshirt",
-  category: "Archive",
+  name: "Half white Henley",
+  category: "Henley",
   number: "08",
-  price: 28000,
-  description: "An easy overshirt with a lighter construction, made to sit between a shirt and a jacket as the day moves on.",
+  price: 900,
+  description: "A short-sleeve Henley essential for easy, everyday styling.",
   views: [
-    { src: lifeCity, alt: "QISSAA Corso Overshirt in the city" },
+    { src: lifeCity, alt: "QISSAA Half white Henley in the city" },
     { src: gallery4, alt: "QISSAA Corso Overshirt detail" },
     { src: rel2, alt: "QISSAA Corso Overshirt editorial view" },
     { src: matHardware, alt: "QISSAA Corso Overshirt hardware detail" },
@@ -22,9 +22,9 @@ const product = {
 
 export const Route = createFileRoute("/corso-overshirt")({
   head: () => ({ meta: [
-    { title: "Corso Overshirt — QISSAA" },
-    { name: "description", content: "The Corso Overshirt by QISSAA — an easy archive layer made in limited numbers." },
-    { property: "og:title", content: "Corso Overshirt — QISSAA" },
+    { title: "Half white Henley — QISSAA" },
+    { name: "description", content: "Half white Henley by QISSAA." },
+    { property: "og:title", content: "Half white Henley — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
