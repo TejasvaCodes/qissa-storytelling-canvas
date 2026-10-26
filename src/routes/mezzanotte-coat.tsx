@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductPage } from "@/components/qissa/product-page";
-import lifeNight from "@/assets/life-night.jpg";
-import lifeLegacy from "@/assets/life-legacy.jpg";
-import story from "@/assets/story.jpg";
-import fit from "@/assets/fit.jpg";
+import main from "../../HBH main.jpeg";
+import back from "../../HBH back.jpeg";
 
 const product = {
   id: "mezzanotte-coat",
@@ -13,10 +11,8 @@ const product = {
   price: 899,
   description: "A short-sleeve Henley essential for easy, everyday styling.",
   views: [
-    { src: lifeNight, alt: "QISSAA Half black Henley at night" },
-    { src: lifeLegacy, alt: "QISSAA Mezzanotte Coat beside a vintage car" },
-    { src: story, alt: "QISSAA Mezzanotte Coat editorial portrait" },
-    { src: fit, alt: "QISSAA Mezzanotte Coat full length" },
+    { src: main, alt: "Half Black Henley — front" },
+    { src: back, alt: "Half Black Henley — back" },
   ],
 };
 
