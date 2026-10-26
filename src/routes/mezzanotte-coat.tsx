@@ -7,13 +7,13 @@ import fit from "@/assets/fit.jpg";
 
 const product = {
   id: "mezzanotte-coat",
-  name: "Mezzanotte Coat",
-  category: "Archive",
+  name: "Half black Henley",
+  category: "Henley",
   number: "07",
-  price: 74000,
-  description: "A long-form leather coat with an elongated line and quiet presence, kept from the archive for those who prefer depth over novelty.",
+  price: 900,
+  description: "A short-sleeve Henley essential for easy, everyday styling.",
   views: [
-    { src: lifeNight, alt: "QISSAA Mezzanotte Coat at night" },
+    { src: lifeNight, alt: "QISSAA Half black Henley at night" },
     { src: lifeLegacy, alt: "QISSAA Mezzanotte Coat beside a vintage car" },
     { src: story, alt: "QISSAA Mezzanotte Coat editorial portrait" },
     { src: fit, alt: "QISSAA Mezzanotte Coat full length" },
@@ -22,9 +22,9 @@ const product = {
 
 export const Route = createFileRoute("/mezzanotte-coat")({
   head: () => ({ meta: [
-    { title: "Mezzanotte Coat — QISSAA" },
-    { name: "description", content: "The Mezzanotte Coat by QISSAA — an archive leather coat made in limited numbers." },
-    { property: "og:title", content: "Mezzanotte Coat — QISSAA" },
+    { title: "Half black Henley — QISSAA" },
+    { name: "description", content: "Half black Henley by QISSAA." },
+    { property: "og:title", content: "Half black Henley — QISSAA" },
     { property: "og:type", content: "product" },
   ] }),
   component: () => <ProductPage product={product} />,
