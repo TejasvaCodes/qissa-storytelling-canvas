@@ -54,7 +54,7 @@ function HomePage() {
       <main>
         <section className="relative mt-[112px] h-[calc(100svh-112px)] min-h-[420px] overflow-hidden bg-[#08233d] md:mt-[124px] md:h-[calc(100svh-124px)]">
           <div className="absolute inset-0 grid grid-cols-3">
-            {[fr1Hero, fr2Hero, fr3Hero].map((image, index) => (
+            {[fr3Hero, fr1Hero, fr2Hero].map((image, index) => (
               <div key={index} className="h-full min-w-0 overflow-hidden">
                 <img
                   src={image}
