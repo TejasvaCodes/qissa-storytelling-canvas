@@ -7,7 +7,7 @@ import { useReveal } from "@/hooks/use-reveal";
 import fr1Hero from "../../fr1.jpeg";
 import fr2Hero from "../../fr2.jpeg";
 import fr3Hero from "../../fr3.jpeg";
-import frmHero from "../../frm.jpeg";
+import frmHero from "../../frm2.png";
 import frm1Hero from "../../frm1.png";
 import craftDark from "@/assets/craft-dark.jpg";
 import lifeCity from "@/assets/life-city.jpg";
