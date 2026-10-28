@@ -4,7 +4,9 @@ import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter, Philosophy } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
+import fr1Hero from "../../fr1.jpeg";
 import fr2Hero from "../../fr2.jpeg";
+import fr3Hero from "../../fr3.jpeg";
 import craftDark from "@/assets/craft-dark.jpg";
 import lifeCity from "@/assets/life-city.jpg";
 import lifeMotion from "@/assets/life-motion.jpg";
@@ -50,26 +52,30 @@ function HomePage() {
     <div id="top" className="overflow-x-hidden">
       <Nav />
       <main>
-        <section className="relative mt-[112px] flex h-[calc(100svh-112px)] min-h-[420px] items-center justify-center overflow-hidden bg-[#08233d] md:mt-[124px] md:h-[calc(100svh-124px)]">
-          <img
-            src={fr2Hero}
-            alt="QISSAA hero campaign"
-            width={1408}
-            height={1760}
-            fetchPriority="high"
-            className="h-full w-full object-contain"
-          />
-          <div className="absolute inset-0 bg-onyx/25" />
-          <div className="absolute inset-x-0 bottom-0 pb-16 md:pb-24">
+        <section className="relative mt-[112px] h-[calc(100svh-112px)] min-h-[420px] overflow-hidden bg-[#08233d] md:mt-[124px] md:h-[calc(100svh-124px)]">
+          <div className="absolute inset-0 grid grid-cols-3">
+            {[fr1Hero, fr2Hero, fr3Hero].map((image, index) => (
+              <div key={index} className="h-full min-w-0 overflow-hidden">
+                <img
+                  src={image}
+                  alt={`QISSAA fashion campaign portrait ${index + 1}`}
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#061727]/75 via-[#061727]/10 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 pb-10 md:pb-16">
             <div className="shell">
-              <p className="eyebrow !text-background/80">Autumn / Winter — Chapter II</p>
-              <h1 className="display mt-6 max-w-[16ch] text-[2.8rem] text-background md:text-[5.4rem]">
+              <p className="eyebrow !text-background/85">Autumn / Winter — Chapter II</p>
+              <h1 className="display mt-4 max-w-[16ch] text-[2.5rem] text-background sm:text-[3.5rem] md:mt-6 md:text-[5.4rem]">
                 Wear Your Story.
               </h1>
-              <div className="mt-12 flex flex-wrap gap-10">
+              <div className="mt-6 flex flex-wrap gap-5 md:mt-10 md:gap-10">
                 <Link
                   to="/collections"
-                  className="lift eyebrow bg-background px-10 py-5 !text-foreground hover:bg-accent hover:!text-primary-foreground"
+                  className="lift eyebrow bg-background px-6 py-4 !text-foreground hover:bg-accent hover:!text-primary-foreground md:px-10 md:py-5"
                 >
                   Discover the Collection
                 </Link>
