@@ -35,7 +35,7 @@ export function Nav() {
         </span>
       </Link>
 
-      <div className="shell !max-w-none !px-6 relative flex min-h-[76px] items-center justify-center md:min-h-[88px] md:justify-between lg:!px-16">
+      <div className="shell relative flex min-h-[76px] items-center justify-center md:min-h-[88px] md:justify-between">
         <nav className="hidden flex-1 items-center gap-7 lg:gap-9 md:flex" aria-label="Main navigation">
           {left.map((l) => (
             <Link key={l.label} to={l.to} className={navLinkClass} activeProps={{ className: "!text-[#fff0c7]" }}>
@@ -73,14 +73,12 @@ export function Nav() {
         </Link>
 
         <nav className="hidden flex-1 items-center justify-end md:flex" aria-label="Shopping navigation">
-          <Link to="/bag" className="eyebrow inline-flex min-h-12 items-center justify-center gap-3 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-6 !text-[#08233d] shadow-[0_2px_0_rgba(0,0,0,0.12)] transition-all hover:bg-[#ffdc86] hover:shadow-[0_4px_12px_rgba(233,184,79,0.18)]" activeProps={{ className: "!bg-[#ffdc86]" }}>
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
-            <span>Bag ({itemCount})</span>
+          <Link to="/bag" className="eyebrow inline-flex min-h-10 items-center justify-center border border-[#e9b84f] bg-[#e9b84f] px-5 !text-[#08233d] transition-colors hover:bg-[#ffdc86]" activeProps={{ className: "!bg-[#ffdc86]" }}>
+            Bag ({itemCount})
           </Link>
         </nav>
 
-        <Link to="/bag" aria-label={"Bag (" + itemCount + ")"} className="eyebrow absolute right-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-3 !text-[#08233d] md:hidden">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+        <Link to="/bag" aria-label={"Bag (" + itemCount + ")"} className="eyebrow absolute right-4 inline-flex min-h-9 items-center justify-center border border-[#e9b84f] bg-[#e9b84f] px-3 !text-[#08233d] md:hidden">
           Bag ({itemCount})
         </Link>
       </div>
