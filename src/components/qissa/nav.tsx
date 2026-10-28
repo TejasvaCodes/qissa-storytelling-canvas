@@ -12,33 +12,15 @@ const left = [
 const navLinkClass =
   "eyebrow link-underline !text-[#f1c56b] transition-colors hover:!text-[#ffe3a0]";
 
-function BagIcon({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 8h14l1 13H4L5 8Z" />
-      <path d="M9 8V6a3 3 0 0 1 6 0v2" />
-    </svg>
-  );
-}
-
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { itemCount } = useCart();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#d5a746]/45 bg-[#08233d] shadow-[0_8px_30px_rgba(3,16,29,0.18)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#d5a746]/40 bg-[#08233d] shadow-[0_8px_30px_rgba(3,16,29,0.18)]">
       <Link
         to="/collections"
-        className="group flex min-h-9 items-center justify-center gap-3 border-b border-[#d5a746]/35 bg-[#061a2d] px-3 text-center text-[#f7e9c9] transition-colors hover:bg-[#0c2c49]"
+        className="group flex min-h-9 items-center justify-center gap-3 border-b border-[#d5a746]/40 bg-[#061a2d] px-3 text-center text-[#f7e9c9] transition-colors hover:bg-[#0c2c49]"
       >
         <span className="hidden text-[9px] uppercase tracking-[0.22em] text-[#f1d9a3]/80 sm:inline">
           New season. Same stories.
@@ -53,8 +35,8 @@ export function Nav() {
         </span>
       </Link>
 
-      <div className="relative mx-auto flex min-h-[76px] w-full max-w-none items-center justify-between px-5 md:min-h-[88px] md:px-8 lg:px-16 xl:px-20">
-        <nav className="hidden min-w-0 flex-1 items-center justify-start gap-6 md:flex lg:gap-9 xl:gap-10" aria-label="Main navigation">
+      <div className="shell !max-w-none !px-6 relative flex min-h-[76px] items-center justify-center md:min-h-[88px] md:justify-between lg:!px-16">
+        <nav className="hidden flex-1 items-center gap-7 lg:gap-9 md:flex" aria-label="Main navigation">
           {left.map((l) => (
             <Link key={l.label} to={l.to} className={navLinkClass} activeProps={{ className: "!text-[#fff0c7]" }}>
               {l.label}
@@ -67,7 +49,7 @@ export function Nav() {
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] rounded-sm border border-[#e9b84f]/70 bg-[#e9b84f] md:hidden"
+          className="absolute left-4 flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-sm border border-[#e9b84f]/70 bg-[#e9b84f] md:hidden"
         >
           <span className={"h-px w-5 bg-[#08233d] transition-transform duration-300 " + (menuOpen ? "translate-y-[3px] rotate-45" : "")} />
           <span className={"h-px w-5 bg-[#08233d] transition-all duration-300 " + (menuOpen ? "opacity-0" : "")} />
@@ -78,28 +60,28 @@ export function Nav() {
           to="/"
           aria-label="QISSAA — Wear Your Story"
           onClick={() => setMenuOpen(false)}
-          className="absolute left-1/2 flex w-[142px] -translate-x-1/2 shrink-0 flex-col items-center justify-center text-[#f0b94b] md:static md:w-[190px] md:translate-x-0"
+          className="group flex w-[150px] shrink-0 flex-col items-center justify-center text-[#f0b94b] md:w-[190px]"
         >
-          <span className="font-serif text-[29px] leading-[0.95] tracking-[0.075em] transition-colors group-hover:text-[#ffd77a] md:text-[40px]">
+          <span className="font-serif text-[31px] leading-[0.95] tracking-[0.075em] transition-colors group-hover:text-[#ffd77a] md:text-[40px]">
             QISSAA
           </span>
-          <span className="mt-1 flex w-full items-center justify-center gap-2 font-serif text-[10px] leading-none tracking-[0.02em] md:text-[13px]">
-            <span aria-hidden="true" className="h-px w-4 bg-[#f0b94b]/70 md:w-7" />
-            <span className="whitespace-nowrap">Wear Your Story</span>
-            <span aria-hidden="true" className="h-px w-4 bg-[#f0b94b]/70 md:w-7" />
+          <span className="mt-1 flex w-full items-center justify-center gap-2 font-serif text-[11px] leading-none tracking-[0.02em] md:text-[13px]">
+            <span aria-hidden="true" className="h-px w-5 bg-[#f0b94b]/70 md:w-7" />
+            <span>Wear Your Story</span>
+            <span aria-hidden="true" className="h-px w-5 bg-[#f0b94b]/70 md:w-7" />
           </span>
         </Link>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-end md:flex" aria-label="Shopping navigation">
-          <Link to="/bag" className="eyebrow inline-flex min-h-12 items-center justify-center gap-3 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-5 !text-[#08233d] shadow-[0_2px_0_rgba(0,0,0,0.12)] transition-all hover:bg-[#ffdc86] hover:shadow-[0_4px_12px_rgba(233,184,79,0.18)] lg:px-6" activeProps={{ className: "!bg-[#ffdc86]" }}>
-            <BagIcon />
+        <nav className="hidden flex-1 items-center justify-end md:flex" aria-label="Shopping navigation">
+          <Link to="/bag" className="eyebrow inline-flex min-h-12 items-center justify-center gap-3 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-6 !text-[#08233d] shadow-[0_2px_0_rgba(0,0,0,0.12)] transition-all hover:bg-[#ffdc86] hover:shadow-[0_4px_12px_rgba(233,184,79,0.18)]" activeProps={{ className: "!bg-[#ffdc86]" }}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
             <span>Bag ({itemCount})</span>
           </Link>
         </nav>
 
-        <Link to="/bag" aria-label={"Bag (" + itemCount + ")"} className="eyebrow inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-3 !text-[#08233d] md:hidden">
-          <BagIcon className="h-4 w-4" />
-          <span>Bag ({itemCount})</span>
+        <Link to="/bag" aria-label={"Bag (" + itemCount + ")"} className="eyebrow absolute right-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-3 !text-[#08233d] md:hidden">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+          Bag ({itemCount})
         </Link>
       </div>
 
@@ -113,8 +95,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link to="/bag" tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} className="eyebrow inline-flex min-h-10 w-fit items-center justify-center gap-2 border border-[#e9b84f] bg-[#e9b84f] px-5 !text-[#08233d]">
-            <BagIcon className="h-4 w-4" />
+          <Link to="/bag" tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} className="eyebrow inline-flex min-h-10 w-fit items-center justify-center border border-[#e9b84f] bg-[#e9b84f] px-5 !text-[#08233d]">
             Bag ({itemCount})
           </Link>
         </nav>
