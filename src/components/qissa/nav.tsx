@@ -36,23 +36,6 @@ export function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#d5a746]/45 bg-[#08233d] shadow-[0_8px_30px_rgba(3,16,29,0.18)]">
-      <Link
-        to="/collections"
-        className="group flex min-h-9 items-center justify-center gap-3 border-b border-[#d5a746]/35 bg-[#061a2d] px-3 text-center text-[#f7e9c9] transition-colors hover:bg-[#0c2c49]"
-      >
-        <span className="hidden text-[9px] uppercase tracking-[0.22em] text-[#f1d9a3]/80 sm:inline">
-          New season. Same stories.
-        </span>
-        <span aria-hidden="true" className="text-[#e9b84f]">✦</span>
-        <span className="text-[10px] font-semibold uppercase tracking-[0.18em] sm:text-xs">
-          Freshers Fiesta <span className="text-[#f1c56b]">2K26</span>
-        </span>
-        <span aria-hidden="true" className="text-[#e9b84f]">✦</span>
-        <span className="hidden text-[9px] uppercase tracking-[0.2em] sm:inline">
-          Up to 53% off
-        </span>
-      </Link>
-
       <div className="relative mx-auto flex min-h-[76px] w-full max-w-none items-center justify-between px-5 md:min-h-[88px] md:px-8 lg:px-16 xl:px-20">
         <nav className="hidden min-w-0 flex-1 items-center justify-start gap-6 md:flex lg:gap-9 xl:gap-10" aria-label="Main navigation">
           {left.map((l) => (
