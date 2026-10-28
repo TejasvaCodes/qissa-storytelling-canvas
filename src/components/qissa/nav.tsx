@@ -56,20 +56,8 @@ export function Nav() {
           <span className={"h-px w-5 bg-[#08233d] transition-transform duration-300 " + (menuOpen ? "-translate-y-[9px] -rotate-45" : "")} />
         </button>
 
-        <Link
-          to="/"
-          aria-label="QISSAA — Wear Your Story"
-          onClick={() => setMenuOpen(false)}
-          className="group flex w-[150px] shrink-0 flex-col items-center justify-center text-[#f0b94b] md:w-[190px]"
-        >
-          <span className="font-serif text-[31px] leading-[0.95] tracking-[0.075em] transition-colors group-hover:text-[#ffd77a] md:text-[40px]">
-            QISSAA
-          </span>
-          <span className="mt-1 flex w-full items-center justify-center gap-2 font-serif text-[11px] leading-none tracking-[0.02em] md:text-[13px]">
-            <span aria-hidden="true" className="h-px w-5 bg-[#f0b94b]/70 md:w-7" />
-            <span>Wear Your Story</span>
-            <span aria-hidden="true" className="h-px w-5 bg-[#f0b94b]/70 md:w-7" />
-          </span>
+        <Link to="/" aria-label="QISSAA — Wear Your Story" onClick={() => setMenuOpen(false)} className="block w-[112px] shrink-0 overflow-hidden md:w-[148px]">
+          <img src="/qissa-logo.svg" alt="QISSAA — Wear Your Story" className="h-auto w-full" />
         </Link>
 
         <nav className="hidden flex-1 items-center justify-end md:flex" aria-label="Shopping navigation">
