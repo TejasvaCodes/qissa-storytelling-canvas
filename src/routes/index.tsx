@@ -4,7 +4,7 @@ import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter, Philosophy } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
-import heroMain from "@/assets/hero-main.jpg";
+import fr2Hero from "../../fr2.jpeg";
 import craftDark from "@/assets/craft-dark.jpg";
 import lifeCity from "@/assets/life-city.jpg";
 import lifeMotion from "@/assets/life-motion.jpg";
@@ -50,13 +50,14 @@ function HomePage() {
     <div id="top" className="overflow-x-hidden">
       <Nav />
       <main>
-        <section className="relative">
+        <section className="relative mt-[112px] flex h-[calc(100svh-112px)] min-h-[420px] items-center justify-center overflow-hidden bg-[#08233d] md:mt-[124px] md:h-[calc(100svh-124px)]">
           <img
-            src={heroMain}
-            alt="QISSAA leather outerwear, Autumn/Winter campaign"
+            src={fr2Hero}
+            alt="QISSAA hero campaign"
             width={1408}
             height={1760}
-            className="h-[92vh] w-full object-cover"
+            fetchPriority="high"
+            className="h-full w-full object-contain"
           />
           <div className="absolute inset-0 bg-onyx/25" />
           <div className="absolute inset-x-0 bottom-0 pb-16 md:pb-24">
