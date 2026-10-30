@@ -54,7 +54,7 @@ function HomePage() {
     <div id="top" className="overflow-x-hidden">
       <Nav />
       <main>
-        <section className="relative mt-[112px] h-[calc(100svh-112px)] min-h-[420px] overflow-hidden bg-[#08233d] md:mt-[124px] md:h-[calc(100svh-124px)]">
+        <section className="relative mt-[76px] h-[calc(100svh-76px)] min-h-[420px] overflow-hidden bg-[#08233d] md:mt-[88px] md:h-[calc(100svh-88px)]">
           <div className="absolute inset-0 grid grid-cols-3">
             {[fr3Hero, frm1Hero, frmHero].map((image, index) => (
               <div key={index} className="h-full min-w-0 overflow-hidden">
@@ -67,27 +67,9 @@ function HomePage() {
               </div>
             ))}
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#061727]/75 via-[#061727]/10 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 pb-10 md:pb-16">
+          <div className="absolute inset-x-0 bottom-0 pb-5 md:pb-7">
             <div className="shell">
-              <p className="eyebrow !text-background/85">Autumn / Winter — Chapter II</p>
-              <h1 className="display mt-4 max-w-[16ch] text-[2.5rem] text-background sm:text-[3.5rem] md:mt-6 md:text-[5.4rem]">
-                Wear Your Story.
-              </h1>
-              <div className="mt-6 flex flex-wrap gap-5 md:mt-10 md:gap-10">
-                <Link
-                  to="/collections"
-                  className="lift eyebrow bg-background px-6 py-4 !text-foreground hover:bg-accent hover:!text-primary-foreground md:px-10 md:py-5"
-                >
-                  Discover the Collection
-                </Link>
-                <Link
-                  to="/velocita"
-                  className="eyebrow link-underline self-center !text-background"
-                >
-                  The Black Crocodile Jacket
-                </Link>
-              </div>
+              <p className="eyebrow !text-background/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.65)]">Autumn / Winter — Chapter II</p>
             </div>
           </div>
         </section>
