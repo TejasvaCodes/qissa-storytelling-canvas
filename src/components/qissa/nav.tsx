@@ -74,13 +74,13 @@ export function Nav() {
         </Link>
 
         <nav className="hidden min-w-0 flex-1 items-center justify-end md:flex" aria-label="Shopping navigation">
-          <Link to="/bag" className="eyebrow inline-flex min-h-12 items-center justify-center gap-3 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-5 !text-[#08233d] shadow-[0_2px_0_rgba(0,0,0,0.12)] transition-all hover:bg-[#ffdc86] hover:shadow-[0_4px_12px_rgba(233,184,79,0.18)] lg:px-6" activeProps={{ className: "!bg-[#ffdc86]" }}>
+          <Link to="/bag" className="eyebrow inline-flex min-h-12 items-center justify-center gap-3 rounded-[3px] border border-[#e9b84f] bg-transparent px-5 !text-[#e9b84f] shadow-none transition-all hover:bg-[#e9b84f]/10 hover:!text-[#ffd77a] lg:px-6" activeProps={{ className: "!bg-[#e9b84f]/10" }}>
             <BagIcon />
             <span>Bag ({itemCount})</span>
           </Link>
         </nav>
 
-        <Link to="/bag" aria-label={"Bag (" + itemCount + ")"} className="eyebrow inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-[3px] border border-[#f1c56b] bg-[#e9b84f] px-3 !text-[#08233d] md:hidden">
+        <Link to="/bag" aria-label={"Bag (" + itemCount + ")"} className="eyebrow inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-[3px] border border-[#e9b84f] bg-transparent px-3 !text-[#e9b84f] transition-colors hover:bg-[#e9b84f]/10 md:hidden">
           <BagIcon className="h-4 w-4" />
           <span>Bag ({itemCount})</span>
         </Link>
@@ -96,7 +96,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link to="/bag" tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} className="eyebrow inline-flex min-h-10 w-fit items-center justify-center gap-2 border border-[#e9b84f] bg-[#e9b84f] px-5 !text-[#08233d]">
+          <Link to="/bag" tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} className="eyebrow inline-flex min-h-10 w-fit items-center justify-center gap-2 border border-[#e9b84f] bg-transparent px-5 !text-[#e9b84f] transition-colors hover:bg-[#e9b84f]/10">
             <BagIcon className="h-4 w-4" />
             Bag ({itemCount})
           </Link>
