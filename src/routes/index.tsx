@@ -6,6 +6,7 @@ import { useReveal } from "@/hooks/use-reveal";
 
 import fr1Hero from "../../fr1.jpeg";
 import fr2Hero from "../../fr2.jpeg";
+import fr12Hero from "../../fr12.jpeg";
 import fr3Hero from "../../fr3.jpeg";
 import frmHero from "../../frm2.png";
 import frm1Hero from "../../frm1.png";
@@ -85,7 +86,7 @@ function HomePage() {
           </div>
           <div className="h-full min-w-0 overflow-hidden">
             <img
-              src={fr2Hero}
+              src={fr12Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
               className="h-full w-full object-cover object-center"
