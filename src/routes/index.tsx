@@ -94,6 +94,8 @@ function HomePage() {
           </div>
         </section>
 
+        <section aria-hidden="true" className="h-[100svh] w-full bg-[#08233d]" />
+
         <section>
           <div className="shell">
             <div className="flex flex-wrap items-baseline justify-between gap-6">
