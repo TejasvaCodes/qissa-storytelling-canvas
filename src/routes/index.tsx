@@ -18,7 +18,7 @@ import bcjMain from "../../BCJ main.jpeg";
 import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
 import bhMain from "../../BH main.jpeg";
-import ferrariFront from "../../Ferrari front.jpeg";
+import ferrariFront from "../../Ferrari-front-high-resolution.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
