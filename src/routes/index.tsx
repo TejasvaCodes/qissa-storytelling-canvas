@@ -95,12 +95,12 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="h-[100svh] min-h-[520px] w-full overflow-hidden bg-[#08233d]">
+        <section className="w-full bg-[#08233d]">
           <img
             src={ferrariFront}
             alt="Ferrari front view"
             loading="lazy"
-            className="h-full w-full object-cover object-center"
+            className="block h-auto w-full object-contain object-center"
           />
         </section>
 
