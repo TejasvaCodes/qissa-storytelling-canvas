@@ -74,14 +74,22 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="py-32 md:py-52">
-          <div className="shell">
-            <h2
-              data-reveal
-              className="reveal display max-w-[26ch] text-[1.9rem] leading-[1.35] md:text-[3rem]"
-            >
-              QISSAA is for the stories you choose to tell. From statement jackets to everyday essentials, we bring together distinctive style, thoughtful details, and pieces made to feel unmistakably yours.
-            </h2>
+        <section className="grid h-[100svh] min-h-[520px] w-full grid-cols-2 overflow-hidden">
+          <div className="h-full min-w-0 overflow-hidden">
+            <img
+              src={fr1Hero}
+              alt="QISSAA fashion editorial portrait"
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className="h-full min-w-0 overflow-hidden">
+            <img
+              src={fr2Hero}
+              alt="QISSAA fashion editorial portrait"
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
           </div>
         </section>
 
