@@ -76,7 +76,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="grid h-[100svh] min-h-[520px] w-full grid-cols-2 items-stretch bg-[#08233d]">
+        <section className="m-0 grid h-[100svh] min-h-[520px] w-full grid-cols-2 items-stretch bg-[#08233d] p-0">
           <div className="flex h-full min-w-0 items-center justify-center">
             <img
               src={fr12Hero}
@@ -95,7 +95,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="w-full bg-[#08233d]">
+        <section className="m-0 w-full bg-[#08233d] p-0">
           <img
             src={ferrariFront}
             alt="Ferrari front view"
