@@ -76,7 +76,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="m-0 grid h-auto w-full grid-cols-2 items-start bg-[#08233d] p-0">
+        <section className="relative m-0 grid h-auto w-full grid-cols-2 bg-[#08233d] p-0">
           <div className="min-w-0">
             <img
               src={fr12Hero}
@@ -85,12 +85,12 @@ function HomePage() {
               className="block h-auto w-full object-contain object-top"
             />
           </div>
-          <div className="min-w-0">
+          <div className="absolute inset-y-0 right-0 w-1/2 min-w-0 overflow-hidden">
             <img
               src={fr1Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
-              className="block h-auto w-full object-contain object-top"
+              className="block h-full w-full object-cover object-top"
             />
           </div>
         </section>
