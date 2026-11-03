@@ -81,7 +81,7 @@ function HomePage() {
               src={fr1Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
-              className="h-full w-full object-contain object-center"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="flex h-full min-w-0 items-center justify-center">
@@ -89,7 +89,7 @@ function HomePage() {
               src={fr12Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
-              className="h-full w-full object-contain object-center"
+              className="h-full w-full object-cover object-center"
             />
           </div>
         </section>
