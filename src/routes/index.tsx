@@ -18,6 +18,7 @@ import bcjMain from "../../BCJ main.jpeg";
 import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
 import bhMain from "../../BH main.jpeg";
+import ferrariFront from "../../Ferrari front.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -94,7 +95,14 @@ function HomePage() {
           </div>
         </section>
 
-        <section aria-hidden="true" className="h-[100svh] w-full bg-[#08233d]" />
+        <section className="h-[100svh] min-h-[520px] w-full overflow-hidden bg-[#08233d]">
+          <img
+            src={ferrariFront}
+            alt="Ferrari front view"
+            loading="lazy"
+            className="h-full w-full object-cover object-center"
+          />
+        </section>
 
         <section>
           <div className="shell">
