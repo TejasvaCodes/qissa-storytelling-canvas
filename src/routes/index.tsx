@@ -5,7 +5,7 @@ import { Footer, Newsletter, Philosophy } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 import fr1Hero from "../../fr1.jpeg";
-import fr2Hero from "../../fr2.jpeg";
+import fr12Hero from "../../fr12.jpeg";
 import fr3Hero from "../../fr3.jpeg";
 import frmHero from "../../frm2.png";
 import frm1Hero from "../../frm1.png";
@@ -62,7 +62,7 @@ function HomePage() {
                   src={image}
                   alt={`QISSAA fashion campaign portrait ${index + 1}`}
                   fetchPriority={index === 0 ? "high" : "auto"}
-                  className="h-full w-full object-cover object-center"
+                  className="block h-auto max-h-[100svh] w-auto max-w-full object-contain"
                 />
               </div>
             ))}
@@ -74,18 +74,18 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="grid h-[100svh] min-h-[520px] w-full grid-cols-2 overflow-hidden">
-          <div className="h-full min-w-0 overflow-hidden">
+        <section className="flex min-h-[100svh] w-full items-center justify-center gap-0 overflow-hidden bg-[#f7f5f1]">
+          <div className="flex min-w-0 flex-1 items-center justify-center">
             <img
               src={fr1Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
-              className="h-full w-full object-cover object-center"
+              className="block h-auto max-h-[100svh] w-auto max-w-full object-contain"
             />
           </div>
-          <div className="h-full min-w-0 overflow-hidden">
+          <div className="flex min-w-0 flex-1 items-center justify-center">
             <img
-              src={fr2Hero}
+              src={fr12Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
               className="h-full w-full object-cover object-center"
