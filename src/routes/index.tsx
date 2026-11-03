@@ -76,21 +76,21 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="m-0 grid h-[100svh] min-h-[520px] w-full grid-cols-2 items-stretch bg-[#08233d] p-0">
-          <div className="flex h-full min-w-0 items-center justify-center">
+        <section className="m-0 grid h-auto w-full grid-cols-2 items-start bg-[#08233d] p-0">
+          <div className="min-w-0">
             <img
               src={fr12Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
-              className="h-full w-full object-cover object-center"
+              className="block h-auto w-full object-contain object-top"
             />
           </div>
-          <div className="flex h-full min-w-0 items-center justify-center">
+          <div className="min-w-0">
             <img
               src={fr1Hero}
               alt="QISSAA fashion editorial portrait"
               loading="lazy"
-              className="h-full w-full object-cover object-center"
+              className="block h-auto w-full object-contain object-top"
             />
           </div>
         </section>
