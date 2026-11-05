@@ -54,7 +54,7 @@ function HomePage() {
     <div id="top" className="overflow-x-hidden">
       <Nav />
       <main>
-        <section className="relative mt-[76px] h-[calc(100svh-76px)] min-h-[420px] overflow-hidden bg-[#08233d] md:mt-[88px] md:h-[calc(100svh-88px)]">
+        <section className="relative mt-0 h-[100svh] min-h-[420px] overflow-hidden bg-[#08233d]">
           <div className="absolute inset-0 grid grid-cols-3">
             {[fr3Hero, frm1Hero, fr2Hero].map((image, index) => (
               <div key={index} className="h-full min-w-0 overflow-hidden">
