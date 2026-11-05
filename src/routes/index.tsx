@@ -4,9 +4,7 @@ import { Nav } from "@/components/qissa/nav";
 import { Footer, Newsletter, Philosophy } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
-import fr1Hero from "../../fr1.jpeg";
 import fr2Hero from "../../fr2.jpeg";
-import fr12Hero from "../../fr12.jpeg";
 import fr3Hero from "../../fr3.jpeg";
 import frmHero from "../../frm2.png";
 import frm1Hero from "../../frm1.png";
@@ -19,6 +17,7 @@ import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
 import bhMain from "../../BH main.jpeg";
 import ferrariFront from "../../Ferrari-front-high-resolution.jpg";
+import vikramImage from "../../vikram.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -76,23 +75,13 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="m-0 grid w-full grid-cols-2 items-stretch bg-[#08233d] p-0">
-          <div className="aspect-[3/2] min-w-0 overflow-hidden">
-            <img
-              src={fr12Hero}
-              alt="QISSAA fashion editorial portrait"
-              loading="lazy"
-              className="block h-full w-full object-contain object-center"
-            />
-          </div>
-          <div className="aspect-[3/2] min-w-0 overflow-hidden">
-            <img
-              src={fr1Hero}
-              alt="QISSAA fashion editorial portrait"
-              loading="lazy"
-              className="block h-full w-full object-contain object-center"
-            />
-          </div>
+        <section className="m-0 w-full bg-[#08233d] p-0">
+          <img
+            src={vikramImage}
+            alt="QISSAA Vikram campaign"
+            loading="lazy"
+            className="block h-auto w-full object-contain object-center"
+          />
         </section>
 
         <section className="m-0 w-full bg-[#08233d] p-0">
