@@ -6,6 +6,7 @@ import { useReveal } from "@/hooks/use-reveal";
 
 import fr2Hero from "../../fr2.jpeg";
 import fr3Hero from "../../fr3.jpeg";
+import frm1Hero from "../../frm1.png";
 import craftDark from "@/assets/craft-dark.jpg";
 import lifeCity from "@/assets/life-city.jpg";
 import lifeMotion from "@/assets/life-motion.jpg";
@@ -54,8 +55,8 @@ function HomePage() {
       <Nav />
       <main>
         <section className="relative mt-[76px] h-[calc(100svh-76px)] min-h-[420px] overflow-hidden bg-[#08233d] md:mt-[88px] md:h-[calc(100svh-88px)]">
-          <div className="absolute inset-0 grid grid-cols-2">
-            {[fr3Hero, fr2Hero].map((image, index) => (
+          <div className="absolute inset-0 grid grid-cols-3">
+            {[fr3Hero, frm1Hero, fr2Hero].map((image, index) => (
               <div key={index} className="h-full min-w-0 overflow-hidden">
                 <img
                   src={image}
