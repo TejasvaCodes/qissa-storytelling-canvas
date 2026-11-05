@@ -6,7 +6,6 @@ import { useReveal } from "@/hooks/use-reveal";
 
 import fr2Hero from "../../fr2.jpeg";
 import fr3Hero from "../../fr3.jpeg";
-import frm1Hero from "../../frm1.png";
 import craftDark from "@/assets/craft-dark.jpg";
 import lifeCity from "@/assets/life-city.jpg";
 import lifeMotion from "@/assets/life-motion.jpg";
@@ -56,14 +55,16 @@ function HomePage() {
       <main>
         <section className="relative mt-0 h-[100svh] min-h-[420px] overflow-hidden bg-[#08233d]">
           <div className="absolute inset-0 grid grid-cols-3">
-            {[fr3Hero, frm1Hero, fr2Hero].map((image, index) => (
+            {[fr3Hero, null, fr2Hero].map((image, index) => (
               <div key={index} className="h-full min-w-0 overflow-hidden">
-                <img
-                  src={image}
-                  alt={`QISSAA fashion campaign portrait ${index + 1}`}
-                  fetchPriority={index === 0 ? "high" : "auto"}
-                  className="h-full w-full object-cover object-center"
-                />
+                {image && (
+                  <img
+                    src={image}
+                    alt={`QISSAA fashion campaign portrait ${index + 1}`}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    className="h-full w-full object-cover object-center"
+                  />
+                )}
               </div>
             ))}
           </div>
