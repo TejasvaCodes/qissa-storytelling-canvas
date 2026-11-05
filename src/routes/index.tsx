@@ -67,11 +67,8 @@ function HomePage() {
               </div>
             ))}
           </div>
-          <div className="pointer-events-none absolute inset-x-0 bottom-[18%] z-10 flex justify-center px-4">
-            <div className="relative whitespace-nowrap leading-none">
-              <span className="block font-serif text-[clamp(4.5rem,13vw,12rem)] font-normal tracking-[-0.065em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
-              <span aria-hidden="true" className="absolute inset-0 translate-x-[0.16em] translate-y-[0.025em] font-serif text-[clamp(4.5rem,13vw,12rem)] font-normal tracking-[-0.065em] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.9)]">QISSAA</span>
-            </div>
+          <div className="pointer-events-none absolute bottom-[7%] right-[5%] z-10">
+            <span className="block whitespace-nowrap font-serif text-[clamp(3rem,7vw,6.5rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
         </section>
 
