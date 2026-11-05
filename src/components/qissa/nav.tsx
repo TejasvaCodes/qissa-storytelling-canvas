@@ -32,7 +32,7 @@ export function Nav() {
           <span className="h-px w-full bg-white" />
         </button>
 
-        <div className={"pointer-events-auto fixed inset-x-0 top-0 h-[100svh] bg-black/95 px-9 pb-12 pt-28 transition-all duration-300 " + (menuOpen ? "visible translate-x-0 opacity-100" : "invisible pointer-events-none -translate-x-3 opacity-0")}>
+        <div className={"pointer-events-auto fixed left-0 top-0 h-[100svh] w-[100px] bg-black/95 px-4 pb-12 pt-28 transition-all duration-300 " + (menuOpen ? "visible translate-x-0 opacity-100" : "invisible pointer-events-none -translate-x-3 opacity-0")}>
           <nav className="flex flex-col items-start gap-9 md:gap-11" aria-label="Main navigation">
             {left.map((item) => (
               <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="text-[15px] font-medium uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-60 md:text-base" activeProps={{ className: "text-white underline underline-offset-8" }}>
