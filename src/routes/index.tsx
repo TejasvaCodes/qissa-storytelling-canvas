@@ -14,6 +14,7 @@ import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
 import bhMain from "../../BH main.jpeg";
 import ferrariFront from "../../Ferrari-front-high-resolution.jpg";
+import adfrrImage from "../../adfrr.JPG";
 import vikramImage from "../../vikram.png";
 
 export const Route = createFileRoute("/")({
@@ -85,6 +86,15 @@ function HomePage() {
           <img
             src={ferrariFront}
             alt="Ferrari front view"
+            loading="lazy"
+            className="block h-auto w-full object-contain object-center"
+          />
+        </section>
+
+        <section className="m-0 w-full bg-[#08233d] p-0">
+          <img
+            src={adfrrImage}
+            alt="QISSAA campaign"
             loading="lazy"
             className="block h-auto w-full object-contain object-center"
           />
