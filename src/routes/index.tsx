@@ -68,7 +68,7 @@ function HomePage() {
             ))}
           </div>
           <div className="pointer-events-none absolute bottom-[7%] right-[5%] z-10">
-            <span className="block whitespace-nowrap font-serif text-[clamp(4.5rem,10.5vw,9.75rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
+            <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
         </section>
 
