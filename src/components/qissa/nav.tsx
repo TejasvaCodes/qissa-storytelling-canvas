@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart";
 
 const left = [
-  { label: "Collections", to: "/collections" as const },
-  { label: "Journal", to: "/journal" as const },
-  { label: "Custom Order", to: "/custom-order" as const },
-  { label: "Bulk Order", to: "/bulk-order" as const },
+  { label: "COLLECTIONS", to: "/collections" as const },
+  { label: "JOURNAL", to: "/journal" as const },
+  { label: "CUSTOM ORDER", to: "/custom-order" as const },
+  { label: "BULK ORDER", to: "/bulk-order" as const },
 ];
 
 export function Nav() {
@@ -17,7 +17,7 @@ export function Nav() {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-start justify-between px-5 py-5 md:px-9 md:py-8">
       <div
-        className="pointer-events-auto relative"
+        className="pointer-events-auto"
         onMouseEnter={() => setMenuOpen(true)}
         onMouseLeave={() => setMenuOpen(false)}
       >
@@ -26,16 +26,16 @@ export function Nav() {
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-7 w-[76px] flex-col justify-center gap-[8px] bg-transparent"
+          className="relative z-[60] flex h-7 w-[76px] flex-col justify-center gap-[8px] bg-transparent"
         >
           <span className="h-px w-full bg-white" />
           <span className="h-px w-full bg-white" />
         </button>
 
-        <div className={"absolute left-0 top-full mt-5 min-w-[210px] bg-black/90 px-0 py-5 transition-all duration-200 " + (menuOpen ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none -translate-y-2 opacity-0")}>
-          <nav className="flex flex-col gap-5" aria-label="Main navigation">
+        <div className={"pointer-events-auto fixed inset-x-0 top-0 h-[100svh] bg-black/95 px-9 pb-12 pt-28 transition-all duration-300 " + (menuOpen ? "visible translate-x-0 opacity-100" : "invisible pointer-events-none -translate-x-3 opacity-0")}>
+          <nav className="flex flex-col items-start gap-9 md:gap-11" aria-label="Main navigation">
             {left.map((item) => (
-              <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="text-[13px] uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-60" activeProps={{ className: "text-white underline underline-offset-4" }}>
+              <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="text-[15px] font-medium uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-60 md:text-base" activeProps={{ className: "text-white underline underline-offset-8" }}>
                 {item.label}
               </Link>
             ))}
@@ -43,7 +43,7 @@ export function Nav() {
         </div>
       </div>
 
-      <div className="pointer-events-auto flex flex-col items-end gap-6 text-white">
+      <div className="pointer-events-auto relative z-[60] flex flex-col items-end gap-6 text-white">
         <div className="flex flex-col items-end">
           <button
             type="button"
@@ -67,7 +67,7 @@ export function Nav() {
           )}
         </div>
         <Link to="/bag" className="text-[13px] uppercase tracking-[0.04em] text-white transition-opacity hover:opacity-60" aria-label={"Bag (" + itemCount + ")"} activeProps={{ className: "underline underline-offset-4" }}>
-          Bag <span className="ml-1 border-x border-white/70 px-1.5">{itemCount}</span>
+          BAG <span className="ml-1 border-x border-white/70 px-1.5">{itemCount}</span>
         </Link>
       </div>
     </header>
