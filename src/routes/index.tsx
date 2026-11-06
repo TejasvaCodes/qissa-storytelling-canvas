@@ -91,13 +91,16 @@ function HomePage() {
           />
         </section>
 
-        <section className="m-0 w-full bg-[#08233d] p-0">
+        <section className="relative m-0 w-full bg-[#08233d] p-0">
           <img
             src={adfrrImage}
             alt="QISSAA campaign"
             loading="lazy"
             className="block h-auto w-full object-contain object-center"
           />
+          <div className="pointer-events-none absolute left-[5%] top-[7%] z-10">
+            <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
+          </div>
         </section>
 
         <section>
