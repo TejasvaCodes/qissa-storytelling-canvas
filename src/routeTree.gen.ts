@@ -101,7 +101,6 @@ export interface FileRoutesByFullPath {
   '/alba-shearling': typeof AlbaShearlingRoute
   '/bag': typeof BagRoute
   '/black-waffle-henley': typeof BlackWaffleHenleyRoute
-  '/black-waffle-henley': typeof BlackWaffleHenleyRoute
   '/collections': typeof CollectionsRoute
   '/corso-overshirt': typeof CorsoOvershirtRoute
   '/journal': typeof JournalRoute
@@ -114,6 +113,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/black-waffle-henley': typeof BlackWaffleHenleyRoute
   '/account': typeof AccountRoute
   '/alba-shearling': typeof AlbaShearlingRoute
   '/bag': typeof BagRoute
@@ -129,6 +129,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/black-waffle-henley': typeof BlackWaffleHenleyRoute
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/alba-shearling': typeof AlbaShearlingRoute
@@ -166,6 +167,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/alba-shearling'
     | '/bag'
+    | '/black-waffle-henley'
     | '/collections'
     | '/corso-overshirt'
     | '/journal'
@@ -181,6 +183,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/alba-shearling'
     | '/bag'
+    | '/black-waffle-henley'
     | '/collections'
     | '/corso-overshirt'
     | '/journal'
@@ -194,6 +197,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlackWaffleHenleyRoute: typeof BlackWaffleHenleyRoute
   AccountRoute: typeof AccountRoute
   AlbaShearlingRoute: typeof AlbaShearlingRoute
   BagRoute: typeof BagRoute
