@@ -63,7 +63,7 @@ function CollectionsPage() {
               {pieces.map((p) => (
                 <Link key={p.name} to={p.to} data-reveal className="reveal group">
                   <div className="zoom-frame bg-secondary">
-                    <img src={p.img} alt={`${p.name} — ${p.cat}`} loading="lazy" width={912} height={1200} className="aspect-[3/4] w-full object-cover" />
+                    <img src={p.img} alt={`${p.name} — ${p.cat}`} loading="lazy" width={912} height={1200} className="aspect-[3/4] w-full bg-white object-contain" />
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
