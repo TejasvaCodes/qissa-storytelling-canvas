@@ -54,8 +54,7 @@ export function Nav() {
           aria-label="QISSAA home"
           className="pointer-events-auto absolute left-1/2 top-5 flex -translate-x-1/2 flex-col items-center text-center text-black md:top-7"
         >
-          <span className="block whitespace-nowrap font-serif text-[2.65rem] leading-none tracking-[-0.075em] md:text-[3rem]">QISSAA</span>
-          <span className="mt-2 block whitespace-nowrap text-[0.68rem] font-medium uppercase tracking-[0.19em] text-black">Wear Your Story</span>
+          <span className="block whitespace-nowrap font-serif text-[3.975rem] leading-none tracking-[-0.075em] md:text-[4.5rem]">QISSAA</span>
         </Link>
       )}
 
