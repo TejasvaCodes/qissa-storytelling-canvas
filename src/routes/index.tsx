@@ -12,6 +12,7 @@ import mrjMain from "../../MRJ main.jpeg";
 import bhMain from "../../BH main.jpeg";
 import ferrariFront from "../../Ferrari-front-high-resolution.jpg";
 import adfrrImage from "../../adfrr.JPG";
+import img4600 from "../../IMG_4600.JPG";
 import vikramImage from "../../vikram.png";
 
 export const Route = createFileRoute("/")({
@@ -91,6 +92,15 @@ function HomePage() {
           <div className="pointer-events-none absolute left-[5%] top-[7%] z-10">
             <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
+        </section>
+
+        <section className="relative m-0 h-[100svh] min-h-[420px] w-full overflow-hidden bg-onyx p-0">
+          <img
+            src={img4600}
+            alt="QISSAA campaign"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
         </section>
 
         <section className="mt-40 bg-onyx py-32 md:mt-64 md:py-52">
