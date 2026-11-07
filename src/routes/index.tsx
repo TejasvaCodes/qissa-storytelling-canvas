@@ -45,7 +45,7 @@ function HomePage() {
       <Nav />
       <main>
         <section className="relative mt-0 h-[100svh] min-h-[420px] overflow-hidden bg-[#08233d]">
-          <div className="absolute inset-0 grid grid-cols-1">
+          <Link to="/velocita" aria-label="Shop Black Crocodile Jacket" className="absolute inset-0 grid grid-cols-1">
             {[prfrHero].map((image, index) => (
               <div key={index} className="h-full min-w-0 overflow-hidden">
                 {image && (
@@ -58,49 +58,57 @@ function HomePage() {
                 )}
               </div>
             ))}
-          </div>
+          </Link>
           <div className="pointer-events-none absolute bottom-[7%] right-[5%] z-10">
             <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
         </section>
 
         <section className="m-0 w-full bg-[#08233d] p-0">
-          <img
-            src={vikramImage}
-            alt="QISSAA Vikram campaign"
-            loading="lazy"
-            className="block h-auto w-full object-contain object-center"
-          />
+          <Link to="/velocita" aria-label="Shop Black Crocodile Jacket" className="block">
+            <img
+              src={vikramImage}
+              alt="QISSAA Vikram campaign"
+              loading="lazy"
+              className="block h-auto w-full object-contain object-center"
+            />
+          </Link>
         </section>
 
         <section className="m-0 w-full bg-[#08233d] p-0">
-          <img
-            src={ferrariFront}
-            alt="Ferrari front view"
-            loading="lazy"
-            className="block h-auto w-full object-contain object-center"
-          />
+          <Link to="/alba-shearling" aria-label="Shop Black Ferrari Jacket" className="block">
+            <img
+              src={ferrariFront}
+              alt="Ferrari front view"
+              loading="lazy"
+              className="block h-auto w-full object-contain object-center"
+            />
+          </Link>
         </section>
 
         <section className="relative m-0 w-full bg-[#08233d] p-0">
-          <img
-            src={adfrrImage}
-            alt="QISSAA campaign"
-            loading="lazy"
-            className="block h-auto w-full object-contain object-center"
-          />
+          <Link to="/black-waffle-henley" aria-label="Shop Black Waffle Henley" className="block">
+            <img
+              src={adfrrImage}
+              alt="QISSAA campaign"
+              loading="lazy"
+              className="block h-auto w-full object-contain object-center"
+            />
+          </Link>
           <div className="pointer-events-none absolute left-[5%] top-[7%] z-10">
             <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
         </section>
 
         <section className="relative m-0 h-[100svh] min-h-[420px] w-full overflow-hidden bg-onyx p-0">
-          <img
-            src={img4600}
-            alt="QISSAA campaign"
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
+          <Link to="/black-waffle-henley" aria-label="Shop Black Waffle Henley" className="absolute inset-0 block">
+            <img
+              src={img4600}
+              alt="QISSAA campaign"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+          </Link>
         </section>
 
         <section className="mt-40 bg-onyx py-32 md:mt-64 md:py-52">
