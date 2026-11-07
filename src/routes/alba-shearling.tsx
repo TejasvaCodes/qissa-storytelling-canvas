@@ -10,8 +10,8 @@ const product = {
   name: "Black Ferrari",
   category: "Jacket",
   number: "04",
-  price: 2599,
-  originalPrice: 4300,
+  price: 2460,
+  originalPrice: 4100,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
     { src: main, alt: "Black Ferrari Jacket — front" },
