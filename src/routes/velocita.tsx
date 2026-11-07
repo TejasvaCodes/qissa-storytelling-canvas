@@ -2,12 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Nav } from "@/components/qissa/nav";
 import { Hero } from "@/components/qissa/hero";
-import {
-  Footer,
-  Lifestyle,
-  Newsletter,
-  Philosophy,
-} from "@/components/qissa/sections";
+import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/velocita")({
@@ -38,8 +33,6 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Lifestyle />
-        <Philosophy />
         <Newsletter />
       </main>
       <Footer />
