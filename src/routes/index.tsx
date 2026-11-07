@@ -111,19 +111,19 @@ function HomePage() {
           </Link>
         </section>
 
-        <section className="mt-40 w-full bg-onyx py-32 md:mt-64 md:py-52">
-          <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
-            <div data-reveal className="reveal zoom-frame w-full">
+        <section className="m-0 w-full bg-onyx py-0 md:mt-0 md:py-0">
+          <div className="grid items-center gap-0 lg:grid-cols-2 lg:gap-0">
+            <div data-reveal className="reveal zoom-frame m-0 w-full">
               <img
                 src={crocImage}
                 alt="Close-up of QISSAA black crocodile leather"
                 loading="lazy"
                 width={1200}
                 height={1500}
-                className="aspect-[4/5] w-full object-cover"
+                className="block aspect-[4/5] w-full object-cover"
               />
             </div>
-            <div data-reveal className="reveal px-8 md:px-12 lg:pr-16">
+            <div data-reveal className="reveal px-8 py-12 md:px-12 lg:pr-16">
               <p className="eyebrow">The Atelier</p>
               <h2 className="display mt-8 text-[2.2rem] text-background md:text-[3.4rem]">
                 Made to be worn. Made to be remembered.
