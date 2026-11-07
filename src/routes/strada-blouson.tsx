@@ -9,7 +9,7 @@ const product = {
   name: "Porsche Green",
   category: "Jacket",
   number: "03",
-  price: 2599,
+  price: 2580,
   originalPrice: 4300,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
