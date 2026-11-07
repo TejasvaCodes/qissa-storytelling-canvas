@@ -10,12 +10,12 @@ import pf4 from "../../../BCJ pf4.jpeg";
 import { useCart } from "@/lib/cart";
 
 const views = [
-  { src: main, alt: "Black Crocodile Jacket — front" },
-  { src: back, alt: "Black Crocodile Jacket — back" },
   { src: pf1, alt: "Black Crocodile Jacket — professional photo 1" },
   { src: pf2, alt: "Black Crocodile Jacket — professional photo 2" },
   { src: pf3, alt: "Black Crocodile Jacket — professional photo 3" },
   { src: pf4, alt: "Black Crocodile Jacket — professional photo 4" },
+  { src: main, alt: "Black Crocodile Jacket — front" },
+  { src: back, alt: "Black Crocodile Jacket — back" },
 ];
 
 const sizes = ["XS", "S", "M", "L", "XL"];
