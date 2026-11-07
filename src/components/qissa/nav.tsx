@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
 
@@ -10,6 +10,11 @@ const left = [
 ];
 
 export function Nav() {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const navColor = isHome ? "text-white" : "text-black";
+  const navBorder = isHome ? "border-white/80" : "border-black/80";
+  const navLine = isHome ? "bg-white" : "bg-black";
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { itemCount } = useCart();
@@ -28,7 +33,7 @@ export function Nav() {
           onClick={() => setMenuOpen((open) => !open)}
           className="relative z-[60] flex h-7 w-[76px] flex-col justify-center gap-[8px] bg-transparent"
         >
-          <span className="h-px w-full bg-white" />
+          <span className={"h-px w-full " + navLine} />
           <span className="h-px w-full bg-white" />
         </button>
 
@@ -43,13 +48,13 @@ export function Nav() {
         </div>
       </div>
 
-      <div className="pointer-events-auto relative z-[60] flex flex-col items-end gap-6 text-white">
+      <div className={"pointer-events-auto relative z-[60] flex flex-col items-end gap-6 " + navColor}>
         <div className="flex flex-col items-end">
           <button
             type="button"
             aria-expanded={searchOpen}
             onClick={() => setSearchOpen((open) => !open)}
-            className="border-b border-white/80 pb-2 text-[13px] uppercase tracking-[0.03em] transition-opacity hover:opacity-60"
+            className={"border-b pb-2 text-[13px] uppercase tracking-[0.03em] transition-opacity hover:opacity-60 " + navBorder}
           >
             Search
           </button>
@@ -61,13 +66,13 @@ export function Nav() {
                 type="search"
                 placeholder="Search"
                 aria-label="Search collections"
-                className="w-40 border-b border-white/70 bg-transparent px-1 py-2 text-right text-[13px] uppercase tracking-wide text-white outline-none placeholder:text-white/60"
+                className={"w-40 border-b bg-transparent px-1 py-2 text-right text-[13px] uppercase tracking-wide outline-none " + (isHome ? "border-white/70 text-white placeholder:text-white/60" : "border-black/70 text-black placeholder:text-black/60")}
               />
             </form>
           )}
         </div>
-        <Link to="/bag" className="text-[13px] uppercase tracking-[0.04em] text-white transition-opacity hover:opacity-60" aria-label={"Bag (" + itemCount + ")"} activeProps={{ className: "underline underline-offset-4" }}>
-          BAG <span className="ml-1 border-x border-white/70 px-1.5">{itemCount}</span>
+        <Link to="/bag" className={"text-[13px] uppercase tracking-[0.04em] transition-opacity hover:opacity-60 " + navColor} aria-label={"Bag (" + itemCount + ")"} activeProps={{ className: "underline underline-offset-4" }}>
+          BAG <span className={"ml-1 border-x px-1.5 " + (isHome ? "border-white/70" : "border-black/70")}>{itemCount}</span>
         </Link>
       </div>
     </header>
