@@ -48,6 +48,16 @@ export function Nav() {
         </div>
       </div>
 
+      {!isHome && (
+        <Link
+          to="/"
+          aria-label="QISSAA home"
+          className="pointer-events-auto absolute left-1/2 top-5 -translate-x-1/2 font-['Bodoni_Moda',_'Cormorant_Garamond',_serif] text-[2rem] font-medium leading-none tracking-[-0.075em] text-black md:top-7 md:text-[2.65rem]"
+        >
+          QISSAA
+        </Link>
+      )}
+
       <div className={"pointer-events-auto relative z-[60] flex flex-col items-end gap-6 " + navColor}>
         <div className="flex flex-col items-end">
           <button
