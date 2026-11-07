@@ -52,7 +52,7 @@ export function Nav() {
         <Link
           to="/"
           aria-label="QISSAA home"
-          className="pointer-events-auto absolute left-1/2 top-5 -translate-x-1/2 font-['Bodoni_Moda',_serif] text-[3rem] font-medium leading-none tracking-[-0.055em] text-black md:top-7 md:text-[3.975rem]"
+          className="pointer-events-auto absolute left-1/2 top-5 -translate-x-1/2 font-['Bodoni_Moda',_serif] text-[3rem] font-normal leading-none tracking-[-0.025em] text-black md:top-7 md:text-[3.975rem]"
         >
           QISSAA
         </Link>
