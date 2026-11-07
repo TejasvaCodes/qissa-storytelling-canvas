@@ -24,6 +24,8 @@ const sizes = ["XS", "S", "M", "L", "XL"];
 
 export function ProductHero({ product }: { product: ProductConfig }) {
   const colours = product.colours ?? defaultColours;
+  // Keep the first two gallery photos at the end on every product page.
+  const orderedViews = [...product.views.slice(2), ...product.views.slice(0, 2)];
   const [active, setActive] = useState(0);
   const colour = colours[0]!.name;
   const [size, setSize] = useState("M");
@@ -50,7 +52,7 @@ export function ProductHero({ product }: { product: ProductConfig }) {
   useEffect(() => () => timerRef.current && clearTimeout(timerRef.current), []);
 
   const addToBag = () => {
-    addItem({ id: product.id, img: product.views[0]!.src, name: product.name, colour, size, price: product.price, qty, customization: savedCustomization });
+    addItem({ id: product.id, img: orderedViews[0]!.src, name: product.name, colour, size, price: product.price, qty, customization: savedCustomization });
     setShowAddedToast(true);
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = setTimeout(() => setShowAddedToast(false), 4500);
@@ -61,7 +63,7 @@ export function ProductHero({ product }: { product: ProductConfig }) {
       <div aria-live="polite" aria-atomic="true" className={`fixed inset-x-4 top-20 z-50 transition-all duration-500 md:left-auto md:right-6 md:w-[380px] ${showAddedToast ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-4 opacity-0"}`}>
         <div className="border border-border bg-background/95 p-3 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-4">
-            <img src={product.views[0]!.src} alt="" width={72} height={90} className="h-[72px] w-[58px] shrink-0 object-cover" />
+            <img src={orderedViews[0]!.src} alt="" width={72} height={90} className="h-[72px] w-[58px] shrink-0 object-cover" />
             <div className="min-w-0 flex-1"><p className="eyebrow">Added to your bag</p><p className="mt-2 truncate font-serif text-lg font-light">{product.name}</p><p className="mt-1 text-xs tracking-wide text-muted-foreground">{colour} — Size {size} — Qty {qty}</p></div>
             <Link to="/bag" onClick={() => setShowAddedToast(false)} className="eyebrow link-underline shrink-0 text-foreground">View Bag</Link>
             <button type="button" aria-label="Dismiss added to bag message" onClick={() => setShowAddedToast(false)} className="self-start text-lg leading-none text-muted-foreground">×</button>
@@ -71,13 +73,13 @@ export function ProductHero({ product }: { product: ProductConfig }) {
 
       <div className="shell grid gap-10 lg:grid-cols-[80px_1fr_320px] lg:gap-14">
         <div className="order-2 flex gap-3 overflow-x-auto lg:order-1 lg:flex-col lg:overflow-visible">
-          {product.views.map((v, i) => <button key={v.alt} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)} aria-label={v.alt} className={`w-[68px] shrink-0 transition-opacity duration-500 lg:w-full ${active === i ? "opacity-100" : "opacity-45 hover:opacity-80"}`}><img src={v.src} alt={v.alt} loading="lazy" width={800} height={1008} className="h-[86px] w-full object-cover lg:h-[100px]" /></button>)}
+          {orderedViews.map((v, i) => <button key={v.alt} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)} aria-label={v.alt} className={`w-[68px] shrink-0 transition-opacity duration-500 lg:w-full ${active === i ? "opacity-100" : "opacity-45 hover:opacity-80"}`}><img src={v.src} alt={v.alt} loading="lazy" width={800} height={1008} className="h-[86px] w-full object-cover lg:h-[100px]" /></button>)}
         </div>
-        <div className="order-1 lg:order-2"><div className="relative bg-secondary">{product.views.map((v, i) => <img key={v.alt} src={v.src} alt={v.alt} width={1408} height={1760} className={`h-[70vh] w-full object-cover transition-opacity duration-[900ms] md:h-[86vh] ${active === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`} />)}</div></div>
+        <div className="order-1 lg:order-2"><div className="relative bg-secondary">{orderedViews.map((v, i) => <img key={v.alt} src={v.src} alt={v.alt} width={1408} height={1760} className={`h-[70vh] w-full object-cover transition-opacity duration-[900ms] md:h-[86vh] ${active === i ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`} />)}</div></div>
         <div className="order-3 lg:pt-6">
           <p className="eyebrow">{product.category} — {product.number}</p>
           <h1 className="display mt-5 text-[2.6rem] md:text-[3.1rem]">{product.name}</h1>
-          <div className="mt-5 flex flex-wrap items-center gap-3 text-base tracking-wide">{product.originalPrice && <span className="text-muted-foreground line-through">₹ {product.originalPrice.toLocaleString("en-IN")}</span>}<span>₹ {product.price.toLocaleString("en-IN")}</span>{product.originalPrice && <><span className="text-xs text-muted-foreground">Save ₹{(product.originalPrice - product.price).toLocaleString("en-IN")}</span><span className="inline-flex items-center gap-1 border border-[#b89562]/50 bg-[#11100e] px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-[#ead6b5]">✦ Freshers 2K26</span></>}</div>{product.originalPrice && <p className="mt-2 text-xs leading-relaxed text-muted-foreground">Opening Sale · In collaboration with VESIT 2026 Freshers</p>}
+          <div className="mt-5 flex flex-wrap items-center gap-3 text-base tracking-wide">{product.originalPrice && <span className="text-muted-foreground line-through">₹ {product.originalPrice.toLocaleString("en-IN")}</span>}<span>₹ {product.price.toLocaleString("en-IN")}</span>{product.originalPrice && <span className="text-xs text-muted-foreground">{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF</span>}</div>
           <p className="mt-8 max-w-[26ch] text-sm leading-relaxed text-muted-foreground">{product.description}</p>
           <div className="mt-14 flex flex-wrap gap-3"><button type="button" onClick={() => setShowSizeChart(true)} className="eyebrow border border-foreground px-5 py-4 transition-colors duration-500 hover:bg-foreground hover:text-primary-foreground">View Size Chart</button><button type="button" onClick={() => { setCustomization(savedCustomization); setShowCustomize(true); }} className="eyebrow border border-border px-5 py-4 transition-colors duration-500 hover:border-foreground">{savedCustomization ? "Edit Customization" : "Customize"}</button></div><p className="mt-3 text-xs leading-relaxed text-muted-foreground">Rates may differ depending on the customization requested.</p>
           <div className="mt-12"><p className="eyebrow">Size</p><div className="mt-5 flex flex-wrap gap-7">{sizes.map((s) => <button key={s} onClick={() => setSize(s)} className={`text-sm tracking-[0.14em] transition-colors duration-500 ${size === s ? "text-foreground underline decoration-1 underline-offset-[6px]" : "text-muted-foreground hover:text-foreground"}`}>{s}</button>)}</div></div>

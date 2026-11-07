@@ -1,50 +1,89 @@
-import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useState } from "react";
 import { useCart } from "@/lib/cart";
 
 const left = [
-  { label: "Collections", to: "/collections" as const },
-  { label: "Journal", to: "/journal" as const },
-  { label: "Custom Order", to: "/custom-order" as const },
-  { label: "Bulk Order", to: "/bulk-order" as const },
+  { label: "COLLECTIONS", to: "/collections" as const },
+  { label: "JOURNAL", to: "/journal" as const },
+  { label: "CUSTOM ORDER", to: "/custom-order" as const },
+  { label: "BULK ORDER", to: "/bulk-order" as const },
 ];
 
 export function Nav() {
-  const [solid, setSolid] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const navColor = isHome ? "text-white" : "text-black";
+  const navBorder = isHome ? "border-white/80" : "border-black/80";
+  const navLine = isHome ? "bg-white" : "bg-black";
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { itemCount } = useCart();
 
-  useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,padding] duration-700 ${solid ? "bg-background/80 pb-4 backdrop-blur-xl md:pb-5" : "bg-transparent pb-6 md:pb-9"}`}>
-      <div className="shell flex items-center justify-center md:justify-between">
-        <nav className={`hidden flex-1 items-center gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
-          {left.map((l) => <Link key={l.label} to={l.to} tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>{l.label}</Link>)}
-        </nav>
-        <button type="button" aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)} className="absolute left-4 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden">
-          <span className={`h-px w-5 bg-foreground transition-transform duration-300 ${menuOpen ? "translate-y-[3px] rotate-45" : ""}`} />
-          <span className={`h-px w-5 bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`h-px w-5 bg-foreground transition-transform duration-300 ${menuOpen ? "-translate-y-[9px] -rotate-45" : ""}`} />
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-start justify-between px-5 py-5 md:px-9 md:py-8">
+      <div
+        className="pointer-events-auto"
+        onMouseEnter={() => setMenuOpen(true)}
+        onMouseLeave={() => setMenuOpen(false)}
+      >
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+          className="relative z-[60] flex h-7 w-[76px] flex-col justify-center gap-[8px] bg-transparent"
+        >
+          <span className={"h-px w-full " + navLine} />
+          <span className="h-px w-full bg-white" />
         </button>
-        <Link to="/" aria-label="QISSAA — Wear Your Story" onClick={() => setMenuOpen(false)} className="block w-[112px] shrink-0 overflow-hidden md:w-[148px]">
-          <img src="/qissa-logo.svg" alt="QISSAA — Wear Your Story" className="h-auto w-full" />
-        </Link>
-        <nav className={`hidden flex-1 items-center justify-end gap-9 transition-all duration-500 md:flex ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`} aria-hidden={!solid}>
-          <Link to="/bag" tabIndex={solid ? 0 : -1} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>Bag ({itemCount})</Link>
-        </nav>
-        <Link to="/bag" aria-label={`Bag (${itemCount})`} tabIndex={solid ? 0 : -1} className={`eyebrow link-underline absolute right-4 text-foreground transition-all duration-500 md:hidden ${solid ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}>Bag ({itemCount})</Link>
+
+        <div className={"pointer-events-auto fixed left-0 top-0 h-[100svh] w-[300px] bg-black/70 px-5 pb-12 pt-28 transition-all duration-300 " + (menuOpen ? "visible translate-x-0 opacity-100" : "invisible pointer-events-none -translate-x-3 opacity-0")}>
+          <nav className="flex flex-col items-start gap-9 md:gap-11" aria-label="Main navigation">
+            {left.map((item) => (
+              <Link key={item.label} to={item.to} onClick={() => setMenuOpen(false)} className="text-[15px] font-light uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-60 md:text-base" activeProps={{ className: "text-white underline underline-offset-8" }}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
-      <div className={`absolute inset-x-0 top-full border-t border-border bg-background/95 px-6 pb-8 pt-6 shadow-sm backdrop-blur-xl transition-all duration-300 md:hidden ${menuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0 pointer-events-none"}`} aria-hidden={!menuOpen}>
-        <nav className="flex flex-col gap-6" aria-label="Mobile navigation">
-          {left.map((l) => <Link key={l.label} to={l.to} tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} className="eyebrow link-underline text-foreground" activeProps={{ className: "!text-accent" }}>{l.label}</Link>)}
-          <Link to="/bag" tabIndex={menuOpen ? 0 : -1} onClick={() => setMenuOpen(false)} className="eyebrow link-underline text-foreground">Bag ({itemCount})</Link>
-        </nav>
+
+      {!isHome && (
+        <Link
+          to="/"
+          aria-label="QISSAA home"
+          className="pointer-events-auto absolute left-1/2 top-5 flex -translate-x-1/2 flex-col items-center text-center text-black md:top-7"
+        >
+          <span className="block whitespace-nowrap font-serif text-[3.975rem] leading-none tracking-[-0.075em] md:text-[4.5rem]">QISSAA</span>
+        </Link>
+      )}
+
+      <div className={"pointer-events-auto relative z-[60] flex flex-col items-end gap-6 " + navColor}>
+        <div className="flex flex-col items-end">
+          <button
+            type="button"
+            aria-expanded={searchOpen}
+            onClick={() => setSearchOpen((open) => !open)}
+            className={"border-b pb-2 text-[13px] uppercase tracking-[0.03em] transition-opacity hover:opacity-60 " + navBorder}
+          >
+            Search
+          </button>
+          {searchOpen && (
+            <form action="/collections" method="get" className="mt-3">
+              <input
+                autoFocus
+                name="search"
+                type="search"
+                placeholder="Search"
+                aria-label="Search collections"
+                className={"w-40 border-b bg-transparent px-1 py-2 text-right text-[13px] uppercase tracking-wide outline-none " + (isHome ? "border-white/70 text-white placeholder:text-white/60" : "border-black/70 text-black placeholder:text-black/60")}
+              />
+            </form>
+          )}
+        </div>
+        <Link to="/bag" className={"text-[13px] uppercase tracking-[0.04em] transition-opacity hover:opacity-60 " + navColor} aria-label={"Bag (" + itemCount + ")"} activeProps={{ className: "underline underline-offset-4" }}>
+          BAG <span className={"ml-1 border-x px-1.5 " + (isHome ? "border-white/70" : "border-black/70")}>{itemCount}</span>
+        </Link>
       </div>
     </header>
   );

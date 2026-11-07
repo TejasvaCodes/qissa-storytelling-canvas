@@ -12,8 +12,8 @@ const product = {
   name: "Marlboro Red",
   category: "Jacket",
   number: "02",
-  price: 2599,
-  originalPrice: 4300,
+  price: 2460,
+  originalPrice: 4100,
   description: "A statement jacket designed to bring character to your everyday look.",
   views: [
     { src: main, alt: "Marlboro Red Jacket — front" },

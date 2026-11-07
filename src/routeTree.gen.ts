@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AlbaShearlingRouteImport } from './routes/alba-shearling'
 import { Route as BagRouteImport } from './routes/bag'
+import { Route as BlackWaffleHenleyRouteImport } from './routes/black-waffle-henley'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as CorsoOvershirtRouteImport } from './routes/corso-overshirt'
 import { Route as JournalRouteImport } from './routes/journal'
@@ -36,6 +37,11 @@ const AccountRoute = AccountRouteImport.update({
 const AlbaShearlingRoute = AlbaShearlingRouteImport.update({
   id: '/alba-shearling',
   path: '/alba-shearling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlackWaffleHenleyRoute = BlackWaffleHenleyRouteImport.update({
+  id: '/black-waffle-henley',
+  path: '/black-waffle-henley',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BagRoute = BagRouteImport.update({
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/account': typeof AccountRoute
   '/alba-shearling': typeof AlbaShearlingRoute
   '/bag': typeof BagRoute
+  '/black-waffle-henley': typeof BlackWaffleHenleyRoute
   '/collections': typeof CollectionsRoute
   '/corso-overshirt': typeof CorsoOvershirtRoute
   '/journal': typeof JournalRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/black-waffle-henley': typeof BlackWaffleHenleyRoute
   '/account': typeof AccountRoute
   '/alba-shearling': typeof AlbaShearlingRoute
   '/bag': typeof BagRoute
@@ -121,6 +129,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/black-waffle-henley': typeof BlackWaffleHenleyRoute
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/alba-shearling': typeof AlbaShearlingRoute
@@ -142,6 +151,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/alba-shearling'
     | '/bag'
+    | '/black-waffle-henley'
     | '/collections'
     | '/corso-overshirt'
     | '/journal'
@@ -157,6 +167,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/alba-shearling'
     | '/bag'
+    | '/black-waffle-henley'
     | '/collections'
     | '/corso-overshirt'
     | '/journal'
@@ -172,6 +183,7 @@ export interface FileRouteTypes {
     | '/account'
     | '/alba-shearling'
     | '/bag'
+    | '/black-waffle-henley'
     | '/collections'
     | '/corso-overshirt'
     | '/journal'
@@ -185,6 +197,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlackWaffleHenleyRoute: typeof BlackWaffleHenleyRoute
   AccountRoute: typeof AccountRoute
   AlbaShearlingRoute: typeof AlbaShearlingRoute
   BagRoute: typeof BagRoute
@@ -220,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/alba-shearling'
       fullPath: '/alba-shearling'
       preLoaderRoute: typeof AlbaShearlingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/black-waffle-henley': {
+      id: '/black-waffle-henley'
+      path: '/black-waffle-henley'
+      fullPath: '/black-waffle-henley'
+      preLoaderRoute: typeof BlackWaffleHenleyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bag': {
@@ -300,6 +320,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountRoute: AccountRoute,
   AlbaShearlingRoute: AlbaShearlingRoute,
   BagRoute: BagRoute,
+  BlackWaffleHenleyRoute: BlackWaffleHenleyRoute,
   CollectionsRoute: CollectionsRoute,
   CorsoOvershirtRoute: CorsoOvershirtRoute,
   JournalRoute: JournalRoute,

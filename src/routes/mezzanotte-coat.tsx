@@ -8,7 +8,8 @@ const product = {
   name: "Half black Henley",
   category: "Henley",
   number: "07",
-  price: 899,
+  price: 952,
+  originalPrice: 1400,
   description: "A short-sleeve Henley essential for easy, everyday styling.",
   views: [
     { src: main, alt: "Half Black Henley — front" },

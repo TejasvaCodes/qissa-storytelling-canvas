@@ -12,6 +12,7 @@ import bhMain from "../../BH main.jpeg";
 import whMain from "../../WH main.jpeg";
 import hbhMain from "../../HBH main.jpeg";
 import hwhMain from "../../HWH main.jpeg";
+import bcwhMain from "../../BCWH main.png";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -28,14 +29,15 @@ export const Route = createFileRoute("/collections")({
 });
 
 const pieces = [
-  { img: bcjMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,599", to: "/velocita" as const },
-  { img: mrjMain, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
-  { img: pgjMain, name: "Porsche Green", cat: "Jacket", price: "₹ 2,599", to: "/strada-blouson" as const },
-  { img: bfjMain, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
-  { img: bhMain, name: "Black Henley", cat: "Henley", price: "₹ 899", to: "/riposo-quilted" as const },
-  { img: whMain, name: "White Henley", cat: "Henley", price: "₹ 899", to: "/sera-moto" as const },
-  { img: hbhMain, name: "Half black Henley", cat: "Henley", price: "₹ 899", to: "/mezzanotte-coat" as const },
-  { img: hwhMain, name: "Half white Henley", cat: "Henley", price: "₹ 899", to: "/corso-overshirt" as const },
+  { img: bcjMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,580", mrp: 4300, discount: "40%", to: "/velocita" as const },
+  { img: mrjMain, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,460", mrp: 4100, discount: "40%", to: "/notte-bomber" as const },
+  { img: pgjMain, name: "Porsche Green", cat: "Jacket", price: "₹ 2,580", mrp: 4300, discount: "40%", to: "/strada-blouson" as const },
+  { img: bfjMain, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,460", mrp: 4100, discount: "40%", to: "/alba-shearling" as const },
+  { img: bhMain, name: "Black Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/riposo-quilted" as const },
+  { img: whMain, name: "White Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/sera-moto" as const },
+  { img: hbhMain, name: "Half black Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/mezzanotte-coat" as const },
+  { img: hwhMain, name: "Half white Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/corso-overshirt" as const },
+  { img: bcwhMain, name: "Black Waffle Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/black-waffle-henley" as const },
 ];
 
 function CollectionsPage() {
@@ -47,10 +49,10 @@ function CollectionsPage() {
       <main>
         <section className="pt-40 md:pt-56">
           <div className="shell">
-            <p data-reveal className="reveal eyebrow">OPENING SALE · VESIT 2026 FRESHERS</p>
-            <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Opening Sale — VESIT 2026 Freshers</h1>
+            <p data-reveal className="reveal eyebrow">QISSAA · THE COLLECTION</p>
+            <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Collections</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale with VESIT 2026 Freshers: jackets ₹2,599 (was ₹4,300) and Henleys ₹899 (was ₹1,900). Limited-time pricing.
+              Explore the QISSAA collection — considered leather outerwear and everyday essentials, designed with character and made to become part of your story.
             </p>
           </div>
         </section>
@@ -61,19 +63,20 @@ function CollectionsPage() {
               {pieces.map((p) => (
                 <Link key={p.name} to={p.to} data-reveal className="reveal group">
                   <div className="zoom-frame bg-secondary">
-                    <img src={p.img} alt={`${p.name} — ${p.cat}`} loading="lazy" width={912} height={1200} className="aspect-[3/4] w-full object-cover" />
+                    <img src={p.img} alt={`${p.name} — ${p.cat}`} loading="lazy" width={912} height={1200} className="aspect-[3/4] w-full bg-white object-contain" />
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 border border-[#b89562]/50 bg-[#11100e] px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-[#ead6b5]">✦ Freshers Fiesta 2K26</span>
-                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : p.cat === "Henley" ? "₹ 1,900" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" ? <span className="text-xs text-muted-foreground">Save ₹1,701</span> : p.cat === "Henley" ? <span className="text-xs text-muted-foreground">Save ₹1,000</span> : null}</div>
+                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">₹ {p.mrp.toLocaleString("en-IN")}</span><span>{p.price}</span><span className="text-xs text-muted-foreground">{p.discount} OFF</span></div>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <Newsletter />
+        <div className="mt-40 md:mt-64">
+          <Newsletter />
+        </div>
       </main>
       <Footer />
     </div>

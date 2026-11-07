@@ -1,18 +1,19 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { Nav } from "@/components/qissa/nav";
-import { Footer, Newsletter, Philosophy } from "@/components/qissa/sections";
+import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
-import heroMain from "@/assets/hero-main.jpg";
-import craftDark from "@/assets/craft-dark.jpg";
-import lifeCity from "@/assets/life-city.jpg";
-import lifeMotion from "@/assets/life-motion.jpg";
-import lifeLegacy from "@/assets/life-legacy.jpg";
+import prfrHero from "../../prfr.png";
+import crocImage from "../../CROC.png";
 import bcjMain from "../../BCJ main.jpeg";
 import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
 import bhMain from "../../BH main.jpeg";
+import ferrariFront from "../../Ferrari-front-high-resolution.jpg";
+import adfrrImage from "../../adfrr.JPG";
+import img4600 from "../../IMG_4600.JPG";
+import vikramImage from "../../vikram.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,13 +37,6 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const featured = [
-  { img: bcjMain, name: "Black Crocodile Jacket", price: "₹ 2,599", to: "/velocita" as const },
-  { img: bfjMain, name: "Black Ferrari Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
-  { img: mrjMain, name: "Marlboro Red Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
-  { img: bhMain, name: "Black Henley", price: "₹ 899", to: "/riposo-quilted" as const },
-];
-
 function HomePage() {
   useReveal();
 
@@ -50,95 +44,86 @@ function HomePage() {
     <div id="top" className="overflow-x-hidden">
       <Nav />
       <main>
-        <section className="relative">
-          <img
-            src={heroMain}
-            alt="QISSAA leather outerwear, Autumn/Winter campaign"
-            width={1408}
-            height={1760}
-            className="h-[92vh] w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-onyx/25" />
-          <div className="absolute inset-x-0 bottom-0 pb-16 md:pb-24">
-            <div className="shell">
-              <p className="eyebrow !text-background/80">Autumn / Winter — Chapter II</p>
-              <h1 className="display mt-6 max-w-[16ch] text-[2.8rem] text-background md:text-[5.4rem]">
-                Wear Your Story.
-              </h1>
-              <div className="mt-12 flex flex-wrap gap-10">
-                <Link
-                  to="/collections"
-                  className="lift eyebrow bg-background px-10 py-5 !text-foreground hover:bg-accent hover:!text-primary-foreground"
-                >
-                  Discover the Collection
-                </Link>
-                <Link
-                  to="/velocita"
-                  className="eyebrow link-underline self-center !text-background"
-                >
-                  The Black Crocodile Jacket
-                </Link>
+        <section className="relative mt-0 h-[100svh] min-h-[420px] overflow-hidden bg-[#08233d]">
+          <Link to="/velocita" aria-label="Shop Black Crocodile Jacket" className="absolute inset-0 grid grid-cols-1">
+            {[prfrHero].map((image, index) => (
+              <div key={index} className="h-full min-w-0 overflow-hidden">
+                {image && (
+                  <img
+                    src={image}
+                    alt={`QISSAA fashion campaign portrait ${index + 1}`}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    className="h-full w-full object-cover object-center"
+                  />
+                )}
               </div>
-            </div>
+            ))}
+          </Link>
+          <div className="pointer-events-none absolute bottom-[7%] right-[5%] z-10">
+            <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
         </section>
 
-        <section className="py-32 md:py-52">
-          <div className="shell">
-            <h2
-              data-reveal
-              className="reveal display max-w-[26ch] text-[1.9rem] leading-[1.35] md:text-[3rem]"
-            >
-              QISSAA is for the stories you choose to tell. From statement jackets to everyday essentials, we bring together distinctive style, thoughtful details, and pieces made to feel unmistakably yours.
-            </h2>
+        <section className="m-0 w-full bg-[#08233d] p-0">
+          <Link to="/velocita" aria-label="Shop Black Crocodile Jacket" className="block">
+            <img
+              src={vikramImage}
+              alt="QISSAA Vikram campaign"
+              loading="lazy"
+              className="block h-auto w-full object-contain object-center"
+            />
+          </Link>
+        </section>
+
+        <section className="m-0 w-full bg-[#08233d] p-0">
+          <Link to="/alba-shearling" aria-label="Shop Black Ferrari Jacket" className="block">
+            <img
+              src={ferrariFront}
+              alt="Ferrari front view"
+              loading="lazy"
+              className="block h-auto w-full object-contain object-center"
+            />
+          </Link>
+        </section>
+
+        <section className="relative m-0 w-full bg-[#08233d] p-0">
+          <Link to="/black-waffle-henley" aria-label="Shop Black Waffle Henley" className="block">
+            <img
+              src={adfrrImage}
+              alt="QISSAA campaign"
+              loading="lazy"
+              className="block h-auto w-full object-contain object-center"
+            />
+          </Link>
+          <div className="pointer-events-none absolute left-[5%] top-[7%] z-10">
+            <span className="block whitespace-nowrap font-serif text-[clamp(7.875rem,18.375vw,17.0625rem)] font-normal leading-none tracking-[-0.09em] text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.28)]">QISSAA</span>
           </div>
         </section>
 
-        <section>
-          <div className="shell">
-            <div className="flex flex-wrap items-baseline justify-between gap-6">
-              <h2 data-reveal className="reveal display text-[2.2rem] md:text-[3.2rem]">
-                Featured Pieces
-              </h2>
-              <Link to="/collections" className="eyebrow link-underline text-foreground">
-                View All
-              </Link>
-            </div>
-
-            <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 md:mt-24">
-              {featured.map((f) => (
-                <Link key={f.name} to={f.to ?? "/collections"} data-reveal className="reveal group">
-                  <div className="zoom-frame bg-secondary">
-                    <img
-                      src={f.img}
-                      alt={f.name}
-                      loading="lazy"
-                      width={912}
-                      height={1200}
-                      className="aspect-[3/4] w-full object-cover"
-                    />
-                  </div>
-                  <p className="font-serif mt-6 text-xl font-light">{f.name}</p>
-                  <div className="mt-2 flex flex-wrap items-center gap-2"><p className="eyebrow">{f.price}</p><span className="inline-flex items-center gap-1 border border-[#b89562]/50 bg-[#11100e] px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-[#ead6b5]">✦ Freshers 2K26</span></div>
-                </Link>
-              ))}
-            </div>
-          </div>
+        <section className="relative m-0 h-[100svh] min-h-[420px] w-full overflow-hidden bg-onyx p-0">
+          <Link to="/black-waffle-henley" aria-label="Shop Black Waffle Henley" className="absolute inset-0 block">
+            <img
+              src={img4600}
+              alt="QISSAA campaign"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+          </Link>
         </section>
 
-        <section className="mt-40 bg-onyx py-32 md:mt-64 md:py-52">
-          <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
-            <div data-reveal className="reveal zoom-frame">
+        <section className="m-0 w-full bg-onyx py-0 md:mt-0 md:py-0">
+          <div className="grid min-h-[100svh] items-center gap-0 lg:grid-cols-2 lg:gap-0">
+            <div data-reveal className="reveal zoom-frame m-0 flex h-[100svh] w-full items-center justify-start overflow-hidden">
               <img
-                src={craftDark}
-                alt="Macro detail of full-grain lambskin"
+                src={crocImage}
+                alt="Close-up of QISSAA black crocodile leather"
                 loading="lazy"
                 width={1200}
                 height={1500}
-                className="aspect-[4/5] w-full object-cover"
+                className="block h-full max-h-[100svh] w-full object-contain object-left"
               />
             </div>
-            <div data-reveal className="reveal">
+            <div data-reveal className="reveal px-8 py-12 md:px-12 lg:pr-16">
               <p className="eyebrow">The Atelier</p>
               <h2 className="display mt-8 text-[2.2rem] text-background md:text-[3.4rem]">
                 Made to be worn. Made to be remembered.
@@ -156,34 +141,6 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="mt-40 md:mt-64">
-          <div className="shell grid gap-8 md:grid-cols-3">
-            {[
-              { img: lifeCity, cap: "The City", txt: "Mornings that begin before the light." },
-              { img: lifeMotion, cap: "In Motion", txt: "A jacket that moves with the day." },
-              { img: lifeLegacy, cap: "Legacy", txt: "Worn in, handed down, worn again." },
-            ].map((i) => (
-              <figure key={i.cap} data-reveal className="reveal">
-                <div className="zoom-frame bg-secondary">
-                  <img
-                    src={i.img}
-                    alt={i.cap}
-                    loading="lazy"
-                    width={900}
-                    height={1200}
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                </div>
-                <figcaption className="mt-6">
-                  <p className="eyebrow">{i.cap}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{i.txt}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <Philosophy />
         <Newsletter />
       </main>
       <Footer />
