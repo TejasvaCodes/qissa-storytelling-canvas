@@ -12,6 +12,7 @@ import bhMain from "../../BH main.jpeg";
 import whMain from "../../WH main.jpeg";
 import hbhMain from "../../HBH main.jpeg";
 import hwhMain from "../../HWH main.jpeg";
+import bcwhMain from "../../BCWH main.png";
 
 export const Route = createFileRoute("/collections")({
   head: () => ({
@@ -36,6 +37,7 @@ const pieces = [
   { img: whMain, name: "White Henley", cat: "Henley", price: "₹ 899", to: "/sera-moto" as const },
   { img: hbhMain, name: "Half black Henley", cat: "Henley", price: "₹ 899", to: "/mezzanotte-coat" as const },
   { img: hwhMain, name: "Half white Henley", cat: "Henley", price: "₹ 899", to: "/corso-overshirt" as const },
+  { img: bcwhMain, name: "Black Waffle Henley", cat: "Henley", price: "₹ 899", to: "/black-waffle-henley" as const },
 ];
 
 function CollectionsPage() {
