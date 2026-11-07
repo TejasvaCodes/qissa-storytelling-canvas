@@ -74,7 +74,9 @@ function CollectionsPage() {
           </div>
         </section>
 
-        <Newsletter />
+        <div className="mt-40 md:mt-64">
+          <Newsletter />
+        </div>
       </main>
       <Footer />
     </div>
