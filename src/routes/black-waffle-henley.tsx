@@ -8,7 +8,8 @@ const product = {
   name: "Black Waffle Henley",
   category: "Henley",
   number: "09",
-  price: 899,
+  price: 952,
+  originalPrice: 1400,
   description: "A textured waffle-knit Henley designed for effortless everyday wear.",
   views: [
     { src: main, alt: "Black Waffle Henley — front" },
