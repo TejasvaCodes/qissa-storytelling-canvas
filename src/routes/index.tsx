@@ -112,15 +112,15 @@ function HomePage() {
         </section>
 
         <section className="m-0 w-full bg-onyx py-0 md:mt-0 md:py-0">
-          <div className="grid items-center gap-0 lg:grid-cols-2 lg:gap-0">
-            <div data-reveal className="reveal zoom-frame m-0 w-full">
+          <div className="grid min-h-[100svh] items-center gap-0 lg:grid-cols-2 lg:gap-0">
+            <div data-reveal className="reveal zoom-frame m-0 flex h-[100svh] w-full items-center justify-start overflow-hidden">
               <img
                 src={crocImage}
                 alt="Close-up of QISSAA black crocodile leather"
                 loading="lazy"
                 width={1200}
                 height={1500}
-                className="block aspect-[4/5] w-full object-cover"
+                className="block h-full max-h-[100svh] w-full object-contain object-left"
               />
             </div>
             <div data-reveal className="reveal px-8 py-12 md:px-12 lg:pr-16">
