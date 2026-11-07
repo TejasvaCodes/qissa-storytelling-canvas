@@ -1,14 +1,11 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
 import { Nav } from "@/components/qissa/nav";
-import { Footer, Newsletter, Philosophy } from "@/components/qissa/sections";
+import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 import prfrHero from "../../prfr.png";
 import craftDark from "@/assets/craft-dark.jpg";
-import lifeCity from "@/assets/life-city.jpg";
-import lifeMotion from "@/assets/life-motion.jpg";
-import lifeLegacy from "@/assets/life-legacy.jpg";
 import bcjMain from "../../BCJ main.jpeg";
 import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
@@ -38,13 +35,6 @@ export const Route = createFileRoute("/")({
   }),
   component: HomePage,
 });
-
-const featured = [
-  { img: bcjMain, name: "Black Crocodile Jacket", price: "₹ 2,599", to: "/velocita" as const },
-  { img: bfjMain, name: "Black Ferrari Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
-  { img: mrjMain, name: "Marlboro Red Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
-  { img: bhMain, name: "Black Henley", price: "₹ 899", to: "/riposo-quilted" as const },
-];
 
 function HomePage() {
   useReveal();
@@ -103,38 +93,6 @@ function HomePage() {
           </div>
         </section>
 
-        <section>
-          <div className="shell">
-            <div className="flex flex-wrap items-baseline justify-between gap-6">
-              <h2 data-reveal className="reveal display text-[2.2rem] md:text-[3.2rem]">
-                Featured Pieces
-              </h2>
-              <Link to="/collections" className="eyebrow link-underline text-foreground">
-                View All
-              </Link>
-            </div>
-
-            <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 md:mt-24">
-              {featured.map((f) => (
-                <Link key={f.name} to={f.to ?? "/collections"} data-reveal className="reveal group">
-                  <div className="zoom-frame bg-secondary">
-                    <img
-                      src={f.img}
-                      alt={f.name}
-                      loading="lazy"
-                      width={912}
-                      height={1200}
-                      className="aspect-[3/4] w-full object-cover"
-                    />
-                  </div>
-                  <p className="font-serif mt-6 text-xl font-light">{f.name}</p>
-                  <div className="mt-2 flex flex-wrap items-center gap-2"><p className="eyebrow">{f.price}</p><span className="inline-flex items-center gap-1 border border-[#b89562]/50 bg-[#11100e] px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-[#ead6b5]">✦ Freshers 2K26</span></div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="mt-40 bg-onyx py-32 md:mt-64 md:py-52">
           <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
             <div data-reveal className="reveal zoom-frame">
@@ -165,34 +123,6 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="mt-40 md:mt-64">
-          <div className="shell grid gap-8 md:grid-cols-3">
-            {[
-              { img: lifeCity, cap: "The City", txt: "Mornings that begin before the light." },
-              { img: lifeMotion, cap: "In Motion", txt: "A jacket that moves with the day." },
-              { img: lifeLegacy, cap: "Legacy", txt: "Worn in, handed down, worn again." },
-            ].map((i) => (
-              <figure key={i.cap} data-reveal className="reveal">
-                <div className="zoom-frame bg-secondary">
-                  <img
-                    src={i.img}
-                    alt={i.cap}
-                    loading="lazy"
-                    width={900}
-                    height={1200}
-                    className="aspect-[3/4] w-full object-cover"
-                  />
-                </div>
-                <figcaption className="mt-6">
-                  <p className="eyebrow">{i.cap}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{i.txt}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <Philosophy />
         <Newsletter />
       </main>
       <Footer />
