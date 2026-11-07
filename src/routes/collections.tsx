@@ -49,10 +49,10 @@ function CollectionsPage() {
       <main>
         <section className="pt-40 md:pt-56">
           <div className="shell">
-            <p data-reveal className="reveal eyebrow">OPENING SALE · VESIT 2026 FRESHERS</p>
-            <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Opening Sale — VESIT 2026 Freshers</h1>
+            <p data-reveal className="reveal eyebrow">QISSAA · THE COLLECTION</p>
+            <h1 data-reveal className="reveal display mt-8 text-[2.8rem] md:text-[5rem]">Collections</h1>
             <p data-reveal className="reveal mt-12 max-w-[52ch] leading-[2] text-muted-foreground">
-              Celebrating our collaboration with VESIT 2026 Freshers. Opening Sale with VESIT 2026 Freshers: jackets ₹2,599 (was ₹4,300) and Henleys ₹899 (was ₹1,900). Limited-time pricing.
+              Explore the QISSAA collection — considered leather outerwear and everyday essentials, designed with character and made to become part of your story.
             </p>
           </div>
         </section>
