@@ -77,6 +77,8 @@
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    scrollbar-color: rgba(25, 22, 18, 0.18) transparent;
+    scrollbar-width: thin;
   }
 
   body {
@@ -101,6 +103,25 @@
     background: var(--color-gold);
     color: var(--color-background);
   }
+}
+
+/* Subtle, transparent scrollbar that stays usable */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(25, 22, 18, 0.18);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(25, 22, 18, 0.3);
 }
 
 /* ——— Editorial utilities ——— */
