@@ -1,6 +1,6 @@
 import { Nav } from "@/components/qissa/nav";
 import { ProductHero, type ProductConfig } from "@/components/qissa/product-hero";
-import { Footer, Lifestyle, Newsletter, Philosophy } from "@/components/qissa/sections";
+import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 export function ProductPage({ product }: { product: ProductConfig }) {
@@ -10,8 +10,6 @@ export function ProductPage({ product }: { product: ProductConfig }) {
       <Nav />
       <main>
         <ProductHero product={product} />
-        <Lifestyle />
-        <Philosophy />
         <Newsletter />
       </main>
       <Footer />
