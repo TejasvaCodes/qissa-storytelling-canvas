@@ -10,7 +10,8 @@ const product = {
   name: "Black Henley",
   category: "Henley",
   number: "05",
-  price: 899,
+  price: 952,
+  originalPrice: 1400,
   description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
     { src: main, alt: "Black Henley — front" },
