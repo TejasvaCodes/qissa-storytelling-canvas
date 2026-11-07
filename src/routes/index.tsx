@@ -100,7 +100,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="relative m-0 h-[100svh] min-h-[420px] w-full overflow-hidden bg-onyx p-0">
+        <section className="relative z-10 -mt-32 h-[100svh] min-h-[420px] w-full overflow-hidden bg-onyx p-0 md:-mt-64">
           <Link to="/black-waffle-henley" aria-label="Shop Black Waffle Henley" className="absolute inset-0 block">
             <img
               src={img4600}
