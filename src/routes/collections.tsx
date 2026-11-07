@@ -29,15 +29,15 @@ export const Route = createFileRoute("/collections")({
 });
 
 const pieces = [
-  { img: bcjMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,599", to: "/velocita" as const },
-  { img: mrjMain, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,599", to: "/notte-bomber" as const },
-  { img: pgjMain, name: "Porsche Green", cat: "Jacket", price: "₹ 2,599", to: "/strada-blouson" as const },
-  { img: bfjMain, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,599", to: "/alba-shearling" as const },
-  { img: bhMain, name: "Black Henley", cat: "Henley", price: "₹ 899", to: "/riposo-quilted" as const },
-  { img: whMain, name: "White Henley", cat: "Henley", price: "₹ 899", to: "/sera-moto" as const },
-  { img: hbhMain, name: "Half black Henley", cat: "Henley", price: "₹ 899", to: "/mezzanotte-coat" as const },
-  { img: hwhMain, name: "Half white Henley", cat: "Henley", price: "₹ 899", to: "/corso-overshirt" as const },
-  { img: bcwhMain, name: "Black Waffle Henley", cat: "Henley", price: "₹ 899", to: "/black-waffle-henley" as const },
+  { img: bcjMain, name: "Black Crocodile", cat: "Jacket", price: "₹ 2,580", mrp: 4300, discount: "40%", to: "/velocita" as const },
+  { img: mrjMain, name: "Marlboro Red", cat: "Jacket", price: "₹ 2,460", mrp: 4100, discount: "40%", to: "/notte-bomber" as const },
+  { img: pgjMain, name: "Porsche Green", cat: "Jacket", price: "₹ 2,580", mrp: 4300, discount: "40%", to: "/strada-blouson" as const },
+  { img: bfjMain, name: "Black Ferrari", cat: "Jacket", price: "₹ 2,460", mrp: 4100, discount: "40%", to: "/alba-shearling" as const },
+  { img: bhMain, name: "Black Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/riposo-quilted" as const },
+  { img: whMain, name: "White Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/sera-moto" as const },
+  { img: hbhMain, name: "Half black Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/mezzanotte-coat" as const },
+  { img: hwhMain, name: "Half white Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/corso-overshirt" as const },
+  { img: bcwhMain, name: "Black Waffle Henley", cat: "Henley", price: "₹ 952", mrp: 1400, discount: "32%", to: "/black-waffle-henley" as const },
 ];
 
 function CollectionsPage() {
@@ -67,7 +67,7 @@ function CollectionsPage() {
                   </div>
                   <p className="font-serif mt-6 text-xl font-light">{p.name}</p>
                   <p className="eyebrow mt-2">{p.cat}</p>
-                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">{p.cat === "Jacket" ? "₹ 4,300" : p.cat === "Henley" ? "₹ 1,900" : ""}</span><span>{p.price}</span>{p.cat === "Jacket" ? <span className="text-xs text-muted-foreground">Save ₹1,701</span> : p.cat === "Henley" ? <span className="text-xs text-muted-foreground">Save ₹1,000</span> : null}</div>
+                  <div className="mt-3 flex flex-wrap items-baseline gap-2 text-sm tracking-wide"><span className="text-muted-foreground line-through">₹ {p.mrp.toLocaleString("en-IN")}</span><span>{p.price}</span><span className="text-xs text-muted-foreground">{p.discount} OFF</span></div>
                 </Link>
               ))}
             </div>
