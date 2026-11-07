@@ -9,7 +9,8 @@ const product = {
   name: "White Henley",
   category: "Henley",
   number: "06",
-  price: 899,
+  price: 952,
+  originalPrice: 1400,
   description: "A clean Henley essential designed for effortless everyday wear.",
   views: [
     { src: main, alt: "White Henley — front" },
