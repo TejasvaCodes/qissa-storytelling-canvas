@@ -5,7 +5,7 @@ import { Footer, Newsletter } from "@/components/qissa/sections";
 import { useReveal } from "@/hooks/use-reveal";
 
 import prfrHero from "../../prfr.png";
-import craftDark from "@/assets/craft-dark.jpg";
+import crocImage from "../../CROC.png";
 import bcjMain from "../../BCJ main.jpeg";
 import bfjMain from "../../BFJ main.jpeg";
 import mrjMain from "../../MRJ main.jpeg";
@@ -111,19 +111,19 @@ function HomePage() {
           </Link>
         </section>
 
-        <section className="mt-40 bg-onyx py-32 md:mt-64 md:py-52">
-          <div className="shell grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
-            <div data-reveal className="reveal zoom-frame">
+        <section className="mt-40 w-full bg-onyx py-32 md:mt-64 md:py-52">
+          <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
+            <div data-reveal className="reveal zoom-frame w-full">
               <img
-                src={craftDark}
-                alt="Macro detail of full-grain lambskin"
+                src={crocImage}
+                alt="Close-up of QISSAA black crocodile leather"
                 loading="lazy"
                 width={1200}
                 height={1500}
                 className="aspect-[4/5] w-full object-cover"
               />
             </div>
-            <div data-reveal className="reveal">
+            <div data-reveal className="reveal px-8 md:px-12 lg:pr-16">
               <p className="eyebrow">The Atelier</p>
               <h2 className="display mt-8 text-[2.2rem] text-background md:text-[3.4rem]">
                 Made to be worn. Made to be remembered.
